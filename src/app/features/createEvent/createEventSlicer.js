@@ -10,6 +10,7 @@ const initialState = {
   topicIndex: 0,
   isOpenModalCategory: false,
   isOpenModalEventDateTime: false,
+  isOpenModalGetEventLocation: false,
   eventTime: {
     date: {
       start: today,
@@ -18,6 +19,15 @@ const initialState = {
     time: {
       start: "00:00",
       end: "00:00",
+    },
+  },
+  address: {
+    name: "Stadion GBK",
+    city: "Jakarta",
+    placeName: "Gelora Bung Karno",
+    coordinate: {
+      lat: -6.218335,
+      long: 106.802216,
     },
   },
   isPrivate: false,
@@ -67,6 +77,24 @@ const createEventSlice = createSlice({
     setEventEndTime: (state, action) => {
       state.eventTime.time.end = action.payload;
     },
+    setModalGetEventLocation: (state, action) => {
+      state.isOpenModalGetEventLocation = action.payload;
+    },
+    setEventAddressName: (state, action) => {
+      state.address.name = action.payload;
+    },
+    setEventAddressCity: (state, action) => {
+      state.address.city = action.payload;
+    },
+    setEventAddressPlaceName: (state, action) => {
+      state.address.placeName = action.payload;
+    },
+    setEventAddressCoordinateLat: (state, action) => {
+      state.address.coordinate.lat = action.payload;
+    },
+    setEventAddressCoordinateLong: (state, action) => {
+      state.address.coordinate.long = action.payload;
+    },
   },
 });
 
@@ -84,6 +112,12 @@ export const {
   setEventEndDate,
   setEventStartTime,
   setEventEndTime,
+  setModalGetEventLocation,
+  setEventAddressName,
+  setEventAddressCity,
+  setEventAddressPlaceName,
+  setEventAddressCoordinateLat,
+  setEventAddressCoordinateLong,
 } = createEventSlice.actions;
 
 export default createEventSlice.reducer;

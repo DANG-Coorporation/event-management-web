@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setModalCategory,
   setModalEventDateTime,
+  setModalGetEventLocation,
   setOrganizerPhoto,
 } from "../../app/features/createEvent/createEventSlicer";
 import configConstants from "../../data/config";
@@ -48,7 +49,6 @@ export default function CreateEventInformation() {
   const [isShowDeleteOrganizerPhoto, setIsShowDeleteOrganizerPhoto] =
     useBoolean(false);
   const uploadPhotoButton = useRef(null);
-  console.log("createEvent", createEvent);
   const onRemoveOrgPhoto = () => {
     dispatch(setOrganizerPhoto(null));
     uploadPhotoButton.current.value = null;
@@ -56,6 +56,9 @@ export default function CreateEventInformation() {
   const onOpenModalSetTime = () => {
     dispatch(setModalEventDateTime(true));
   };
+  const onOpenModalGetEventLocation = () =>
+    dispatch(setModalGetEventLocation(true));
+
   return (
     <>
       <VStack
@@ -196,12 +199,10 @@ export default function CreateEventInformation() {
             </HStack>
           </VStack>
 
-          <VStack cursor={"pointer"}>
+          <VStack cursor={"pointer"} onClick={onOpenModalGetEventLocation}>
             <Text className={style["text-left"]}>Lokasi</Text>
             <HStack ml={"0px"} mr={"auto"}>
-              {/* <Tooltip label='Tambah Lokasi' aria-label='Tambah Lokasi'> */}
               <PiMapPinFill size={"25px"} /> <Text> Online Event</Text>
-              {/* </Tooltip> */}
               <AiFillEdit size={"20px"} color='#0049cc' />
             </HStack>
           </VStack>
