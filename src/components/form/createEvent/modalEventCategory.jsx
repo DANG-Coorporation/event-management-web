@@ -1,5 +1,4 @@
 import {
-  Badge,
   Box,
   Button,
   Divider,
@@ -21,17 +20,18 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { IoMdAdd } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setEventTags,
   setFormatEvent,
   setModalCategory,
   setTopicEvent,
-} from "../../app/features/createEvent/createEventSlicer";
-import formatConstants from "../../data/format.constants";
-import topicConstants from "../../data/topic.constants";
-import { IoMdAdd, IoMdAddCircleOutline } from "react-icons/io";
-import { useEffect, useState } from "react";
-import style from "./style.module.css";
+} from "../../../app/features/createEvent/createEventSlicer";
+import formatConstants from "../../../data/format.constants";
+import topicConstants from "../../../data/topic.constants";
+import Tag from "../../ui/tag";
 
 export default function ModalEventCategory() {
   const isOpen = useSelector((state) => state.createEvent.isOpenModalCategory);
@@ -42,9 +42,14 @@ export default function ModalEventCategory() {
   const [format, setFormat] = useState(0);
   const [topic, setTopic] = useState(0);
   const [isPrivate, setIsPrivate] = useState(event.isPrivate);
+  const [tagList, setTagList] = useState([...event.tag]);
+  const [tag, setTag] = useState("");
+
   const onPublic = () => {
     setIsPrivate(false);
   };
+
+  const onRemoveTag = () => {};
   const onPrivate = () => {
     setIsPrivate(true);
   };
@@ -56,6 +61,7 @@ export default function ModalEventCategory() {
   const onSave = () => {
     dispatch(setFormatEvent(format));
     dispatch(setTopicEvent(topic));
+    dispatch(setEventTags(tagList));
     onClose();
   };
   return (
@@ -108,25 +114,45 @@ export default function ModalEventCategory() {
                 Tambahkan kata kunci agar eventmu mudah ditemukan
               </FormHelperText>
               <InputGroup mt={"10px"}>
-                <Input disabled={true}></Input>
+                <Input
+                  disabled={tagList.length >= 5}
+                  value={tag}
+                  onChange={(e) => {
+                    setTag(e.target.value);
+                  }}
+                ></Input>
                 <InputRightElement>
                   <Button
                     bgColor={"transparent"}
                     padding={"0"}
-                    isDisabled={true}
+                    isDisabled={tagList.length >= 5}
                     _hover={{
                       bgColor: "blue.200",
+                    }}
+                    onClick={() => {
+                      if (tagList.length < 5) {
+                        setTagList([...tagList, tag]);
+                        setTag("");
+                      }
                     }}
                   >
                     <IoMdAdd size={"20px"} />
                   </Button>
                 </InputRightElement>
               </InputGroup>
-              <FormHelperText>1/5 tags</FormHelperText>
+              <FormHelperText>{tagList.length}/5 tags</FormHelperText>
               <HStack mt={"10px"}>
-                <Badge className={style["tags-badge"]}>Musik X</Badge>
-                <Badge className={style["tags-badge"]}>Musik X</Badge>
-                <Badge className={style["tags-badge"]}>Musik X</Badge>
+                {tagList.map((tag, index) => {
+                  return (
+                    <Tag
+                      key={index}
+                      tag={tag}
+                      onRemove={() => {
+                        setTagList(tagList.filter((value, i) => i !== index));
+                      }}
+                    />
+                  );
+                })}
               </HStack>
               <FormLabel mt={"10px"}>Jenis Event</FormLabel>
               <Box

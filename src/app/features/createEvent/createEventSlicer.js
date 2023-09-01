@@ -2,11 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   name: "createEvent",
+  userFullName: "Galih Setyawan",
   coverImage: "",
   formatIndex: 0,
   topicIndex: 0,
   isOpenModalCategory: false,
   isPrivate: false,
+  tag: [],
 };
 
 const createEventSlice = createSlice({
@@ -31,6 +33,9 @@ const createEventSlice = createSlice({
     setEventPrivacy: (state, action) => {
       state.isPrivate = action.payload;
     },
+    setEventTags: (state, action) => {
+      state.tag = action.payload;
+    },
   },
 });
 
@@ -41,6 +46,7 @@ export const {
   setFormatEvent,
   setTopicEvent,
   setEventPrivacy,
+  setEventTags,
 } = createEventSlice.actions;
 
 export default createEventSlice.reducer;

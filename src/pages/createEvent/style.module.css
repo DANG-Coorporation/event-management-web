@@ -14,7 +14,7 @@
     border-radius: 20px;
     width: 100%;
     position: relative;
-    color: #f4f4fe;
+    /* color: #f4f4fe; */
 }
 
 .upload-image-container{
@@ -40,4 +40,9 @@
 input:focus{
     outline: none;
     border: none;
+}
+
+.text-left{
+    margin-left: 0px;
+    margin-right: auto;
 }

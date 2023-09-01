@@ -1,4 +1,14 @@
-import { Box, HStack, Input, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Grid,
+  HStack,
+  Input,
+  Text,
+  Tooltip,
+  VStack,
+} from "@chakra-ui/react";
 import style from "./style.module.css";
 import { useEffect, useRef } from "react";
 import { AiFillEdit, AiOutlineFileAdd } from "react-icons/ai";
@@ -10,14 +20,13 @@ import {
   setCoverImage,
   setModalCategory,
 } from "../../app/features/createEvent/createEventSlicer";
-import ModalEventCategory from "../../components/ui/modalEventCategory";
+import ModalEventCategory from "../../components/form/createEvent/modalEventCategory";
 import formatConstants from "../../data/format.constants";
 import topicConstants from "../../data/topic.constants";
-
+import { BiSolidTrashAlt } from "react-icons/bi";
+import UploadCoverImage from "./uploadImage";
 export default function CreateEvent() {
-  const hiddenFileInput = useRef(null); // ADDED
-  // const [file, setFile] = useState(null); // ADDED
-
+  const hiddenFileInput = useRef(null);
   const createEvent = useSelector((state) => state.createEvent);
   const file = createEvent.coverImage;
   const dispatch = useDispatch();
@@ -30,10 +39,11 @@ export default function CreateEvent() {
   const handleClick = (event) => {
     hiddenFileInput.current.click(); // ADDED
   };
-  return (
+  return (<>
     <VStack className={style["main-container"]}>
       <VStack className={style["main-info"]}>
-        <Box
+        <UploadCoverImage />
+        {/* <Box
           className={style["upload-image-container"]}
           bgImage={
             file
@@ -72,27 +82,29 @@ export default function CreateEvent() {
           <Text textAlign={"center"} display={file ? "none" : "block"}>
             Direkomendasikan 724 x 340px dan tidak lebih dari 2Mb
           </Text>
-        </Box>
-        <HStack ml={"auto"} mt={"-70px"} mr={"20px"}>
+        </Box> */}
+        {/* <HStack ml={"auto"} mt={"-70px"} mr={"20px"}>
           <Box
             padding={"5px"}
             borderRadius={"25%"}
-            backgroundColor={"blue.600"}
+            backgroundColor={"blackAlpha.600"}
             display={file ? "block" : "none"}
+            cursor={"pointer"}
             onClick={handleClick}
           >
-            <FcEditImage size={"25px"} />
+            <AiFillEdit color='white' size={"25px"} />
           </Box>
           <Box
             padding={"5px"}
             borderRadius={"25%"}
-            backgroundColor={"blue.600"}
+            backgroundColor={"blackAlpha.600"}
             display={file ? "block" : "none"}
+            cursor={"pointer"}
             onClick={() => dispatch(removeCoverImage())}
           >
-            <FcRemoveImage size={"25px"} />
+            <BiSolidTrashAlt size={"25px"} />
           </Box>
-        </HStack>
+        </HStack> */}
         <VStack
           position={"absolute"}
           mt={"420px"}
@@ -123,9 +135,32 @@ export default function CreateEvent() {
               <AiFillEdit size={"20px"} color='#0049cc' />
             </HStack>
           </Box>
+          <Divider width={"95%"} mt={"10px"} />
+          <Grid templateColumns={"1fr 1fr 1fr"} width={"90%"} gap={"10px"}>
+            <VStack>
+              <Text className={style["text-left"]}>Diselenggarakan Oleh</Text>
+              <HStack width={"100%"}>
+                <Box
+                  height={"67px"}
+                  width={"67px"}
+                  border={"1px"}
+                  borderRadius={"50%"}
+                  ml={"0px"}
+                ></Box>
+              </HStack>
+            </VStack>
+            <VStack>
+              <Text className={style["text-left"]}>Tanggal & Waktu</Text>
+            </VStack>
+            <VStack>
+              <Text className={style["text-left"]}>Lokasi</Text>
+            </VStack>
+          </Grid>
         </VStack>
       </VStack>
+
       <ModalEventCategory />
     </VStack>
+    </>
   );
 }
