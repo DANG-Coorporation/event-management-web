@@ -46,3 +46,8 @@ input:focus{
     margin-left: 0px;
     margin-right: auto;
 }
+
+.date-picker{
+    width: 100px;
+    margin-left: 0px;
+}

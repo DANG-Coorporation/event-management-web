@@ -14,13 +14,12 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalFooter,
-  ModalHeader,
   ModalOverlay,
   Select,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -36,7 +35,6 @@ import Tag from "../../ui/tag";
 export default function ModalEventCategory() {
   const isOpen = useSelector((state) => state.createEvent.isOpenModalCategory);
   const dispatch = useDispatch();
-  const onOpen = () => dispatch(setModalCategory(true));
   const onClose = () => dispatch(setModalCategory(false));
   const event = useSelector((state) => state.createEvent);
   const [format, setFormat] = useState(0);
@@ -49,15 +47,12 @@ export default function ModalEventCategory() {
     setIsPrivate(false);
   };
 
-  const onRemoveTag = () => {};
+  const onRemoveTag = (index) => {
+    setTagList(tagList.filter((value, i) => i !== index));
+  };
   const onPrivate = () => {
     setIsPrivate(true);
   };
-  useEffect(() => {
-    console.log("format", format);
-    console.log("topic", topic);
-  }, [format, topic]);
-
   const onSave = () => {
     dispatch(setFormatEvent(format));
     dispatch(setTopicEvent(topic));
@@ -66,12 +61,9 @@ export default function ModalEventCategory() {
   };
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader> </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FormControl>
@@ -107,7 +99,6 @@ export default function ModalEventCategory() {
                   );
                 })}
               </Select>
-              {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
               <Divider mt={"10px"} mb={"10px"} />
               <FormLabel mt={"10px"}>Tag</FormLabel>
               <FormHelperText>
@@ -141,14 +132,14 @@ export default function ModalEventCategory() {
                 </InputRightElement>
               </InputGroup>
               <FormHelperText>{tagList.length}/5 tags</FormHelperText>
-              <HStack mt={"10px"}>
+              <HStack mt={"10px"} width={"100%"} flexWrap={"wrap"}>
                 {tagList.map((tag, index) => {
                   return (
                     <Tag
                       key={index}
                       tag={tag}
                       onRemove={() => {
-                        setTagList(tagList.filter((value, i) => i !== index));
+                        onRemoveTag(index);
                       }}
                     />
                   );
