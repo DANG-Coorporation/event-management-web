@@ -10,7 +10,7 @@ export default function OpenStreetMapLoader() {
     (state) => state.createEvent.address.coordinate.long
   );
   const address = useSelector((state) => state.createEvent.address);
-  console.log("debug-map", address);
+  // console.log("debug-map", address);
   const mapDimensions = { width: "400px", height: "300px" };
   const center = {
     lat: lat,
@@ -42,8 +42,8 @@ export default function OpenStreetMapLoader() {
 
       <MapContainer
         center={[center.lat, center.lng]}
-        zoom={13}
-        scrollWheelZoom={true}
+        zoom={16}
+        scrollWheelZoom={false}
         style={mapDimensions}
       >
         <TileLayer

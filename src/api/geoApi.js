@@ -15,4 +15,4 @@ const getAddressSuggestions = async (address) => {
   return result.data;
 };
 
-export { getAddressSuggestions, getCitySuggestions, getlatLong };
+export { getAddressSuggestions, getCitySuggestions };

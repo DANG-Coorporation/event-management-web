@@ -27,6 +27,7 @@ import {
   setEventAddressPlaceName,
   setModalGetEventLocation,
 } from "../../../app/features/createEvent/createEventSlicer";
+import { startDelayTimerAsync } from "../../../utils/debouce";
 import OpenStreetMapLoader from "../../ui/map/openStreepMap";
 
 export default function ModalGetEventLocation() {
@@ -42,7 +43,15 @@ export default function ModalGetEventLocation() {
   const [locationListObj, setLocationListObj] = useState([]);
   const [addressObj, setAddressObj] = useState({});
   const [addressName, setAddressName] = useState(event.address.name);
+  const [isEnableFindLocation, setEnableFindLocation] = useState(false);
 
+  const onEnableFindLocation = () => {
+    setEnableFindLocation(true);
+  };
+
+  const offEnableFindLocation = () => {
+    setEnableFindLocation(false);
+  };
   const handleInputChange = (e) => {
     const value = e.target.value;
     setCity(value);
@@ -55,51 +64,24 @@ export default function ModalGetEventLocation() {
   const handleSuggestionClick = (suggestion) => {
     setCity(suggestion);
 
-    setSuggestCity([]); // Clear suggestions when a suggestion is clicked
+    setSuggestCity([]);
   };
 
   const handleLocationClick = (suggestion) => {
     setLocation(suggestion);
+    setSuggestLocation([]);
     const getAddress = locationListObj.filter((location) => {
       return location.display_name === suggestion;
     })[0];
     setAddressObj(getAddress);
     dispatch(setEventAddressCoordinateLat(parseFloat(getAddress.lat)));
     dispatch(setEventAddressCoordinateLong(parseFloat(getAddress.lon)));
-    setSuggestLocation([]); // Clear suggestions when a suggestion is clicked
+    offEnableFindLocation();
   };
-
-  useEffect(() => {
-    async function getCityList(address) {
-      const result = await getCitySuggestions(address);
-      const cityList = result.map((map) => map.display_name);
-
-      setSuggestCity(cityList);
-    }
-    if (city.length > 2) {
-      getCityList(city);
-    } else {
-      setSuggestCity([]);
-    }
-  }, [city]);
 
   const onChangeLocation = (e) => {
     setLocation(e.target.value);
   };
-
-  useEffect(() => {
-    async function getLocation(address) {
-      const result = await getAddressSuggestions(address);
-      setLocationListObj(result);
-      const locationList = result.map((map) => map.display_name);
-      setSuggestLocation(locationList);
-    }
-    if (location.length > 2) {
-      getLocation(location);
-    } else {
-      setSuggestLocation([]);
-    }
-  }, [location]);
 
   const onSave = () => {
     dispatch(setEventAddressName(addressName));
@@ -113,6 +95,41 @@ export default function ModalGetEventLocation() {
     }
     onClose();
   };
+
+  useEffect(() => {
+    async function getCityList(address) {
+      await startDelayTimerAsync(1500, async () => {
+        const result = await getCitySuggestions(address);
+        const cityList = result.map((map) => map.display_name);
+
+        setSuggestCity(cityList);
+      });
+    }
+    if (city.length > 2) {
+      getCityList(city);
+    } else {
+      setSuggestCity([]);
+    }
+  }, [city]);
+
+  useEffect(() => {
+    async function getLocation(address) {
+      if (!isEnableFindLocation) return;
+      await startDelayTimerAsync(1500, async () => {
+        const result = await getAddressSuggestions(address);
+        setLocationListObj(result);
+        const locationList = result.map((map) => map.display_name);
+        setSuggestLocation(locationList);
+      });
+    }
+
+    if (location.length > 2) {
+      getLocation(location);
+    } else {
+      setSuggestLocation([]);
+    }
+  }, [location]);
+
   return (
     <>
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
@@ -140,55 +157,78 @@ export default function ModalGetEventLocation() {
               <FormLabel>Alamat</FormLabel>
               <Input
                 placeholder='Alamat'
-                onChange={onChangeLocation}
+                onChange={(e) => {
+                  onChangeLocation(e);
+                  onEnableFindLocation();
+                }}
                 value={location}
               />
-              {suggestLocation.length > 0 && (
-                <List
-                  mt={2}
-                  borderWidth='1px'
-                  borderColor='gray.200'
-                  borderRadius='md'
-                >
-                  {suggestLocation.map((suggestion) => (
-                    <ListItem
-                      key={suggestion}
-                      p={2}
-                      _hover={{ bg: "gray.100", cursor: "pointer" }}
-                      onClick={() => handleLocationClick(suggestion)}
-                    >
-                      <Text>{suggestion}</Text>
-                    </ListItem>
-                  ))}
-                </List>
-              )}
+              <div style={{ position: "relative" }}>
+                {suggestLocation.length > 0 && (
+                  <List
+                    mt={2}
+                    borderWidth='1px'
+                    borderColor='gray.200'
+                    borderRadius='md'
+                    style={{
+                      position: "absolute",
+                      display: "block",
+                      top: "100%",
+                      zIndex: 1,
+                    }}
+                  >
+                    {suggestLocation.map((suggestion) => (
+                      <ListItem
+                        key={suggestion}
+                        p={2}
+                        bgColor={"white"}
+                        _hover={{ bg: "gray.100", cursor: "pointer" }}
+                        onClick={() => handleLocationClick(suggestion)}
+                      >
+                        <Text>{suggestion}</Text>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
+              </div>
               <FormLabel>Kota</FormLabel>
               <Input
                 placeholder='Kota'
                 value={city}
                 onChange={handleInputChange}
               />
-              {suggestCity.length > 0 && (
-                <List
-                  mt={2}
-                  borderWidth='1px'
-                  borderColor='gray.200'
-                  borderRadius='md'
-                >
-                  {suggestCity.map((suggestion) => (
-                    <ListItem
-                      key={suggestion}
-                      p={2}
-                      _hover={{ bg: "gray.100", cursor: "pointer" }}
-                      onClick={() => handleSuggestionClick(suggestion)}
-                    >
-                      <Text>{suggestion}</Text>
-                    </ListItem>
-                  ))}
-                </List>
-              )}
-              <FormLabel>Lokasi di map</FormLabel>
-              <OpenStreetMapLoader />
+              <div style={{ position: "relative" }}>
+                {suggestCity.length > 0 && (
+                  <List
+                    mt={2}
+                    borderWidth='1px'
+                    borderColor='gray.200'
+                    borderRadius='md'
+                    style={{
+                      position: "absolute",
+                      display: "block",
+                      top: "100%",
+                      zIndex: 1,
+                    }}
+                  >
+                    {suggestCity.map((suggestion) => (
+                      <ListItem
+                        key={suggestion}
+                        p={2}
+                        bgColor={"white"}
+                        _hover={{ bg: "gray.100", cursor: "pointer" }}
+                        onClick={() => handleSuggestionClick(suggestion)}
+                      >
+                        <Text>{suggestion}</Text>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
+              </div>
+              <div>
+                <FormLabel>Lokasi di map</FormLabel>
+                <OpenStreetMapLoader />
+              </div>
             </FormControl>
           </ModalBody>
 
