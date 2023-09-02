@@ -1,9 +1,8 @@
 import "leaflet/dist/leaflet.css";
-import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { useSelector } from "react-redux";
 import MarkerMap from "./markerMap";
-import { useEffect, useState } from "react";
 export default function OpenStreetMapLoader() {
   const lat = useSelector((state) => state.createEvent.address.coordinate.lat);
   const long = useSelector(
