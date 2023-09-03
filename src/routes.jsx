@@ -1,18 +1,31 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import App from "./App";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
-import MobileNavbar from "./components/form/mobileNavbar";
 import NotFound from "./pages/notfound";
-
+import WebNavbar from "./components/form/webNavbar/webNavbar";
+import "./style.css";
+import { Box } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import Discovery from "./pages/dicovery/discovery";
 export default function RouteList() {
+  const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
+
   return (
-    <BrowserRouter>
-      <MobileNavbar />
-      <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='/test' element={<Home />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <WebNavbar />
+      <Box className="content-container">
+        <Box className="routes-wrapper">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/discovery" element={<Discovery />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Box>
+        <Box
+          className="app-darken"
+          display={isBlacken ? "block" : "none"}
+          bg={isBlacken ? "rgba(0, 0, 0, 0.4)" : "transparent"}
+        />
+      </Box>
+    </>
   );
 }
