@@ -36,7 +36,6 @@ export default function ModalGetEventLocation() {
   const dispatch = useDispatch();
   const isOpen = event.modalStatus.isOpenModalGetEventLocation;
   const onClose = () => dispatch(setModalGetEventLocation(false));
-
   const [location, setLocation] = useState(event.data.address.placeName);
   const [city, setCity] = useState(event.data.address.city);
   const [suggestLocation, setSuggestLocation] = useState([]);
@@ -96,6 +95,16 @@ export default function ModalGetEventLocation() {
     }
     onClose();
   };
+
+  useEffect(() => {
+    setAddressName(event.data.address.name);
+    setLocation(event.data.address.placeName);
+    setCity(event.data.address.city);
+  }, [
+    event.data.address.placeName,
+    event.data.address.city,
+    event.data.address.name,
+  ]);
 
   useEffect(() => {
     async function getCityList(address) {

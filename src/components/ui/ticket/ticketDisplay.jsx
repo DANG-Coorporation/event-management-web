@@ -25,6 +25,8 @@ import {
 import configTime from "../../../data/configTime";
 import {
   removeTicketTier,
+  setModalDetilTicket,
+  setModalDetileTicketStatus,
   ticketType,
 } from "../../../app/features/createEvent/createEventSlicer";
 import { convertNumberToCurrency } from "../../../utils/currency";
@@ -34,34 +36,45 @@ import { useEffect, useRef } from "react";
 export default function BigTicketDisplay(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
-  const { name, type, startTime, endTime, price, desc, index } = props;
+  const { name, type, startTime, endTime, price, desc, index, quota } = props;
   const dispatch = useDispatch();
   const onRemoveTicket = () => {
     dispatch(removeTicketTier(index));
   };
-  useEffect(() => {
-    console.log("debug-today", new Date().toISOString().split("T")[0]);
-    console.log("debug-startTime", startTime);
-    console.log(
-      "debug-convertStartTime",
-      convertDateTimeFormat(
+
+  const onEditTicket = () => {
+    const data = {
+      index: index,
+      type: type,
+      ticketName: name,
+      ticketQty: quota,
+      ticketDesc: desc,
+      ticketPrice: price,
+      startDate: convertDateTimeFormat(
         startTime,
         configTime.sql_date_without_second,
         configTime.iso_date
-      )
-    );
-    console.log(
-      "debug-ticket",
-      diffTwoDate(
-        new Date().toISOString().split("T")[0],
-        convertDateTimeFormat(
-          startTime,
-          configTime.sql_date_without_second,
-          configTime.iso_date
-        )
-      )
-    );
-  }, []);
+      ),
+      startTime: convertDateTimeFormat(
+        startTime,
+        configTime.sql_date_without_second,
+        configTime.time_only
+      ),
+      endDate: convertDateTimeFormat(
+        endTime,
+        configTime.sql_date_without_second,
+        configTime.iso_date
+      ),
+      endTime: convertDateTimeFormat(
+        endTime,
+        configTime.sql_date_without_second,
+        configTime.time_only
+      ),
+    };
+    dispatch(setModalDetilTicket(data));
+    dispatch(setModalDetileTicketStatus(true));
+  };
+
   return (
     <>
       <Box
@@ -171,14 +184,15 @@ export default function BigTicketDisplay(props) {
                 ? `Minimum ${convertNumberToCurrency(price)}`
                 : convertNumberToCurrency(price)}
             </Text>
-            <AiFillEdit
+            {/* <AiFillEdit
               size={"20px"}
               style={{
                 marginRight: "10px",
               }}
               color='rgb(0, 73, 204)'
               cursor={"pointer"}
-            />
+              onClick={onEditTicket}
+            /> */}
             <BiSolidTrashAlt
               color='#FF3B30'
               size={"20px"}

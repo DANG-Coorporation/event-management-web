@@ -21,20 +21,19 @@ import {
   Tabs,
   Text,
   Textarea,
-  VisuallyHidden,
-  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import configConstants from "../../../data/config";
-import { diffTwoDate } from "../../../utils/dateHelper";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addTicketTier,
+  editTicketByIndex,
+  setModalDetilTicket,
   setModalDetileTicketStatus,
-  tempalteTicket,
   ticketType,
 } from "../../../app/features/createEvent/createEventSlicer";
-import { useDispatch, useSelector } from "react-redux";
+import configConstants from "../../../data/config";
+import { diffTwoDate } from "../../../utils/dateHelper";
 
 function convertRupiahToNumeric(input) {
   const numericValue = input.replace(/Rp\s|\./g, "");
@@ -55,30 +54,56 @@ export default function ModalDetailTicketCreateEvent() {
     (state) => state.createEvent.modal.detailTicket.type
   );
 
-  const [labelPrice, setLabelPrice] = useState("Harga Tiket");
-  const onClose = () => {
-    dispatch(setModalDetileTicketStatus(false));
-  };
-  // const { isOpen, onOpen, onClose } = useDisclosure();
+  const editTicket = useSelector(
+    (state) => state.createEvent.modal.detailTicket
+  );
+  const draftTicketName = useSelector(
+    (state) => state.createEvent.modal.detailTicket.ticketName
+  );
   const dateSell = useRef(null);
   const [ticketName, setTicketName] = useState("");
-  const [ticketPrice, setTicketPrice] = useState("");
+  const [ticketPrice, setTicketPrice] = useState(0);
   const [ticketQty, setTicketQty] = useState(0);
   const [ticketDesc, setTicketDesc] = useState("");
   const [formattedPrice, setFormattedPrice] = useState("Rp 0");
   const [startDate, setStartDate] = useState("");
   const [startTime, setStartTime] = useState("10:00");
   const [endDate, setEndDate] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [isReturn, setIsReturn] = useState(false);
+  const [endTime, setEndTime] = useState("11:00");
   const toast = useToast();
   const [endTimeHourList, setEndTimeHourList] = useState([
     ...configConstants.hourList,
   ]);
 
+  const onClose = () => {
+    setTicketName("");
+    setTicketPrice(0);
+    setTicketQty(0);
+    setTicketDesc("");
+    setFormattedPrice("Rp 0");
+    setStartDate("");
+    setStartTime("10:00");
+    setEndDate("");
+    setEndTime("11:00");
+    dispatch(setModalDetileTicketStatus(false));
+    dispatch(
+      setModalDetilTicket({
+        type: "",
+        ticketName: "",
+        ticketQty: 0,
+        ticketDesc: "",
+        startDate: "",
+        startTime: "",
+        endDate: "",
+        endTime: "",
+      })
+    );
+  };
+
   const onNext = () => {
     dateSell.current.click();
   };
+
   const onChangeTicketName = (e) => {
     if (e.target.value.length > 50) return;
     setTicketName(e.target.value);
@@ -87,7 +112,6 @@ export default function ModalDetailTicketCreateEvent() {
   const onChangeTicketQty = (e) => {
     const value = e.target.value;
     const parseValue = parseInt(value);
-    console.log("debug-value", parseInt(value));
 
     if (value > 1000) {
       setTicketQty(1000);
@@ -103,7 +127,6 @@ export default function ModalDetailTicketCreateEvent() {
   const onChangeTicketDesc = (e) => {
     if (e.target.value.length > 140) return;
     setTicketDesc(e.target.value);
-    console.log(ticketDesc);
   };
 
   const formatCurrency = (value) => {
@@ -130,7 +153,7 @@ export default function ModalDetailTicketCreateEvent() {
     toast({
       title: "Account created.",
       description: "We've created your account for you.",
-      status: "success",
+      status: "error",
       duration: 9000,
       isClosable: true,
     });
@@ -149,44 +172,40 @@ export default function ModalDetailTicketCreateEvent() {
       onToastError();
       return;
     }
-
     const ticket = { sellPeriod: {} };
-    console.log("debug-type", startDate, startTime);
     ticket["name"] = ticketName;
     ticket["price"] = ticketPrice;
-    ticket["qty"] = ticketQty;
+    ticket["quota"] = ticketQty;
     ticket["description"] = ticketDesc;
     ticket["ticketType"] = type;
-    console.log("debug-ticket", ticket);
     ticket["sellPeriod"]["start"] = `${startDate} ${startTime}`;
     ticket["sellPeriod"]["end"] = `${endDate} ${endTime}`;
-    console.log("debug-ticket", ticket);
+    //   if (editTicket.index !== null) {
+    //     dispatch(
+    //       editTicketByIndex({
+    //         index: editTicket.index,
+    //         data: ticket,
+    //       })
+    //     );
+    //     onClose();
+    //     return;
+    //   }
     dispatch(addTicketTier(ticket));
     onClose();
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      setTicketName("");
-      setTicketPrice(0);
-      setTicketQty(0);
-      setTicketDesc("");
-      setFormattedPrice("Rp 0");
-      setStartDate("");
-      setStartTime("10:00");
-      setEndDate("");
-      setEndTime("11:00");
-    }
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if (isOpen) {
+
+  //   }
+  // }, [isOpen]);
 
   useEffect(() => {
-    console.log("debug-endTime", endTime);
     if (startDate === endDate) {
       const hourIndex = configConstants.hourList.findIndex(
         (hour) => hour === startTime
       );
       const newHourList = configConstants.hourList.slice(hourIndex + 1);
-      console.log("debug-newHourList", newHourList);
       setEndTimeHourList(configConstants.hourList.slice(hourIndex + 1));
     } else {
       setEndTimeHourList(configConstants.hourList);
@@ -194,12 +213,29 @@ export default function ModalDetailTicketCreateEvent() {
   }, [endDate, startTime, startDate, endTime]);
 
   useEffect(() => {
-    console.log("debug-type", type);
     const hourIndex = configConstants.hourList.findIndex(
       (hour) => hour === startTime
     );
     setEndTimeHourList(configConstants.hourList.slice(hourIndex + 1));
   }, []);
+
+  // useEffect(() => {
+  //   setTicketName(editTicket.ticketName);
+  //   setTicketPrice(editTicket.ticketPrice);
+  //   setFormattedPrice(
+  //     new Intl.NumberFormat("id-ID", {
+  //       style: "currency",
+  //       currency: "IDR",
+  //       minimumFractionDigits: 0,
+  //     }).format(editTicket.ticketPrice ?? 0)
+  //   );
+  //   setTicketQty(editTicket.ticketQty);
+  //   setTicketDesc(editTicket.ticketDesc);
+  //   setStartDate(editTicket.startDate);
+  //   setStartTime(editTicket.startTime ?? "10:00");
+  //   setEndDate(editTicket.endDate ?? startDate);
+  //   setEndTime(editTicket.endTime ?? "11:00");
+  // }, [editTicket]);
 
   useEffect(() => {
     if (!endDate) setEndDate(startDate);
@@ -301,6 +337,7 @@ export default function ModalDetailTicketCreateEvent() {
                     <HStack>
                       <Input
                         type='date'
+                        defaultValue={startDate}
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
                         min={
@@ -310,7 +347,8 @@ export default function ModalDetailTicketCreateEvent() {
                       <Select
                         isDisabled={!startDate}
                         onChange={(e) => setStartTime(e.target.value)}
-                        defaultValue={"10:00"}
+                        defaultValue={startTime ?? "10:00"}
+                        value={startTime}
                       >
                         {configConstants.hourList.map((hour, index) => {
                           return (
@@ -334,6 +372,7 @@ export default function ModalDetailTicketCreateEvent() {
                       <Select
                         isDisabled={!startDate}
                         value={endTime}
+                        defaultValue={endTime ?? "11:00"}
                         onChange={(e) => setEndTime(e.target.value)}
                       >
                         {endTimeHourList.map((hour, index) => {
@@ -360,13 +399,10 @@ export default function ModalDetailTicketCreateEvent() {
                 </TabPanel>
               </TabPanels>
             </Tabs>
+            <Text>{JSON.stringify(editTicket)}</Text>
           </ModalBody>
 
-          <ModalFooter>
-            {/* <Button colorScheme='blue' onClick={onClose} width={"100%"}>
-              Close
-            </Button> */}
-          </ModalFooter>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>

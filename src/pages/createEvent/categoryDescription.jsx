@@ -32,18 +32,18 @@ import {
   setTermAndCondition,
   ticketType,
 } from "../../app/features/createEvent/createEventSlicer";
+import { useEffect, useState } from "react";
 
 export default function CategoryDescriptionEvent() {
   const ticketList = useSelector((state) => state.createEvent.data.tickets);
   const formOptions = useSelector((state) => state.createEvent.data.form);
+  const [defaultMaxTicket, setDefaultMaxTicket] = useState("5");
+
   const isTermAndCondition = useSelector(
     (state) => state.createEvent.data.isTermAndCondition
   );
   const data = useSelector((state) => state.createEvent.data);
   const dispatch = useDispatch();
-  console.log("debug-formOptions", formOptions);
-  console.log("debug-maxBuy", typeof formOptions.maxPerbuy);
-  console.log("debug-ticketList", ticketList);
   const handleChangeEventDescription = (content) => {
     dispatch(setEventDescription(content));
   };
@@ -51,6 +51,10 @@ export default function CategoryDescriptionEvent() {
   const handleChangeTermAndCondition = (content) => {
     dispatch(setTermAndCondition(content));
   };
+
+  useEffect(() => {
+    setDefaultMaxTicket(formOptions.maxPerbuy);
+  }, [formOptions.maxPerbuy]);
 
   return (
     <>
@@ -73,6 +77,7 @@ export default function CategoryDescriptionEvent() {
                   endTime={ticket.sellPeriod.end}
                   price={ticket.price}
                   desc={ticket.description}
+                  quota={ticket.qty}
                   index={index}
                 />
               );
@@ -201,7 +206,7 @@ export default function CategoryDescriptionEvent() {
                       onChange={(e) => {
                         dispatch(setFormMaxPerbuy(e.target.value));
                       }}
-                      defaultValue={`${formOptions.maxPerbuy}` || "3"}
+                      defaultValue={defaultMaxTicket || "3"}
                     >
                       <option value='1'>1 Tiket</option>
                       <option value='2'>2 Tiket</option>

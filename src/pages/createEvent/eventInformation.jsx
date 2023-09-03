@@ -10,7 +10,7 @@ import {
   VStack,
   useBoolean,
 } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { BiSolidTrashAlt } from "react-icons/bi";
 import { BsCalendarWeek } from "react-icons/bs";
@@ -20,6 +20,7 @@ import { IoIosAdd } from "react-icons/io";
 import { PiMapPinFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setEventName,
   setModalCategory,
   setModalEventDateTime,
   setModalGetEventLocation,
@@ -31,6 +32,7 @@ import formatConstants from "../../data/format.constants";
 import topicConstants from "../../data/topic.constants";
 import { convertDateTimeFormat } from "../../utils/dateHelper";
 import style from "./style.module.css";
+import { uploadFile } from "../../utils/minioService";
 
 export default function CreateEventInformation() {
   const createEvent = useSelector((state) => state.createEvent);
@@ -39,9 +41,30 @@ export default function CreateEventInformation() {
   );
   const dispatch = useDispatch();
   const openModalCategory = () => dispatch(setModalCategory(true));
+
+  const [rawOrgImage, setRawOrgImage] = useState("");
   const organizerPictureChooseFile = (event) => {
-    dispatch(setOrganizerPhoto(URL.createObjectURL(event.target.files[0])));
+    setRawOrgImage(event.target.files[0]);
+    // dispatch(setOrganizerPhoto(URL.createObjectURL(event.target.files[0])));
   };
+
+  useEffect(() => {
+    async function asyncUploadOrganizerPhoto() {
+      try {
+        const result = await uploadFile(rawOrgImage);
+        // setCurrentCoverImage(result);
+        dispatch(setOrganizerPhoto(result));
+
+        console.log("debug-upload", result);
+      } catch (error) {
+        console.error("debug-error", error);
+      }
+    }
+    if (rawOrgImage) {
+      asyncUploadOrganizerPhoto();
+    }
+  }, [rawOrgImage]);
+
   const openUploadPhoto = () => {
     uploadPhotoButton.current.click();
   };
@@ -82,6 +105,10 @@ export default function CreateEventInformation() {
             border: "none",
           }}
           focusBorderColor='transparent'
+          value={createEvent.data.eventName}
+          onChange={(e) => {
+            dispatch(setEventName(e.target.value));
+          }}
         ></Input>
         <Box
           width={"90%"}
@@ -220,7 +247,9 @@ export default function CreateEventInformation() {
                 className={style["overflow-2-lines"]}
               >
                 {" "}
-                {createEvent.data.address.placeName ?? "Offline Event"}
+                {createEvent.data.address.placeName !== ""
+                  ? createEvent.data.address.placeName
+                  : "Offline Event"}
               </Text>
               <AiFillEdit size={"20px"} color='#0049cc' />
             </HStack>

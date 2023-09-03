@@ -38,37 +38,22 @@ const initialState = {
   modal: {
     detailTicket: {
       type: "",
+      ticketName: "",
+      ticketQty: 0,
+      ticketDesc: "",
+      startDate: "",
+      startTime: "",
+      endDate: "",
+      endTime: "",
     },
   },
   data: {
+    eventName: "",
     coverImage: "",
     organizerPhoto: "",
     formatIndex: null,
     topicIndex: null,
-    tickets: [
-      {
-        name: "PLATINUM",
-        price: 500000,
-        quota: 200,
-        description: "Ini Tiket Platinum untuk orang umum",
-        ticketType: ticketType.paid.name,
-        sellPeriod: {
-          start: "2023-08-20 10:00",
-          end: "2023-09-24 10:00",
-        },
-      },
-      {
-        name: "GOLD",
-        price: 50000,
-        quota: 200,
-        description: "Ini Tiket Platinum untuk orang umum",
-        ticketType: ticketType.paid.name,
-        sellPeriod: {
-          start: "2023-09-20 10:00",
-          end: "2023-09-24 10:00",
-        },
-      },
-    ],
+    tickets: [],
     tag: [],
     isPrivate: false,
     eventTime: {
@@ -82,9 +67,9 @@ const initialState = {
       },
     },
     address: {
-      name: "Stadion GBK",
-      city: "Jakarta",
-      placeName: "Gelora Bung Karno",
+      name: "",
+      city: "",
+      placeName: "",
       coordinate: {
         lat: -6.218335,
         long: 106.802216,
@@ -219,6 +204,19 @@ const createEventSlice = createSlice({
     setIsTermAndCondition: (state, action) => {
       state.data.isTermAndCondition = action.payload;
     },
+    setModalDetilTicket: (state, action) => {
+      state.modal.detailTicket = action.payload;
+    },
+    editTicketByIndex: (state, action) => {
+      state.data.tickets[action.payload.index] = action.payload.data;
+    },
+    resetData: (state) => {
+      state.data = initialState.data;
+      localStorage.removeItem("draftEvent");
+    },
+    setEventName: (state, action) => {
+      state.data.eventName = action.payload;
+    },
   },
 });
 
@@ -259,6 +257,10 @@ export const {
   setEventDescription,
   setTermAndCondition,
   setIsTermAndCondition,
+  setModalDetilTicket,
+  editTicketByIndex,
+  resetData,
+  setEventName,
 } = createEventSlice.actions;
 
 export default createEventSlice.reducer;

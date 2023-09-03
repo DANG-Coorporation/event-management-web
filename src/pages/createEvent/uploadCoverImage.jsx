@@ -3,18 +3,43 @@ import { useEffect, useRef, useState } from "react";
 import { AiFillEdit, AiOutlineFileAdd } from "react-icons/ai";
 import { BiSolidTrashAlt } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCoverImage } from "../../app/features/createEvent/createEventSlicer";
-import style from "./style.module.css";
+import {
+  removeCoverImage,
+  setCoverImage,
+} from "../../app/features/createEvent/createEventSlicer";
 import configConstants from "../../data/config";
+import style from "./style.module.css";
+import { readFileAsBuffer, uploadFile } from "../../utils/minioService";
 
 export default function UploadCoverImage() {
   const hiddenFileInput = useRef(null);
   const createEvent = useSelector((state) => state.createEvent);
+  const [rawCoverImage, setRawCoverImage] = useState(null);
   const [currentCoverImage, setCurrentCoverImage] = useState(
-    createEvent.coverImage
+    createEvent.data.coverImage
   );
   const dispatch = useDispatch();
-  useEffect(() => {}, [currentCoverImage]);
+
+  useEffect(() => {
+    async function asyncUploadCoverImage() {
+      try {
+        const result = await uploadFile(rawCoverImage);
+        setCurrentCoverImage(result);
+        dispatch(setCoverImage(result));
+
+        console.log("debug-upload", result);
+      } catch (error) {
+        console.error("debug-error", error);
+      }
+    }
+    if (currentCoverImage) {
+      asyncUploadCoverImage();
+    }
+  }, [rawCoverImage]);
+
+  useEffect(() => {
+    setCurrentCoverImage(createEvent.data.coverImage);
+  }, [createEvent]);
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -49,6 +74,7 @@ export default function UploadCoverImage() {
           onChange={(e) => {
             dispatch(removeCoverImage(URL.createObjectURL(e.target.files[0])));
             setCurrentCoverImage(URL.createObjectURL(e.target.files[0]));
+            setRawCoverImage(e.target.files[0]);
           }}
         />
         <Text
