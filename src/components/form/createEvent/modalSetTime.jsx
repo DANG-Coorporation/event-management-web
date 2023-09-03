@@ -29,7 +29,7 @@ import { diffTwoDate } from "../../../utils/dateHelper";
 
 export default function ModalSetTime() {
   const event = useSelector((state) => state.createEvent);
-  const isOpenModal = event.isOpenModalEventDateTime;
+  const isOpenModal = event.modalStatus.isOpenModalEventDateTime;
   const dispatch = useDispatch();
   const today = DateTime.now().toISODate();
   const [startDate, setStartDate] = useState(today);

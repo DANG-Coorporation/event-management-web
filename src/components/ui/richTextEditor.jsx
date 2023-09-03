@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-export default function RichTextEditor() {
+export default function RichTextEditor(props) {
+  const { onChangeText, defaultText } = props;
   const editorRef = useRef(null);
-  const log = () => {
+  const handleEditorChange = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      const content = editorRef.current.getContent();
+      onChangeText(content); // Call the provided function to dispatch the action
     }
   };
   return (
@@ -13,7 +15,10 @@ export default function RichTextEditor() {
       <Editor
         apiKey='lxezcq3kep8iys6wpxrpllmsvoznj9o183sk99ul222heoyk'
         onInit={(evt, editor) => (editorRef.current = editor)}
-        initialValue='<p>This is the initial content of the editor.</p>'
+        initialValue={defaultText ?? "<p>Deskripsi kan eventmu</p>"}
+        onKeyUp={handleEditorChange}
+        onChange={handleEditorChange}
+        onClick={handleEditorChange}
         init={{
           height: 500,
           menubar: false,

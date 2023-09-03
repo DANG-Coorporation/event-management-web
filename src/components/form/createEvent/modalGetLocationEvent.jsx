@@ -34,16 +34,16 @@ import style from "./style.module.css";
 export default function ModalGetEventLocation() {
   const event = useSelector((state) => state.createEvent);
   const dispatch = useDispatch();
-  const isOpen = event.isOpenModalGetEventLocation;
+  const isOpen = event.modalStatus.isOpenModalGetEventLocation;
   const onClose = () => dispatch(setModalGetEventLocation(false));
 
-  const [location, setLocation] = useState(event.address.placeName);
-  const [city, setCity] = useState(event.address.city);
+  const [location, setLocation] = useState(event.data.address.placeName);
+  const [city, setCity] = useState(event.data.address.city);
   const [suggestLocation, setSuggestLocation] = useState([]);
   const [suggestCity, setSuggestCity] = useState([]);
   const [locationListObj, setLocationListObj] = useState([]);
   const [addressObj, setAddressObj] = useState({});
-  const [addressName, setAddressName] = useState(event.address.name);
+  const [addressName, setAddressName] = useState(event.data.address.name);
   const [isEnableFindLocation, setEnableFindLocation] = useState(false);
 
   const onEnableFindLocation = () => {

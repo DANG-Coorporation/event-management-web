@@ -29,13 +29,6 @@ export const tempalteTicket = {
 const initialState = {
   name: "createEvent",
   userFullName: "Galih Setyawan",
-  coverImage: "",
-  organizerPhoto: "",
-  formatIndex: null,
-  topicIndex: null,
-  isOpenModalCategory: false,
-  isOpenModalEventDateTime: false,
-  isOpenModalGetEventLocation: false,
   modalStatus: {
     isOpenModalCategory: false,
     isOpenModalEventDateTime: false,
@@ -47,28 +40,11 @@ const initialState = {
       type: "",
     },
   },
-  eventTime: {
-    date: {
-      start: today,
-      end: today,
-    },
-    time: {
-      start: "00:00",
-      end: "00:00",
-    },
-  },
-  address: {
-    name: "Stadion GBK",
-    city: "Jakarta",
-    placeName: "Gelora Bung Karno",
-    coordinate: {
-      lat: -6.218335,
-      long: 106.802216,
-    },
-  },
-  isPrivate: false,
-  tag: [],
   data: {
+    coverImage: "",
+    organizerPhoto: "",
+    formatIndex: null,
+    topicIndex: null,
     tickets: [
       {
         name: "PLATINUM",
@@ -93,6 +69,41 @@ const initialState = {
         },
       },
     ],
+    tag: [],
+    isPrivate: false,
+    eventTime: {
+      date: {
+        start: today,
+        end: today,
+      },
+      time: {
+        start: "00:00",
+        end: "00:00",
+      },
+    },
+    address: {
+      name: "Stadion GBK",
+      city: "Jakarta",
+      placeName: "Gelora Bung Karno",
+      coordinate: {
+        lat: -6.218335,
+        long: 106.802216,
+      },
+    },
+    form: {
+      isFullName: true,
+      isEmail: true,
+      isPhoneNumber: true,
+      isIdentityNumber: false,
+      isDob: false,
+      isGender: false,
+      maxPerbuy: 5,
+      isOneEmailOneTransaction: false,
+      isOneTicketOneData: false,
+    },
+    eventDescription: "",
+    isTermAndCondition: true,
+    termAndCondition: "",
   },
 };
 
@@ -100,62 +111,65 @@ const createEventSlice = createSlice({
   name: "createEvent",
   initialState,
   reducers: {
+    setDraftCreateEvent: (state, action) => {
+      state.data = action.payload;
+    },
     setCoverImage: (state, action) => {
-      state.coverImage = action.payload;
+      state.data.coverImage = action.payload;
     },
     removeCoverImage: (state) => {
-      state.coverImage = "";
+      state.data.coverImage = "";
     },
     setModalCategory: (state, action) => {
-      state.isOpenModalCategory = action.payload;
+      state.modalStatus.isOpenModalCategory = action.payload;
     },
     setFormatEvent: (state, action) => {
-      state.formatIndex = action.payload;
+      state.data.formatIndex = action.payload;
     },
     setTopicEvent: (state, action) => {
-      state.topicIndex = action.payload;
+      state.data.topicIndex = action.payload;
     },
     setEventPrivacy: (state, action) => {
-      state.isPrivate = action.payload;
+      state.data.isPrivate = action.payload;
     },
     setEventTags: (state, action) => {
-      state.tag = action.payload;
+      state.data.tag = action.payload;
     },
     setOrganizerPhoto: (state, action) => {
-      state.organizerPhoto = action.payload;
+      state.data.organizerPhoto = action.payload;
     },
     setModalEventDateTime: (state, action) => {
-      state.isOpenModalEventDateTime = action.payload;
+      state.modalStatus.isOpenModalEventDateTime = action.payload;
     },
     setEventStartDate: (state, action) => {
-      state.eventTime.date.start = action.payload;
+      state.data.eventTime.date.start = action.payload;
     },
     setEventEndDate: (state, action) => {
-      state.eventTime.date.end = action.payload;
+      state.data.eventTime.date.end = action.payload;
     },
     setEventStartTime: (state, action) => {
-      state.eventTime.time.start = action.payload;
+      state.data.eventTime.time.start = action.payload;
     },
     setEventEndTime: (state, action) => {
-      state.eventTime.time.end = action.payload;
+      state.data.eventTime.time.end = action.payload;
     },
     setModalGetEventLocation: (state, action) => {
-      state.isOpenModalGetEventLocation = action.payload;
+      state.modalStatus.isOpenModalGetEventLocation = action.payload;
     },
     setEventAddressName: (state, action) => {
-      state.address.name = action.payload;
+      state.data.address.name = action.payload;
     },
     setEventAddressCity: (state, action) => {
-      state.address.city = action.payload;
+      state.data.address.city = action.payload;
     },
     setEventAddressPlaceName: (state, action) => {
-      state.address.placeName = action.payload;
+      state.data.address.placeName = action.payload;
     },
     setEventAddressCoordinateLat: (state, action) => {
-      state.address.coordinate.lat = action.payload;
+      state.data.address.coordinate.lat = action.payload;
     },
     setEventAddressCoordinateLong: (state, action) => {
-      state.address.coordinate.long = action.payload;
+      state.data.address.coordinate.long = action.payload;
     },
     addTicketTier: (state, action) => {
       state.data.tickets.push(action.payload);
@@ -169,10 +183,47 @@ const createEventSlice = createSlice({
     setModalDetailTicketType: (state, action) => {
       state.modal.detailTicket.type = action.payload;
     },
+    setFormIsFullName: (state, action) => {
+      state.data.form.isFullName = action.payload;
+    },
+    setFormIsEmail: (state, action) => {
+      state.data.form.isEmail = action.payload;
+    },
+    setFormIsPhoneNumber: (state, action) => {
+      state.data.form.isPhoneNumber = action.payload;
+    },
+    setFormIsIdentityNumber: (state, action) => {
+      state.data.form.isIdentityNumber = action.payload;
+    },
+    setFormIsDob: (state, action) => {
+      state.data.form.isDob = action.payload;
+    },
+    setFormIsGender: (state, action) => {
+      state.data.form.isGender = action.payload;
+    },
+    setFormMaxPerbuy: (state, action) => {
+      state.data.form.maxPerbuy = action.payload;
+    },
+    setFormIsOneEmailOneTransaction: (state, action) => {
+      state.data.form.isOneEmailOneTransaction = action.payload;
+    },
+    setFormIsOneTicketOneData: (state, action) => {
+      state.data.form.isOneTicketOneData = action.payload;
+    },
+    setEventDescription: (state, action) => {
+      state.data.eventDescription = action.payload;
+    },
+    setTermAndCondition: (state, action) => {
+      state.data.termAndCondition = action.payload;
+    },
+    setIsTermAndCondition: (state, action) => {
+      state.data.isTermAndCondition = action.payload;
+    },
   },
 });
 
 export const {
+  setDraftCreateEvent,
   setCoverImage,
   removeCoverImage,
   setModalCategory,
@@ -196,6 +247,18 @@ export const {
   removeTicketTier,
   setModalDetileTicketStatus,
   setModalDetailTicketType,
+  setFormIsFullName,
+  setFormIsEmail,
+  setFormIsPhoneNumber,
+  setFormIsIdentityNumber,
+  setFormIsDob,
+  setFormIsGender,
+  setFormMaxPerbuy,
+  setFormIsOneEmailOneTransaction,
+  setFormIsOneTicketOneData,
+  setEventDescription,
+  setTermAndCondition,
+  setIsTermAndCondition,
 } = createEventSlice.actions;
 
 export default createEventSlice.reducer;

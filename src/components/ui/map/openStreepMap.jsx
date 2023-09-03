@@ -4,11 +4,13 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { useSelector } from "react-redux";
 import MarkerMap from "./markerMap";
 export default function OpenStreetMapLoader() {
-  const lat = useSelector((state) => state.createEvent.address.coordinate.lat);
-  const long = useSelector(
-    (state) => state.createEvent.address.coordinate.long
+  const lat = useSelector(
+    (state) => state.createEvent.data.address.coordinate.lat
   );
-  const address = useSelector((state) => state.createEvent.address);
+  const long = useSelector(
+    (state) => state.createEvent.data.address.coordinate.long
+  );
+  const address = useSelector((state) => state.createEvent.data.address);
   // console.log("debug-map", address);
   const mapDimensions = { width: "400px", height: "300px" };
   const center = {

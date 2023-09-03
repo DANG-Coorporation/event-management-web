@@ -35,7 +35,7 @@ import style from "./style.module.css";
 export default function CreateEventInformation() {
   const createEvent = useSelector((state) => state.createEvent);
   const organizerPictureState = useSelector(
-    (state) => state.createEvent.organizerPhoto
+    (state) => state.createEvent.data.organizerPhoto
   );
   const dispatch = useDispatch();
   const openModalCategory = () => dispatch(setModalCategory(true));
@@ -91,11 +91,13 @@ export default function CreateEventInformation() {
         >
           <HStack>
             <Text>
-              {formatConstants[createEvent.formatIndex] ?? "Pilih Format Event"}
+              {formatConstants[createEvent.data.formatIndex] ??
+                "Pilih Format Event"}
             </Text>
             <GoDotFill size={"15px"} color='#0049cc' />
             <Text>
-              {topicConstants[createEvent.topicIndex] ?? "Pilih Topik Event"}
+              {topicConstants[createEvent.data.topicIndex] ??
+                "Pilih Topik Event"}
             </Text>
             <AiFillEdit size={"20px"} color='#0049cc' />
           </HStack>
@@ -184,13 +186,13 @@ export default function CreateEventInformation() {
               <BsCalendarWeek />{" "}
               <Text>
                 {convertDateTimeFormat(
-                  createEvent.eventTime.date.start,
+                  createEvent.data.eventTime.date.start,
                   configTime.iso_date,
                   configTime.date_month_string
                 )}
                 -{" "}
                 {convertDateTimeFormat(
-                  createEvent.eventTime.date.end,
+                  createEvent.data.eventTime.date.end,
                   configTime.iso_date,
                   configTime.date_month_string
                 )}
@@ -201,8 +203,8 @@ export default function CreateEventInformation() {
               <FaRegClock />{" "}
               <Text>
                 {" "}
-                {createEvent.eventTime.time.start} -{" "}
-                {createEvent.eventTime.time.end}
+                {createEvent.data.eventTime.time.start} -{" "}
+                {createEvent.data.eventTime.time.end}
               </Text>
               <AiFillEdit size={"20px"} color='#0049cc' />
             </HStack>
@@ -218,7 +220,7 @@ export default function CreateEventInformation() {
                 className={style["overflow-2-lines"]}
               >
                 {" "}
-                {createEvent.address.placeName ?? "Offline Event"}
+                {createEvent.data.address.placeName ?? "Offline Event"}
               </Text>
               <AiFillEdit size={"20px"} color='#0049cc' />
             </HStack>

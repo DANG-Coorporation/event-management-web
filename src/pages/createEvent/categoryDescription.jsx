@@ -19,15 +19,38 @@ import AddTicket from "../../components/ui/ticket/addTicket";
 import BigTicketDisplay from "../../components/ui/ticket/ticketDisplay";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setEventDescription,
+  setFormIsDob,
+  setFormIsGender,
+  setFormIsIdentityNumber,
+  setFormIsOneEmailOneTransaction,
+  setFormIsOneTicketOneData,
+  setFormMaxPerbuy,
+  setIsTermAndCondition,
   setModalDetailTicketType,
   setModalDetileTicketStatus,
+  setTermAndCondition,
   ticketType,
 } from "../../app/features/createEvent/createEventSlicer";
 
 export default function CategoryDescriptionEvent() {
   const ticketList = useSelector((state) => state.createEvent.data.tickets);
+  const formOptions = useSelector((state) => state.createEvent.data.form);
+  const isTermAndCondition = useSelector(
+    (state) => state.createEvent.data.isTermAndCondition
+  );
+  const data = useSelector((state) => state.createEvent.data);
   const dispatch = useDispatch();
+  console.log("debug-formOptions", formOptions);
+  console.log("debug-maxBuy", typeof formOptions.maxPerbuy);
   console.log("debug-ticketList", ticketList);
+  const handleChangeEventDescription = (content) => {
+    dispatch(setEventDescription(content));
+  };
+
+  const handleChangeTermAndCondition = (content) => {
+    dispatch(setTermAndCondition(content));
+  };
 
   return (
     <>
@@ -54,7 +77,7 @@ export default function CategoryDescriptionEvent() {
                 />
               );
             })}
-            {/* <BigTicketDisplay /> */}
+
             <Grid
               templateColumns={"repeat(3, 1fr)"}
               gap={6}
@@ -130,6 +153,10 @@ export default function CategoryDescriptionEvent() {
                     marginLeft={"10px"}
                     marginRight={"auto"}
                     size={"lg"}
+                    isChecked={formOptions.isIdentityNumber}
+                    onChange={(e) =>
+                      dispatch(setFormIsIdentityNumber(e.target.checked))
+                    }
                   >
                     Nomor KTP
                   </Checkbox>
@@ -137,6 +164,8 @@ export default function CategoryDescriptionEvent() {
                     marginLeft={"10px"}
                     marginRight={"auto"}
                     size={"lg"}
+                    isChecked={formOptions.isDob}
+                    onChange={(e) => dispatch(setFormIsDob(e.target.checked))}
                   >
                     Tanggal Lahir
                   </Checkbox>
@@ -144,6 +173,10 @@ export default function CategoryDescriptionEvent() {
                     marginLeft={"10px"}
                     marginRight={"auto"}
                     size={"lg"}
+                    isChecked={formOptions.isGender}
+                    onChange={(e) =>
+                      dispatch(setFormIsGender(e.target.checked))
+                    }
                   >
                     Jenis Kelamin
                   </Checkbox>
@@ -163,14 +196,18 @@ export default function CategoryDescriptionEvent() {
                       </Text>
                     </VStack>
                     <Spacer />
-                    <Select width={"100px"}>
-                      <option value='option1'>1 Tiket</option>
-                      <option value='option2'>2 Tiket</option>
-                      <option value='option3'>3 Tiket</option>
-                      <option value='option4'>4 Tiket</option>
-                      <option value='option5' defaultValue>
-                        5 Tiket
-                      </option>
+                    <Select
+                      width={"100px"}
+                      onChange={(e) => {
+                        dispatch(setFormMaxPerbuy(e.target.value));
+                      }}
+                      defaultValue={`${formOptions.maxPerbuy}` || "3"}
+                    >
+                      <option value='1'>1 Tiket</option>
+                      <option value='2'>2 Tiket</option>
+                      <option value='3'>3 Tiket</option>
+                      <option value='4'>4 Tiket</option>
+                      <option value='5'>5 Tiket</option>
                     </Select>
                   </HStack>
                   <HStack justifyContent={"space-between"} width={"100%"}>
@@ -182,7 +219,15 @@ export default function CategoryDescriptionEvent() {
                       </Text>
                     </VStack>
                     <Spacer />
-                    <Switch id='email-alerts' />
+                    <Switch
+                      id='email-alerts'
+                      isChecked={formOptions.isOneEmailOneTransaction}
+                      onChange={(e) => {
+                        dispatch(
+                          setFormIsOneEmailOneTransaction(e.target.checked)
+                        );
+                      }}
+                    />
                   </HStack>
                   <HStack justifyContent={"space-between"} width={"100%"}>
                     <VStack alignItems={"start"} gap={0} maxWidth={"450px"}>
@@ -193,18 +238,38 @@ export default function CategoryDescriptionEvent() {
                       </Text>
                     </VStack>
                     <Spacer />
-                    <Switch id='email-alerts2' />
+                    <Switch
+                      id='email-alerts2'
+                      isChecked={formOptions.isOneTicketOneData}
+                      onChange={(e) => {
+                        dispatch(setFormIsOneTicketOneData(e.target.checked));
+                      }}
+                    />
                   </HStack>
                 </VStack>
               </Box>
             </Grid>
           </TabPanel>
           <TabPanel padding={"0px"} pt={"20px"}>
-            <RichTextEditor />
-            <Text margin={"10px auto 10px 0px"} cursor={"pointer"}>
-              + Syarat & Ketentuan
+            <RichTextEditor
+              onChangeText={handleChangeEventDescription}
+              defaultText={data.eventDescription}
+            />
+            <Text
+              margin={"10px auto 10px 0px"}
+              cursor={"pointer"}
+              onClick={() =>
+                dispatch(setIsTermAndCondition(!isTermAndCondition))
+              }
+            >
+              {isTermAndCondition ? "+" : "-"} Syarat & Ketentuan
             </Text>
-            <RichTextEditor />
+            {isTermAndCondition && (
+              <RichTextEditor
+                onChangeText={handleChangeTermAndCondition}
+                defaultText={data.termAndCondition}
+              />
+            )}
           </TabPanel>
         </TabPanels>
       </Tabs>

@@ -33,14 +33,16 @@ import topicConstants from "../../../data/topic.constants";
 import Tag from "../../ui/tag";
 
 export default function ModalEventCategory() {
-  const isOpen = useSelector((state) => state.createEvent.isOpenModalCategory);
+  const isOpen = useSelector(
+    (state) => state.createEvent.modalStatus.isOpenModalCategory
+  );
   const dispatch = useDispatch();
   const onClose = () => dispatch(setModalCategory(false));
   const event = useSelector((state) => state.createEvent);
   const [format, setFormat] = useState(0);
   const [topic, setTopic] = useState(0);
-  const [isPrivate, setIsPrivate] = useState(event.isPrivate);
-  const [tagList, setTagList] = useState([...event.tag]);
+  const [isPrivate, setIsPrivate] = useState(event.data.isPrivate);
+  const [tagList, setTagList] = useState([...event.data.tag]);
   const [tag, setTag] = useState("");
 
   const onPublic = () => {
@@ -73,7 +75,7 @@ export default function ModalEventCategory() {
                 onChange={(e) => {
                   setFormat(e.target.value);
                 }}
-                defaultValue={event.formatIndex}
+                defaultValue={event.data.formatIndex}
               >
                 {formatConstants.map((format, index) => {
                   return (
@@ -89,7 +91,7 @@ export default function ModalEventCategory() {
                 onChange={(e) => {
                   setTopic(e.target.value);
                 }}
-                defaultValue={event.topicIndex}
+                defaultValue={event.data.topicIndex}
               >
                 {topicConstants.map((value, index) => {
                   return (

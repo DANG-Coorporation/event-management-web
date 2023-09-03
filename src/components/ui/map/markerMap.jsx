@@ -4,9 +4,11 @@ import pinMap from "../../../assets/map/location-sign.png";
 import { useSelector } from "react-redux";
 
 export default function MarkerMap() {
-  const lat = useSelector((state) => state.createEvent.address.coordinate.lat);
+  const lat = useSelector(
+    (state) => state.createEvent.data.address.coordinate.lat
+  );
   const long = useSelector(
-    (state) => state.createEvent.address.coordinate.long
+    (state) => state.createEvent.data.address.coordinate.long
   );
   const center = {
     lat: lat,

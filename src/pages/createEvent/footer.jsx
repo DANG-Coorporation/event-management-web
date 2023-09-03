@@ -1,6 +1,11 @@
 import { Box, Button, HStack, Spacer, Text, useToast } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 export default function FooterCreateEvent() {
+  const data = useSelector((state) => state.createEvent.data);
+  const onSaveToDraft = () => {
+    localStorage.setItem("draftEvent", JSON.stringify(data));
+  };
   const toast = useToast();
   return (
     <>
@@ -20,15 +25,16 @@ export default function FooterCreateEvent() {
           </Text>
           <Spacer />
           <Button
-            onClick={() =>
+            onClick={() => {
               toast({
-                title: "Event Saved.",
-                description: "We've saved your draft event.",
+                title: "Event Saved",
+                description: "We've saved your draft event",
                 status: "success",
                 duration: 1000,
                 isClosable: true,
-              })
-            }
+              });
+              onSaveToDraft();
+            }}
           >
             Simpan Draft
           </Button>
