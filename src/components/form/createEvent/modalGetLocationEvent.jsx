@@ -29,6 +29,7 @@ import {
 } from "../../../app/features/createEvent/createEventSlicer";
 import { startDelayTimerAsync } from "../../../utils/debouce";
 import OpenStreetMapLoader from "../../ui/map/openStreepMap";
+import style from "./style.module.css";
 
 export default function ModalGetEventLocation() {
   const event = useSelector((state) => state.createEvent);
@@ -130,6 +131,13 @@ export default function ModalGetEventLocation() {
     }
   }, [location]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setSuggestLocation([]);
+      setSuggestCity([]);
+    }
+  }, [isOpen]);
+
   return (
     <>
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
@@ -177,9 +185,9 @@ export default function ModalGetEventLocation() {
                       zIndex: 1,
                     }}
                   >
-                    {suggestLocation.map((suggestion) => (
+                    {suggestLocation.map((suggestion, index) => (
                       <ListItem
-                        key={suggestion}
+                        key={`${index}-${suggestion}`}
                         p={2}
                         bgColor={"white"}
                         _hover={{ bg: "gray.100", cursor: "pointer" }}
@@ -211,9 +219,9 @@ export default function ModalGetEventLocation() {
                       zIndex: 1,
                     }}
                   >
-                    {suggestCity.map((suggestion) => (
+                    {suggestCity.map((suggestion, index) => (
                       <ListItem
-                        key={suggestion}
+                        key={`${index}-${suggestion}`}
                         p={2}
                         bgColor={"white"}
                         _hover={{ bg: "gray.100", cursor: "pointer" }}

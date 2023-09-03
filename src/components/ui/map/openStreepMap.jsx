@@ -1,5 +1,5 @@
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { useSelector } from "react-redux";
 import MarkerMap from "./markerMap";
@@ -15,11 +15,7 @@ export default function OpenStreetMapLoader() {
     lat: lat,
     lng: long,
   };
-  const [latlong, setLatLong] = useState([[lat, long]]);
 
-  useEffect(() => {
-    setLatLong([[lat, long]]);
-  }, [lat, long]);
   const Recenter = ({ lat, lng }) => {
     const map = useMap();
     useEffect(() => {
@@ -30,15 +26,6 @@ export default function OpenStreetMapLoader() {
 
   return (
     <>
-      {/* <Helmet>
-        <link
-          rel='stylesheet'
-          href='https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'
-          integrity='sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=='
-          crossorigin=''
-        />
-      </Helmet> */}
-
       <MapContainer
         center={[center.lat, center.lng]}
         zoom={16}

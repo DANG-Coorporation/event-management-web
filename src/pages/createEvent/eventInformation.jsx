@@ -83,11 +83,20 @@ export default function CreateEventInformation() {
           }}
           focusBorderColor='transparent'
         ></Input>
-        <Box width={"90%"} color={"#0049cc"} onClick={openModalCategory}>
+        <Box
+          width={"90%"}
+          color={"#0049cc"}
+          onClick={openModalCategory}
+          cursor={"pointer"}
+        >
           <HStack>
-            <Text>{formatConstants[createEvent.formatIndex]}</Text>
+            <Text>
+              {formatConstants[createEvent.formatIndex] ?? "Pilih Format Event"}
+            </Text>
             <GoDotFill size={"15px"} color='#0049cc' />
-            <Text>{topicConstants[createEvent.topicIndex]}</Text>
+            <Text>
+              {topicConstants[createEvent.topicIndex] ?? "Pilih Topik Event"}
+            </Text>
             <AiFillEdit size={"20px"} color='#0049cc' />
           </HStack>
         </Box>
@@ -201,8 +210,16 @@ export default function CreateEventInformation() {
 
           <VStack cursor={"pointer"} onClick={onOpenModalGetEventLocation}>
             <Text className={style["text-left"]}>Lokasi</Text>
-            <HStack ml={"0px"} mr={"auto"}>
-              <PiMapPinFill size={"25px"} /> <Text> Online Event</Text>
+            <HStack ml={"0px"} mr={"auto"} alignItems={"start"}>
+              <PiMapPinFill size={"25px"} />{" "}
+              <Text
+                height={"50px"}
+                width={"200px"}
+                className={style["overflow-2-lines"]}
+              >
+                {" "}
+                {createEvent.address.placeName ?? "Offline Event"}
+              </Text>
               <AiFillEdit size={"20px"} color='#0049cc' />
             </HStack>
           </VStack>

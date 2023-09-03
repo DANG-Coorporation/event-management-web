@@ -1,16 +1,52 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { DateTime } from "luxon";
 const today = DateTime.now().toISODate();
+
+export const ticketType = {
+  paid: {
+    name: "Berbayar",
+  },
+  free: {
+    name: "Gratis",
+  },
+  minimumPay: {
+    name: "Bayar Sesukamu",
+  },
+};
+
+export const tempalteTicket = {
+  name: "",
+  price: 0,
+  quota: 0,
+  description: "",
+  ticketType: "",
+  sellPeriod: {
+    start: "",
+    end: "",
+  },
+};
+
 const initialState = {
   name: "createEvent",
   userFullName: "Galih Setyawan",
   coverImage: "",
   organizerPhoto: "",
-  formatIndex: 0,
-  topicIndex: 0,
+  formatIndex: null,
+  topicIndex: null,
   isOpenModalCategory: false,
   isOpenModalEventDateTime: false,
   isOpenModalGetEventLocation: false,
+  modalStatus: {
+    isOpenModalCategory: false,
+    isOpenModalEventDateTime: false,
+    isOpenModalGetEventLocation: false,
+    isOpenModalDetailTicket: false,
+  },
+  modal: {
+    detailTicket: {
+      type: "",
+    },
+  },
   eventTime: {
     date: {
       start: today,
@@ -32,6 +68,32 @@ const initialState = {
   },
   isPrivate: false,
   tag: [],
+  data: {
+    tickets: [
+      {
+        name: "PLATINUM",
+        price: 500000,
+        quota: 200,
+        description: "Ini Tiket Platinum untuk orang umum",
+        ticketType: ticketType.paid.name,
+        sellPeriod: {
+          start: "2023-08-20 10:00",
+          end: "2023-09-24 10:00",
+        },
+      },
+      {
+        name: "GOLD",
+        price: 50000,
+        quota: 200,
+        description: "Ini Tiket Platinum untuk orang umum",
+        ticketType: ticketType.paid.name,
+        sellPeriod: {
+          start: "2023-09-20 10:00",
+          end: "2023-09-24 10:00",
+        },
+      },
+    ],
+  },
 };
 
 const createEventSlice = createSlice({
@@ -95,6 +157,18 @@ const createEventSlice = createSlice({
     setEventAddressCoordinateLong: (state, action) => {
       state.address.coordinate.long = action.payload;
     },
+    addTicketTier: (state, action) => {
+      state.data.tickets.push(action.payload);
+    },
+    removeTicketTier: (state, action) => {
+      state.data.tickets.splice(action.payload, 1);
+    },
+    setModalDetileTicketStatus: (state, action) => {
+      state.modalStatus.isOpenModalDetailTicket = action.payload;
+    },
+    setModalDetailTicketType: (state, action) => {
+      state.modal.detailTicket.type = action.payload;
+    },
   },
 });
 
@@ -118,6 +192,10 @@ export const {
   setEventAddressPlaceName,
   setEventAddressCoordinateLat,
   setEventAddressCoordinateLong,
+  addTicketTier,
+  removeTicketTier,
+  setModalDetileTicketStatus,
+  setModalDetailTicketType,
 } = createEventSlice.actions;
 
 export default createEventSlice.reducer;
