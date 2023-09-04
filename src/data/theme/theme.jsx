@@ -1,16 +1,15 @@
 import { extendTheme } from "@chakra-ui/react";
 import Button from "./button/button";
+import Card from "./card/card";
 
 export const theme = extendTheme({
-  styles: {
-    global: {
-      body: {
-        bg: "white",
-        w: "100vw",
-        h: "100vh",
-      },
-    },
-  },
+  // styles: {
+  //   global: {
+  //     "body, html": {
+  //       bg: "white",
+  //     },
+  //   },
+  // },
   colors: {
     primary: {
       500: "#5669ff",
@@ -24,5 +23,6 @@ export const theme = extendTheme({
   },
   components: {
     Button,
+    Card,
   },
 });

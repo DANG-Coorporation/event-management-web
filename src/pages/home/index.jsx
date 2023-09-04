@@ -1,15 +1,24 @@
-import { Heading, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import style from "./style.module.css";
-
-import EventForYou from "../../components/form/eventForYou/eventForYou";
+import EventSwiperDisplay from "../../components/ui/eventSwiperDisplay/eventSwiperDisplay";
+import { useEffect } from "react";
+import { getEvents } from "../../app/features/eventFetching/eventFetchSlicer";
+import { useDispatch } from "react-redux";
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getEvents());
+  }, []);
+
   return (
-    <VStack className={style.pageContainer}>
-      <Heading fontSize={"24px"} fontWeight={"500"}>
+    <VStack className={style.pageContainer} align={"start"}>
+      <EventSwiperDisplay variants={"eventBanner"} />
+      <Text as={"span"} className={style.heading}>
         Event Untukmu
-      </Heading>
-      <EventForYou />
+      </Text>
+      <EventSwiperDisplay variants={"eventForYou"} />
     </VStack>
   );
 }

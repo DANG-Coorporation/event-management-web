@@ -3,6 +3,8 @@ import testReducer from "./features/test/testSlicer";
 import deviceDetectionReducer from "./features/deviceDetection/deviceDetectionSlicer";
 import deviceDarkenReducer from "./features/screenDarken/deviceDarkenSlicer";
 import createEventReducer from "./features/createEvent/createEventSlicer";
+import eventSwiperHoverDetectionReducer from "./features/eventSwiperHoverDetection/eventSwiperHoverDetection";
+import eventFetchReducer from "./features/eventFetching/eventFetchSlicer";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +12,7 @@ export const store = configureStore({
     deviceDetection: deviceDetectionReducer,
     screenDarken: deviceDarkenReducer,
     createEvent: createEventReducer,
+    swiperHoverDetection: eventSwiperHoverDetectionReducer,
+    eventFetch: eventFetchReducer,
   },
 });

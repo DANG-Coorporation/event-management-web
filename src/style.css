@@ -4,9 +4,17 @@
   --txt-color-secondary: black;
 }
 
+.app-container {
+  min-height: none;
+  /* height: 100dvh; */
+  display: flex;
+  flex-direction: column;
+}
+
 .content-container {
   position: relative;
-  height: calc(100vh - 7rem);
+  /* min-height: calc(100dvh - 7rem - 400px);
+  flex-grow: 1; */
 }
 
 .app-darken {

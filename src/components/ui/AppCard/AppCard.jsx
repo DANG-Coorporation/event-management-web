@@ -1,13 +1,46 @@
-import { Box, Card, Image } from "@chakra-ui/react";
+import { Box, Divider, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import style from "./style.module.css";
-import eventbanner from "../../../assets/banner.jpg";
+import { MdLocationPin } from "react-icons/md";
+import propType from "prop-types";
 
-export default function AppCard() {
+AppCard.propTypes = {
+  eventName: propType.string,
+  eventDate: propType.string,
+  eventPrice: propType.string,
+  eventLocation: propType.string,
+  eventPicture: propType.string,
+};
+
+export default function AppCard({
+  eventName,
+  eventDate,
+  eventPrice,
+  eventLocation,
+  eventPicture,
+}) {
   return (
-    <Card w={"300px"} h={"320px"} borderRadius={"18px"}>
+    <Box className={style.card}>
       <Box className={style.bannerContainer}>
-        <Image className={style.banner} src={eventbanner}></Image>
+        <Image className={style.banner} src={eventPicture} objectFit={"cover"}></Image>
       </Box>
-    </Card>
+      <VStack className={style.detailContainer} align={"start"}>
+        <Text as={"span"} className={style.eventname}>
+          {eventName}
+        </Text>
+        <Text as={"span"} className={style.date}>
+          {eventDate}
+        </Text>
+        <Text as={"span"} className={style.price}>
+          {eventPrice}
+        </Text>
+        <Divider />
+        <HStack>
+          <MdLocationPin className={style.locationIcon} />
+          <Text as={"span"} className={style.price}>
+            {eventLocation}
+          </Text>
+        </HStack>
+      </VStack>
+    </Box>
   );
 }
