@@ -59,7 +59,7 @@ export default function CategoryDescriptionEvent() {
   return (
     <>
       {" "}
-      <Tabs width={"100%"} mt={"30px"}>
+      <Tabs width={"100%"} mt={"30px"} mb={"100px"}>
         <TabList>
           <Tab margin={"auto"}>KATEGORI TIKET</Tab>
           <Tab margin={"auto"}>DESKRIPSI EVENT</Tab>
@@ -255,7 +255,13 @@ export default function CategoryDescriptionEvent() {
               </Box>
             </Grid>
           </TabPanel>
-          <TabPanel padding={"0px"} pt={"20px"}>
+          <TabPanel
+            padding={"0px"}
+            pt={"20px"}
+            style={{
+              zIndex: "200",
+            }}
+          >
             <RichTextEditor
               onChangeText={handleChangeEventDescription}
               defaultText={data.eventDescription}

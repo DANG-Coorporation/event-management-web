@@ -71,6 +71,9 @@ export default function FooterCreateEvent() {
         bgColor={"white"}
         width={"100%"}
         padding={"10px 40px 10px 40px"}
+        style={{
+          zIndex: "10 !important",
+        }}
       >
         <HStack height={"100%"} maxWidth={"1200px"} margin={"auto"}>
           <Text fontSize={"17pt"}>Yeay!</Text>

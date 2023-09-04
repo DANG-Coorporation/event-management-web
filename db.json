@@ -1,0 +1,258 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "events": [
+    {
+      "coverImage": "blob:http://localhost:5173/98d4852d-366c-4fcf-af89-2c43ba452a91",
+      "organizerPhoto": "blob:http://localhost:5173/74ea3f75-2c26-4da3-96a6-88e9bf53a2ba",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-14 13:00",
+            "end": "2023-09-14 21:00"
+          },
+          "name": "PLATINUM",
+          "price": 500000,
+          "qty": "500",
+          "description": "Tiket khusus orang yang punya duit jgn paylater",
+          "ticketType": "Berbayar"
+        },
+        {
+          "sellPeriod": {
+            "start": "2023-09-14 ",
+            "end": "2023-09-14 15:00"
+          },
+          "name": "Donasi",
+          "price": 20000,
+          "quota": "500",
+          "description": "akak",
+          "ticketType": "Bayar Sesukamu"
+        }
+      ],
+      "tag": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2024-05-24",
+          "end": "2024-08-05"
+        },
+        "time": {
+          "start": "08:20",
+          "end": "16:20"
+        }
+      },
+      "address": {
+        "name": "SICC",
+        "city": "Bogor, Jawa Barat, Jawa, Indonesia",
+        "placeName": "Sentul International Convention Center (SICC), Jalan Jenderal Sudirman I, Sentul City, Cipambuan, Babakan Madang, Bogor, Jawa Barat, Jawa, 16710, Indonesia",
+        "coordinate": {
+          "lat": -6.55904545,
+          "long": 106.84808476436783
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": true,
+        "isDob": true,
+        "isGender": true,
+        "maxPerbuy": "4",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": true
+      },
+      "eventDescription": "<p style=\"text-align: right;\"><strong>dasdasdas</strong></p>\n<p style=\"text-align: center;\">&nbsp;</p>",
+      "isTermAndCondition": true,
+      "termAndCondition": "<p>Deskripsi kan eventmuqweqweqe</p>",
+      "id": 1
+    },
+    {
+      "eventName": "12312313123123",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-14 10:00",
+            "end": "2023-09-16 20:00"
+          },
+          "name": "Platinum",
+          "price": 500000,
+          "quota": "500",
+          "description": "Tiket platinum",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-13",
+          "end": "2023-09-15"
+        },
+        "time": {
+          "start": "09:00",
+          "end": "17:00"
+        }
+      },
+      "address": {
+        "name": "SICC",
+        "city": "Bogor, Jawa Barat, Jawa, Indonesia",
+        "placeName": "Sentul International Convention Center (SICC), Jalan Jenderal Sudirman I, Sentul City, Cipambuan, Babakan Madang, Bogor, Jawa Barat, Jawa, 16710, Indonesia",
+        "coordinate": {
+          "lat": -6.55904545,
+          "long": 106.84808476436783
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": true,
+        "isDob": true,
+        "isGender": true,
+        "maxPerbuy": "4",
+        "isOneEmailOneTransaction": true,
+        "isOneTicketOneData": true
+      },
+      "eventDescription": "<p>asdadasdadasdadadadadasdasd</p>",
+      "isTermAndCondition": true,
+      "termAndCondition": "<p>asdadadadasd</p>",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/20230814030728.jpeg",
+      "id": 2
+    },
+    {
+      "eventName": "KIMBUM OFFICIAL BEETWEN U AND ME",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-06 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "PLATINUM",
+          "price": 2000000,
+          "quota": "100",
+          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": [
+        "KIMBUM",
+        "K-POP"
+      ],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-03",
+          "end": "2023-09-03"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "SICC",
+        "city": "Bogor, Jawa Barat, Jawa, Indonesia",
+        "placeName": "Sentul International Convention Center (SICC), Jalan Jenderal Sudirman I, Sentul City, Cipambuan, Babakan Madang, Bogor, Jawa Barat, Jawa, 16710, Indonesia",
+        "coordinate": {
+          "lat": -6.55904545,
+          "long": 106.84808476436783
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": "3",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 3
+    },
+    {
+      "eventName": "",
+      "coverImage": "",
+      "organizerPhoto": "",
+      "formatIndex": null,
+      "topicIndex": null,
+      "tickets": [],
+      "tag": [],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-04",
+          "end": "2023-09-04"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "",
+        "city": "",
+        "placeName": "",
+        "coordinate": {
+          "lat": -6.218335,
+          "long": 106.802216
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": 5,
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 4
+    }
+  ]
+}
