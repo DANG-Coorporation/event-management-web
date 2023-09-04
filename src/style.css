@@ -21,3 +21,21 @@
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.2s;
 }
+.leaflet-container {
+  width: 400px;
+  height: 300px;
+}
+.leaflet-control {
+  z-index: 0 !important;
+}
+.leaflet-pane {
+  z-index: 0 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 0 !important;
+}
+
+.tox .tox-editor-header {
+  z-index: 0 !important;
+}

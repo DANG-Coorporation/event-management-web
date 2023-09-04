@@ -9,6 +9,5 @@ export default function MobileNavbar() {
   }, [dispatch]);
 
   const device = useSelector((state) => state.deviceDetection);
-  console.log(device);
   return <></>;
 }
