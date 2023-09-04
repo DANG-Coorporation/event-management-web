@@ -4,6 +4,7 @@ import EventSwiperDisplay from "../../components/ui/eventSwiperDisplay/eventSwip
 import { useEffect } from "react";
 import { getEvents } from "../../app/features/eventFetching/eventFetchSlicer";
 import { useDispatch } from "react-redux";
+import BannerAddvertisement from "../../components/ui/bannerAdvertisement/bannerAdvertisement";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -17,6 +18,11 @@ export default function Home() {
       <EventSwiperDisplay variants={"eventBanner"} />
       <Text as={"span"} className={style.heading}>
         Event Untukmu
+      </Text>
+      <EventSwiperDisplay variants={"eventForYou"} />
+      <BannerAddvertisement />
+      <Text as={"span"} className={style.heading}>
+        Populer di Lokasimu
       </Text>
       <EventSwiperDisplay variants={"eventForYou"} />
     </VStack>

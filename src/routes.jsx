@@ -3,7 +3,7 @@ import Home from "./pages/home";
 import NotFound from "./pages/notfound";
 import WebNavbar from "./components/form/webNavbar/webNavbar";
 import "./style.css";
-import { Box, VStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import Discovery from "./pages/dicovery/discovery";
 import WebFooter from "./components/form/webFooter/webFooter";

@@ -17,9 +17,14 @@ export default function WebNavbar() {
   return (
     <nav className={style.webNavbar}>
       <HStack className={style.parentStack}>
-        <div className={style.headerWrapper}>
+        <Box
+          className={style.headerWrapper}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <span>EVENTKU.ID</span>
-        </div>
+        </Box>
 
         <VStack className={style.inputGroup}>
           <InputGroup>
@@ -57,7 +62,6 @@ export default function WebNavbar() {
                 />
               );
             })}
-            \
           </HStack>
         </VStack>
 

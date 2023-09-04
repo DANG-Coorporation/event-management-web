@@ -17,6 +17,10 @@
   height: 100%;
 }
 
+.headerWrapper:hover{
+  cursor: pointer;
+}
+
 .headerWrapper span {
   font-size: 2rem;
   color: var(--txt-color);
