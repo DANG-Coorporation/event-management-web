@@ -7,6 +7,7 @@ import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import Discovery from "./pages/dicovery/discovery";
 import WebFooter from "./components/form/webFooter/webFooter";
+import PaymentTicketSelection from "./pages/payment/payment-ticket";
 export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
@@ -18,6 +19,7 @@ export default function RouteList() {
           <Route path="/" element={<Home />} />
           <Route path="/discovery" element={<Discovery />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/payment" element={<PaymentTicketSelection />} />
         </Routes>
         <Box
           className="app-darken"
