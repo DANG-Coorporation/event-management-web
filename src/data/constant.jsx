@@ -6,6 +6,8 @@ import img3 from "../assets/banner3.jpg";
 import img4 from "../assets/banner4.jpg";
 import img5 from "../assets/banner5.jpg";
 import img6 from "../assets/banner6.png";
+import ban1 from "../assets/banner-rec1.jpg";
+import ban2 from "../assets/banner-rec2.jpg";
 
 export const constant = Object.freeze({
   navbarCategories: [
@@ -115,5 +117,6 @@ export const constant = Object.freeze({
     },
   ],
 
+  bannerDummy: [ban1, ban2],
   fetchEventLink: "http://localhost:3000/events",
 });

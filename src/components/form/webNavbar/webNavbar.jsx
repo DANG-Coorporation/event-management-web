@@ -17,16 +17,22 @@ export default function WebNavbar() {
   return (
     <nav className={style.webNavbar}>
       <HStack className={style.parentStack}>
-        <div className={style.headerWrapper}>
+        <Box
+          className={style.headerWrapper}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <span>EVENTKU.ID</span>
-        </div>
+        </Box>
 
         <VStack className={style.inputGroup}>
-          <InputGroup>
+          <InputGroup w={"100%"}>
             <Input
               bg={"white"}
-              w={"40rem"}
+              w={"100%"}
               borderColor={"transparent"}
+              focusBorderColor={"transparent"}
               placeholder="Cari Event gaes"
               height={"2.2rem"}
               onFocus={() => {
@@ -57,7 +63,6 @@ export default function WebNavbar() {
                 />
               );
             })}
-            \
           </HStack>
         </VStack>
 

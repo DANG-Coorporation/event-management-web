@@ -2,6 +2,7 @@ import { Box, Divider, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import style from "./style.module.css";
 import { MdLocationPin } from "react-icons/md";
 import propType from "prop-types";
+import { limitEventName } from "./limitEventName";
 
 AppCard.propTypes = {
   eventName: propType.string,
@@ -21,11 +22,15 @@ export default function AppCard({
   return (
     <Box className={style.card}>
       <Box className={style.bannerContainer}>
-        <Image className={style.banner} src={eventPicture} objectFit={"cover"}></Image>
+        <Image
+          className={style.banner}
+          src={eventPicture}
+          objectFit={"cover"}
+        ></Image>
       </Box>
       <VStack className={style.detailContainer} align={"start"}>
         <Text as={"span"} className={style.eventname}>
-          {eventName}
+          {limitEventName(eventName, 26)}
         </Text>
         <Text as={"span"} className={style.date}>
           {eventDate}
