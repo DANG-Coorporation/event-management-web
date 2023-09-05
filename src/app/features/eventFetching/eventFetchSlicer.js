@@ -23,6 +23,7 @@ const eventFetchSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getEvents.fulfilled, (state, action) => {
       state.events = action.payload;
+      state.loading = "done";
     });
 
     builder.addCase(getEvents.pending, (state) => {

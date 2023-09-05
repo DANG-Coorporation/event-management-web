@@ -3,25 +3,13 @@
   position: relative;
 }
 
-.navButton {
-  border-radius: 50%;
-  background-color: white;
-  width: fit-content;
-  position: absolute;
-  font-size: 40px;
-  top: 50%;
-  left: 99%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  opacity: 0;
-  transition: 0.3s;
-}
-
 .style.bannerContainer {
   width: 100%;
   height: 100%;
 }
 
 .bannerImage {
-  width: 50%; /* or any custom size */
+  width: 100%; /* or any custom size */
   height: 100%;
+  border-radius: 18px;
 }

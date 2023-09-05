@@ -27,11 +27,12 @@ export default function WebNavbar() {
         </Box>
 
         <VStack className={style.inputGroup}>
-          <InputGroup>
+          <InputGroup w={"100%"}>
             <Input
               bg={"white"}
-              w={"40rem"}
+              w={"100%"}
               borderColor={"transparent"}
+              focusBorderColor={"transparent"}
               placeholder="Cari Event gaes"
               height={"2.2rem"}
               onFocus={() => {
