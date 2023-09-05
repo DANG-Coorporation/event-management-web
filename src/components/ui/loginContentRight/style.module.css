@@ -1,0 +1,17 @@
+.container{
+    width: 50%;
+    height: 100%;
+}
+
+.heading{
+    margin-bottom: 3rem;
+    font-size: 3rem;
+}
+
+.imgContainer{
+    width: 100%;
+}
+
+.image{
+    width: 70%;
+}

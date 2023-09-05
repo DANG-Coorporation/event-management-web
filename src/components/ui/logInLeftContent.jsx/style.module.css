@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.tabContainer {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabList {
+  width: 100%;
+}
+
+.tab {
+  width: 50%;
+}
+
+.label {
+  margin-bottom: 8px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.input {
+  margin-bottom: 1rem;
+}
+
+.button {
+  margin-top: 2rem;
+  width: 100%;
+  height: 3rem;
+}
+
+.dividerText {
+  margin: 2rem;
+}

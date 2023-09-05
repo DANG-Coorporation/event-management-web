@@ -9,6 +9,8 @@ import Discovery from "./pages/dicovery/discovery";
 import CreateEvent from "./pages/createEvent";
 
 import WebFooter from "./components/form/webFooter/webFooter";
+import PaymentTicketSelection from "./pages/purchase/purchase-ticket";
+import LoginPage from "./pages/Login/logIn";
 export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
@@ -17,10 +19,12 @@ export default function RouteList() {
       <WebNavbar />
       <Box className='content-container'>
         <Routes>
+          <Route path='/create-event' element={<CreateEvent />} />
           <Route path='/' element={<Home />} />
           <Route path='/discovery' element={<Discovery />} />
           <Route path='*' element={<NotFound />} />
-          <Route path='/create-event' element={<CreateEvent />} />
+          <Route path='/payment' element={<PaymentTicketSelection />} />
+          <Route path='/logIn' element={<LoginPage />} />
         </Routes>
         <Box
           className='app-darken'

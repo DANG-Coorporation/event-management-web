@@ -53,14 +53,14 @@ export default function EventSwiperDisplay({ variants, eventList }) {
         spaceBetween={variants === "eventForYou" ? 20 : 0}
         slidesPerView={variants === "eventForYou" ? 4 : 1}
         pagination={variants === "eventForYou" ? false : true}
-        modules={variants === "eventForYou" ? [] : [Pagination, Autoplay]}
+        modules={variants === "eventForYou" ? [] : [Pagination]}
         loop={variants === "eventForYou" ? false : true}
         className="mySwiper"
         ref={swiperRef}
         speed={400}
         autoplay={
           variants === "eventForYou"
-            ? null
+            ? false
             : { delay: 2500, disableOnInteraction: true }
         }
         onSlideChange={() => {
