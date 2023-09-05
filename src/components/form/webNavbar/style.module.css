@@ -1,0 +1,67 @@
+@import "/src/style.css";
+
+.webNavbar {
+  background-color: var(--primary-color);
+  height: 7rem;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.parentStack {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerWrapper {
+  height: 100%;
+}
+
+.headerWrapper span {
+  font-size: 2rem;
+  color: var(--txt-color);
+  font-weight: Bold;
+  padding: 0;
+  margin: 0;
+}
+
+.inputGroup {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inputGroup__hashtag {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  color: var(--txt-color);
+  font-weight: 700;
+}
+
+.searchIcon {
+  font-size: 23px;
+  color: var(--txt-color);
+  font-weight: bold;
+}
+
+.inputGroup__addon {
+  height: 2rem;
+  background-color: #7887ff;
+  border-color: transparent;
+}
+
+.rightWrapper {
+  justify-content: start;
+  height: 100%;
+}
+
+.navlinkWrapper,
+.buttonsWrapper {
+  display: flex;
+}
+
+.navlinkWrapper {
+  margin-right: 1rem;
+}

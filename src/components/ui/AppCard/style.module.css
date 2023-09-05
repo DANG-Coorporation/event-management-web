@@ -1,0 +1,11 @@
+.bannerContainer{
+    width: 100%;
+    height: fit-content;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.banner{
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+}

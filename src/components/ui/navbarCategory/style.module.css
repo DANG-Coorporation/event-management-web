@@ -1,0 +1,17 @@
+@import "/src/style.css";
+
+.card{
+    padding: 0.2rem 0.3rem;
+    width: 14%;
+    align-items: center;
+    color: var(--txt-color);
+}
+
+.iconContainer{
+    font-size: 20px;
+}
+
+.card span{
+    font-size: 14px;
+    font-weight: 400;
+}

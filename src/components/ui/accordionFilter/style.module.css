@@ -1,0 +1,18 @@
+.accordionContainer {
+  width: 100%;
+}
+
+.accordion {
+  padding: 1rem;
+}
+
+.accordionItem {
+  border: none;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  flex: 1;
+  text-align: left;
+}
