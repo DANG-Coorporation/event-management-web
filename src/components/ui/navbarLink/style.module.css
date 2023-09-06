@@ -1,17 +1,17 @@
-.container{
-    height: fit-content;
+.container {
+  height: fit-content;
 }
 
-.container:hover{
-    cursor: pointer;
+.container:hover {
+  cursor: pointer;
 }
-.name{
-    font-size: 15px;
-    font-weight: 700;
-    color: white;
+.name {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
 }
 
-.iconContainer{
-    font-size: 26px;
-    color: white;
+.iconContainer {
+  font-size: 26px;
+  color: white;
 }

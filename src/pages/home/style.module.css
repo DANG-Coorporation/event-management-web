@@ -1,4 +1,14 @@
+.pageContainer {
+  align-items: flex-start;
+  justify-content: start;
+  padding:2rem 10rem;
+}
+
 .heading {
   font-weight: 100;
-  font-size: 12px;
+  font-size: 30px;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }

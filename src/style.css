@@ -4,9 +4,18 @@
   --txt-color-secondary: black;
 }
 
+.app-container {
+  min-height: 100dvh;
+  /* min-width: 100dvw; */
+  /* height: 100dvh; */
+  display: flex;
+  flex-direction: column;
+}
+
 .content-container {
   position: relative;
-  height: calc(100vh - 7rem);
+  /* min-height: calc(100dvh - 7rem - 400px);
+  flex-grow: 1; */
 }
 
 .app-darken {
@@ -20,4 +29,22 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.2s;
+}
+.leaflet-container {
+  width: 400px;
+  height: 300px;
+}
+.leaflet-control {
+  z-index: 0 !important;
+}
+.leaflet-pane {
+  z-index: 0 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 0 !important;
+}
+
+.tox .tox-editor-header {
+  z-index: 0 !important;
 }

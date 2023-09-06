@@ -12,15 +12,15 @@ export default function NavbarCategory({ icon, category, cardColor }) {
   return (
     <Card
       className={style.card}
-      px={"0.2rem"}
-      py={"0.3rem"}
+      px={"8px"}
+      py={"8px"}
       bg={cardColor}
       alignItems={"center"}
       borderRadius={"27px"}
       color={"white"}
       _hover={{ cursor: "pointer" }}
     >
-      <HStack>
+      <HStack gap={"2px"}>
         <div className={style.iconContainer}>{icon}</div>
         <span>{category}</span>
       </HStack>

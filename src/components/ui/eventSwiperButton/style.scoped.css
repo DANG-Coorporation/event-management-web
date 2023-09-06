@@ -1,0 +1,25 @@
+.navButton {
+  border-radius: 50%;
+  background-color: white;
+  width: fit-content;
+  position: absolute;
+  font-size: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.navButton:hover {
+  cursor: pointer;
+}
+
+.navbarButtonRight {
+  top: 45%;
+  left: 99%;
+}
+
+.navbarButtonLeft {
+  top: 45%;
+  right: 99%;
+}

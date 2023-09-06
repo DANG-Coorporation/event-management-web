@@ -1,0 +1,284 @@
+{
+  "events": [
+    {
+      "eventName": "KIMBUM OFFICIAL BEETWEN U AND ME",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-06 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "PLATINUM",
+          "price": 2000000,
+          "quota": "100",
+          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": ["KIMBUM", "K-POP"],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-03",
+          "end": "2023-09-03"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "SICC",
+        "city": "Bogor, Jawa Barat, Jawa, Indonesia",
+        "placeName": "Sentul International Convention Center (SICC), Jalan Jenderal Sudirman I, Sentul City, Cipambuan, Babakan Madang, Bogor, Jawa Barat, Jawa, 16710, Indonesia",
+        "coordinate": {
+          "lat": -6.55904545,
+          "long": 106.84808476436783
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": "3",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 3
+    },
+    {
+      "eventName": "BUSSINESS AND DEVELOPMENT EVENT BY BERKARYA.COM",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-06 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "PLATINUM",
+          "price": 50000,
+          "quota": "100",
+          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": ["Bussiness", "Development"],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-10-03",
+          "end": "2023-10-03"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "GBK",
+        "city": "Jakarta Pusat, DKI Jakarta, Jawa, Indonesia",
+        "placeName": "Stadion Gelora Bung Karno, Jl. Pintu Satu Senayan, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
+        "coordinate": {
+          "lat": -6.21781,
+          "long": 106.8015
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": "3",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 3
+    },
+    {
+      "eventName": "PESTA RAKYAT JAWA TIMUR",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-06 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "PLATINUM",
+          "price": 0,
+          "quota": "100",
+          "description": "",
+          "ticketType": "Gratis"
+        }
+      ],
+      "tag": ["PESTA", "RAKYAT"],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-03",
+          "end": "2023-09-03"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "GBT",
+        "city": "Surabaya, Jawa Timur, Jawa, Indonesia",
+        "placeName": "Stadion Gelora Bung Tomo, QJGF+P38, Benowo, Kec. Pakal, Surabaya, Jawa Timur 60196",
+        "coordinate": {
+          "lat": -7.22316,
+          "long": 112.62278
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": "3",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 3
+    },
+    {
+      "eventName": "ELLIOT BAND : SPECIAL FOR YOU",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-06 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "PLATINUM",
+          "price": 100000,
+          "quota": "100",
+          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": ["ELLIOT", "INDIE"],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-03",
+          "end": "2023-09-03"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "UMM DOME",
+        "city": "Malang, Jawa Timur, Jawa, Indonesia",
+        "placeName": "UMM DOME, Jl. Karyawiguna No.90, Babatan, Tegalgondo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152",
+        "coordinate": {
+          "lat": -6.55904545,
+          "long": 106.84808476436783
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": "3",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 3
+    },
+    {
+      "eventName": "KIMBUM OFFICIAL BEETWEN U AND ME",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-06 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "PLATINUM",
+          "price": 2000000,
+          "quota": "100",
+          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": ["KIMBUM", "K-POP"],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-03",
+          "end": "2023-09-03"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "SICC",
+        "city": "Bogor, Jawa Barat, Jawa, Indonesia",
+        "placeName": "Sentul International Convention Center (SICC), Jalan Jenderal Sudirman I, Sentul City, Cipambuan, Babakan Madang, Bogor, Jawa Barat, Jawa, 16710, Indonesia",
+        "coordinate": {
+          "lat": -6.55904545,
+          "long": 106.84808476436783
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": "3",
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "",
+      "isTermAndCondition": true,
+      "termAndCondition": "",
+      "id": 3
+    }
+  ]
+}

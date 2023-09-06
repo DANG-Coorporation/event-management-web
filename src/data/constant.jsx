@@ -1,5 +1,13 @@
 import { MdSportsBasketball, MdFastfood } from "react-icons/md";
 import { FaMusic, FaPaintBrush } from "react-icons/fa";
+import img1 from "../assets/banner.jpg";
+import img2 from "../assets/banner2.jpg";
+import img3 from "../assets/banner3.jpg";
+import img4 from "../assets/banner4.jpg";
+import img5 from "../assets/banner5.jpg";
+import img6 from "../assets/banner6.png";
+import ban1 from "../assets/banner-rec1.jpg";
+import ban2 from "../assets/banner-rec2.jpg";
 
 export const constant = Object.freeze({
   navbarCategories: [
@@ -63,4 +71,52 @@ export const constant = Object.freeze({
       ],
     },
   ],
+
+  eventDummy: [
+    {
+      eventImages: img1,
+      eventName: "Kim Bum Fanmeet",
+      eventDate: "2024-5-6",
+      evenPrice: 1000000,
+      eventLocation: "Jakarta",
+    },
+    {
+      eventImages: img2,
+      eventName: "Bussines an developmnet workshop by astra autopart",
+      eventDate: "2024-2-10",
+      evenPrice: 50000,
+      eventLocation: "Tuban",
+    },
+    {
+      eventImages: img3,
+      eventName: "Music Festival",
+      eventDate: "2024-1-2",
+      evenPrice: 1000000,
+      eventLocation: "Semarang",
+    },
+    {
+      eventImages: img4,
+      eventName: "Lemonade Express",
+      eventDate: "2023-5-6",
+      evenPrice: 20000,
+      eventLocation: "Lampung",
+    },
+    {
+      eventImages: img5,
+      eventName: "Man with a mission concert",
+      eventDate: "2023-5-6",
+      evenPrice: 1000000,
+      eventLocation: "Maluku",
+    },
+    {
+      eventImages: img6,
+      eventName: "Workshop carrer",
+      eventDate: "2023-5-6",
+      evenPrice: 1000000,
+      eventLocation: "Ternate",
+    },
+  ],
+
+  bannerDummy: [ban1, ban2],
+  fetchEventLink: "http://localhost:3000/events",
 });
