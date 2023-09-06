@@ -3,6 +3,7 @@ import style from "./style.module.css";
 import { MdLocationPin } from "react-icons/md";
 import propType from "prop-types";
 import { limitEventName } from "./limitEventName";
+import { useNavigate } from "react-router";
 
 AppCard.propTypes = {
   eventName: propType.string,
@@ -19,8 +20,11 @@ export default function AppCard({
   eventLocation,
   eventPicture,
 }) {
+
+  //EDITAN UTK AKSES ATTENDANCE PAGE
+  const navigate = useNavigate();
   return (
-    <Box className={style.card}>
+    <Box className={style.card} onClick={()=>{navigate("/attendancefirstpage")}}> 
       <Box className={style.bannerContainer}>
         <Image
           className={style.banner}
