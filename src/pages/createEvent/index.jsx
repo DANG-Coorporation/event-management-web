@@ -13,7 +13,7 @@ import { setDraftCreateEvent } from "../../app/features/createEvent/createEventS
 import { useEffect } from "react";
 export default function CreateEvent() {
   const createEvent = useSelector((state) => state.createEvent);
-  console.log("debug-event", createEvent);
+  // console.log("debug-event", createEvent);
   const dispatch = useDispatch();
 
   useEffect(() => {

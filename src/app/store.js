@@ -5,6 +5,7 @@ import deviceDarkenReducer from "./features/screenDarken/deviceDarkenSlicer";
 import createEventReducer from "./features/createEvent/createEventSlicer";
 import eventSwiperHoverDetectionReducer from "./features/eventSwiperHoverDetection/eventSwiperHoverDetection";
 import eventFetchReducer from "./features/eventFetching/eventFetchSlicer";
+import userReducer from "./features/users/userSlicer";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     createEvent: createEventReducer,
     swiperHoverDetection: eventSwiperHoverDetectionReducer,
     eventFetch: eventFetchReducer,
+    users: userReducer,
   },
 });

@@ -64,7 +64,7 @@ export default function EventSwiperDisplay({ variants, eventList }) {
             : { delay: 2500, disableOnInteraction: true }
         }
         onSlideChange={() => {
-          console.log(swiperRef.current.swiper.isBeginning);
+          // console.log(swiperRef.current.swiper.isBeginning);
         }}
       >
         {variants === "eventForYou"
