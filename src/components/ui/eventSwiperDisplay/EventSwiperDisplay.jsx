@@ -47,6 +47,7 @@ export default function EventSwiperDisplay({ variants, eventList }) {
       onMouseLeave={() => {
         setHover(false);
       }}
+      
     >
       <Swiper
         autoHeight={true}

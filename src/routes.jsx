@@ -11,6 +11,8 @@ import CreateEvent from "./pages/createEvent";
 import WebFooter from "./components/form/webFooter/webFooter";
 import PaymentTicketSelection from "./pages/purchase/purchase-ticket";
 import LoginPage from "./pages/Login/logIn";
+import Attendancefirstpage from "./components/form/attendanceFirstPage/attendanceFirstPage";
+import { Tabstiket } from "./components/ui/tabsTicket/tabsTiket";
 export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
@@ -22,6 +24,7 @@ export default function RouteList() {
           <Route path='/create-event' element={<CreateEvent />} />
           <Route path='/' element={<Home />} />
           <Route path='/discovery' element={<Discovery />} />
+          <Route path="/attendancefirstpage" element={<Attendancefirstpage/>}/>
           <Route path='*' element={<NotFound />} />
           <Route path='/payment' element={<PaymentTicketSelection />} />
           <Route path='/logIn' element={<LoginPage />} />
