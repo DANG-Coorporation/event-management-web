@@ -55,9 +55,9 @@ export default function CreateEventInformation() {
         // setCurrentCoverImage(result);
         dispatch(setOrganizerPhoto(result));
 
-        console.log("debug-upload", result);
+        // console.log("debug-upload", result);
       } catch (error) {
-        console.error("debug-error", error);
+        // console.error("debug-error", error);
       }
     }
     if (rawOrgImage) {
