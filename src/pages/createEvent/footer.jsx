@@ -1,16 +1,8 @@
-import {
-  Box,
-  Button,
-  HStack,
-  Spacer,
-  Text,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Button, HStack, Spacer, Text, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { resetData } from "../../app/features/createEvent/createEventSlicer";
 import { postNewEvent } from "../../api/createEvent";
+import { resetData } from "../../app/features/createEvent/createEventSlicer";
 export default function FooterCreateEvent() {
   const data = useSelector((state) => state.createEvent.data);
   const onSaveToDraft = () => {
