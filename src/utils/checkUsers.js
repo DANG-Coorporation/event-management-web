@@ -10,7 +10,8 @@ export const parseToken = () => {
   try {
     const token = localStorage.getItem("token");
     const decoded = atob(token);
-    return JSON.parse(decoded);
+    const result = JSON.parse(decoded);
+    return result;
   } catch (error) {
     console.log("debug error", error);
     return null;

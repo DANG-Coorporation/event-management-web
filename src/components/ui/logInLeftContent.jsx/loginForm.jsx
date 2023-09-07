@@ -13,21 +13,21 @@ import {
 import { MdVisibility } from "react-icons/md";
 import style from "./style.module.css";
 
-import { FcGoogle } from "react-icons/fc";
 import { useEffect, useRef, useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { useDispatch, useSelector } from "react-redux";
 import { checkCredential } from "../../../api/users";
 import {
   setLoginEmail,
   setLoginPassword,
 } from "../../../app/features/users/userSlicer";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, redirect } from "react-router-dom";
-import { storeToken } from "../../../utils/checkUsers";
+import { parseToken, storeToken } from "../../../utils/checkUsers";
+import { useNavigate } from "react-router";
 
 export default function LoginForm() {
   const credential = useSelector((state) => state.users.credential);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [isError, setIsError] = useState({
     username: true,
     password: true,
@@ -69,6 +69,13 @@ export default function LoginForm() {
 
   useEffect(() => {
     checkFormFilled();
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodeToken = parseToken();
+      if (decodeToken) {
+        navigate("/");
+      }
+    }
   }, []);
 
   const onClickLogin = () => {
@@ -98,7 +105,7 @@ export default function LoginForm() {
             position: "top",
             isClosable: true,
           });
-          window.location.href = "/";
+          navigate("/");
         })
         .catch((err) => {
           // console.log("debug-err", err);

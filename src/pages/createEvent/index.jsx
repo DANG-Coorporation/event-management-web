@@ -13,6 +13,7 @@ import { setDraftCreateEvent } from "../../app/features/createEvent/createEventS
 import { useEffect, useState } from "react";
 import { checkLogin } from "../../app/features/users/userSlicer";
 import { useNavigate } from "react-router-dom";
+import { parseToken } from "../../utils/checkUsers";
 export default function CreateEvent() {
   const createEvent = useSelector((state) => state.createEvent);
   // console.log("debug-event", createEvent);
@@ -21,6 +22,7 @@ export default function CreateEvent() {
   const users = useSelector((state) => state.users);
   const toast = useToast();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -35,15 +37,10 @@ export default function CreateEvent() {
       navigate("/logIn");
       setIsLoggedIn(false);
     } else {
+      console.log(parseToken());
       setIsLoggedIn(true);
     }
   }, []);
-
-  // useEffect(() => {
-  //   if (!users.isLogin) {
-  //     // window.location.href = "/logIn";
-  //   }
-  // }, [users]);
 
   useEffect(() => {
     const draftEvent = localStorage.getItem("draftEvent");
