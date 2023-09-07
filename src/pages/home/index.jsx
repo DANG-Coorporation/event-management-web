@@ -1,6 +1,6 @@
 import { Text, VStack } from "@chakra-ui/react";
 import style from "./style.module.css";
-import EventSwiperDisplay from "../../components/ui/eventSwiperDisplay/EventSwiperDisplay";
+import EventSwiperDisplay from "../../components/ui/eventSwiperDisplay/EventSwiperDisplay"
 import { useEffect } from "react";
 import { getEvents } from "../../app/features/eventFetching/eventFetchSlicer";
 import { useDispatch, useSelector } from "react-redux";

@@ -22,7 +22,7 @@ import { FcGoogle } from "react-icons/fc";
 
 export default function LoginFormLeftContent() {
   return (
-    <VStack className={style.container} align={"start"}>
+    <VStack className={style.container} align={"start"} >
       <Tabs className={style.tabContainer}>
         <TabList className={style.tabList}>
           <Tab

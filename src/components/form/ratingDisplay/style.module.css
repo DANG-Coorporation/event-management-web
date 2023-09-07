@@ -1,0 +1,32 @@
+.card {
+  height: 100%;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  width: 20%;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+}
+
+.rating {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.ratingMax {
+  font-size: 30px;
+  color: gray;
+}
+
+.ratingAmount {
+  color: gray;
+}

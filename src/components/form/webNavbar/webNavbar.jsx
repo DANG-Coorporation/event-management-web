@@ -14,6 +14,10 @@ export default function WebNavbar() {
   const { navbarCategories } = constant;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate("/logIn");
+  };
   return (
     <nav className={style.webNavbar}>
       <HStack className={style.parentStack}>
@@ -69,7 +73,13 @@ export default function WebNavbar() {
         <div className={style.rightWrapper}>
           <HStack>
             <div className={style.navlinkWrapper}>
-              <NavbarLink icon={<MdEvent />} name={"Buat Event"} />
+              <NavbarLink
+                icon={<MdEvent />}
+                name={"Buat Event"}
+                onClick={() => {
+                  navigate("/create-event");
+                }}
+              />
               <Box width={"1rem"}></Box>
               <NavbarLink
                 icon={<MdExplore />}
@@ -81,10 +91,10 @@ export default function WebNavbar() {
             </div>
 
             <div className={style.buttonsWrapper}>
-              <Button variant={"outline"} mr={"12px"}>
+              <Button variant={"outline"} mr={"12px"} onClick={onClick}>
                 Masuk
               </Button>
-              <Button variant={"solid"} bg={"#7887FF"}>
+              <Button variant={"solid"} bg={"#7887FF"} onClick={onClick}>
                 Daftar
               </Button>
             </div>

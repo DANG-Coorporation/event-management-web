@@ -7,7 +7,6 @@ import { store } from "./app/store.js";
 import { theme } from "./data/theme/theme";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import RouteList from "./routes.jsx";
 import "./style.css";
 import "./utils/iconPack";
 
