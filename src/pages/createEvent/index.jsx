@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { VStack, useToast } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import ModalDetailTicketCreateEvent from "../../components/form/createEvent/modalDetailTicket";
 import ModalEventCategory from "../../components/form/createEvent/modalEventCategory";
@@ -10,11 +10,40 @@ import FooterCreateEvent from "./footer";
 import style from "./style.module.css";
 import UploadCoverImage from "./uploadCoverImage";
 import { setDraftCreateEvent } from "../../app/features/createEvent/createEventSlicer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { checkLogin } from "../../app/features/users/userSlicer";
+import { useNavigate } from "react-router-dom";
 export default function CreateEvent() {
   const createEvent = useSelector((state) => state.createEvent);
   // console.log("debug-event", createEvent);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const users = useSelector((state) => state.users);
+  const toast = useToast();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast({
+        title: "Anda belum login",
+        description: "Silahkan login terlebih dahulu",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+        position: "top",
+      });
+      navigate("/logIn");
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   if (!users.isLogin) {
+  //     // window.location.href = "/logIn";
+  //   }
+  // }, [users]);
 
   useEffect(() => {
     const draftEvent = localStorage.getItem("draftEvent");
@@ -22,7 +51,7 @@ export default function CreateEvent() {
       dispatch(setDraftCreateEvent(JSON.parse(draftEvent)));
     }
   }, [dispatch]);
-  return (
+  return isLoggedIn ? (
     <>
       <VStack className={style["main-container"]}>
         <VStack className={style["main-info"]}>
@@ -37,5 +66,7 @@ export default function CreateEvent() {
       <ModalGetEventLocation />
       <ModalDetailTicketCreateEvent />
     </>
+  ) : (
+    <></>
   );
 }

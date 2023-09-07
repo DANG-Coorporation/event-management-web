@@ -34,8 +34,8 @@ export default function LoginFormLeftContent() {
         </TabList>
 
         <TabPanels py={"1rem"} h={"100%"}>
-          <TabPanel px={"0"}>
-            <LoginForm ref={loginRef} />
+          <TabPanel px={"0"} ref={loginRef}>
+            <LoginForm />
           </TabPanel>
           <TabPanel textAlign={"left"} px={0} height={"100%"}>
             <RegisterForm loginRef={loginRef} />

@@ -18,3 +18,18 @@ export const getUser = (id) => {
 const gerUserByUserName = (userName) => {
   return jsonServer.get(`/users?username=${userName}`);
 };
+
+const getByEmail = (email) => {
+  return jsonServer.get(`/users?email=${email}`);
+};
+
+export const checkCredential = async ({ username, password }) => {
+  const user = await gerUserByUserName(username);
+  if (user.data.length === 0) {
+    throw new Error("User not found");
+  }
+  if (user.data[0].password !== password) {
+    throw new Error("Password incorrect");
+  }
+  return user.data[0];
+};
