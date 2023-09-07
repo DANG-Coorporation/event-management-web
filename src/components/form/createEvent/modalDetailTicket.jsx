@@ -399,7 +399,6 @@ export default function ModalDetailTicketCreateEvent() {
                 </TabPanel>
               </TabPanels>
             </Tabs>
-            <Text>{JSON.stringify(editTicket)}</Text>
           </ModalBody>
 
           <ModalFooter></ModalFooter>

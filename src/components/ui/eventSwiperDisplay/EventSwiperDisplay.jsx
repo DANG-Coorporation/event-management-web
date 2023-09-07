@@ -10,12 +10,17 @@ import style from "./style.module.css";
 import EventSwiperButtons from "../eventSwiperButton/EventSwiperButton";
 import propType from "prop-types";
 import { constant } from "../../../data/constant";
+import {
+  convertNumberToCurrency,
+  getLowestPrice,
+} from "../../../utils/currency";
+import { convertDateTimeFormat } from "../../../utils/dateHelper";
 
 EventSwiperDisplay.propTypes = {
   variants: propType.string,
   eventList: propType.array,
 };
-
+import configTime from "../../../data/configTime";
 export default function EventSwiperDisplay({ variants, eventList }) {
   //   const { eventDummy } = constant;
   const { bannerDummy } = constant;
@@ -47,7 +52,6 @@ export default function EventSwiperDisplay({ variants, eventList }) {
       onMouseLeave={() => {
         setHover(false);
       }}
-      
     >
       <Swiper
         autoHeight={true}
@@ -56,7 +60,7 @@ export default function EventSwiperDisplay({ variants, eventList }) {
         pagination={variants === "eventForYou" ? false : true}
         modules={variants === "eventForYou" ? [] : [Pagination]}
         loop={variants === "eventForYou" ? false : true}
-        className="mySwiper"
+        className='mySwiper'
         ref={swiperRef}
         speed={400}
         autoplay={
@@ -75,10 +79,16 @@ export default function EventSwiperDisplay({ variants, eventList }) {
                   {
                     <AppCard
                       eventName={item.eventName}
-                      eventDate={item.eventTime.date.start}
+                      eventDate={convertDateTimeFormat(
+                        item.eventTime.date.start,
+                        configTime.iso_date,
+                        configTime.date_month_full_string
+                      )}
                       eventLocation={item.address.city.split(",")[0]}
                       eventPicture={item.coverImage}
-                      eventPrice={item.tickets[0].price.toString()}
+                      eventPrice={convertNumberToCurrency(
+                        getLowestPrice(item.tickets)
+                      )}
                     />
                   }
                 </SwiperSlide>

@@ -18,14 +18,14 @@ export default function FooterCreateEvent() {
   };
   const dispatch = useDispatch();
   const [isSend, setIsSend] = useState(false);
-
   const onSend = () => {
     setIsSend(true);
   };
-
+  const toast = useToast();
   const offSend = () => {
     setIsSend(false);
   };
+  const [errorMessages, setErrorMessages] = useState("");
 
   useEffect(() => {
     async function asyncPostEvent() {
@@ -53,14 +53,65 @@ export default function FooterCreateEvent() {
         });
       }
     }
+    let tempErrorMessages = errorMessages;
+    if (data.eventName === "")
+      tempErrorMessages = "Nama event tidak boleh kosong";
+    else if (data.coverImage === "")
+      tempErrorMessages = "Cover image tidak boleh kosong";
+    else if (data.organizerPhoto === "")
+      tempErrorMessages = "Organizer photo tidak boleh kosong";
+    else if (data.formatIndex === null)
+      tempErrorMessages = "Format tidak boleh kosong";
+    else if (data.topicIndex === null)
+      tempErrorMessages = "Topik tidak boleh kosong";
+    else if (data.tickets.length === 0)
+      tempErrorMessages = "Ticket tidak boleh kosong";
+    else if (data.tag.length === 0)
+      tempErrorMessages = "Tag tidak boleh kosong";
+    else if (data.eventTime.date.start === "")
+      tempErrorMessages = "Tanggal event tidak boleh kosong";
+    else if (data.eventTime.date.end === "")
+      tempErrorMessages = "Tanggal event tidak boleh kosong";
+    else if (data.eventTime.time.start === "")
+      tempErrorMessages = "Waktu event tidak boleh kosong";
+    else if (data.eventTime.time.end === "")
+      tempErrorMessages = "Waktu event tidak boleh kosong";
+    else if (data.address.name === "")
+      tempErrorMessages = "Nama tempat tidak boleh kosong";
+    else if (data.address.city === "")
+      tempErrorMessages = "Kota tidak boleh kosong";
+    else if (data.address.placeName === "")
+      tempErrorMessages = "Nama tempat tidak boleh kosong";
+    else if (data.address.coordinate.lat === "")
+      tempErrorMessages = "Koordinat tidak boleh kosong";
+    else if (data.address.coordinate.long === "")
+      tempErrorMessages = "Koordinat tidak boleh kosong";
+    else if (data.eventDescription === "")
+      tempErrorMessages = "Deskripsi event tidak boleh kosong";
+    else if (data.isTermAndCondition === false)
+      tempErrorMessages = "Anda harus menyetujui syarat dan ketentuan";
 
-    if (isSend) {
+    setErrorMessages(tempErrorMessages);
+    console.log(errorMessages);
+    if (isSend && !tempErrorMessages) {
       asyncPostEvent();
-      offSend();
     }
+    offSend();
   }, [isSend]);
 
-  const toast = useToast();
+  useEffect(() => {
+    if (errorMessages !== "") {
+      toast({
+        title: "Error",
+        description: errorMessages,
+        status: "error",
+        duration: 1000,
+        isClosable: true,
+      });
+    }
+    setErrorMessages("");
+  }, [errorMessages]);
+
   return (
     <>
       <Box

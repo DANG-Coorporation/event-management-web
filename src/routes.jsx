@@ -24,7 +24,7 @@ export default function RouteList() {
           <Route path='/create-event' element={<CreateEvent />} />
           <Route path='/' element={<Home />} />
           <Route path='/discovery' element={<Discovery />} />
-          <Route path="/attendancefirstpage" element={<Attendancefirstpage/>}/>
+          <Route path='/event/:id' element={<Attendancefirstpage />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/payment' element={<PaymentTicketSelection />} />
           <Route path='/logIn' element={<LoginPage />} />
