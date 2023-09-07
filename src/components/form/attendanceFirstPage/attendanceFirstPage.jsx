@@ -1,75 +1,137 @@
-import React from "react";
+import { AtSignIcon, CalendarIcon, TimeIcon } from "@chakra-ui/icons";
 import {
-  ChakraBaseProvider,
-  HStack,
-  VStack,
-  Image,
   Box,
-  Spacer,
-  List,
-  ListItem,
-  ListIcon,
   Heading,
+  Image,
+  List,
+  ListIcon,
+  ListItem,
+  Spacer,
   Text,
+  VStack,
 } from "@chakra-ui/react";
-import { CalendarIcon, AtSignIcon, TimeIcon } from "@chakra-ui/icons";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { fetchEventById } from "../../../app/features/eventDetail/eventDetailSlicer";
+import { getEvents } from "../../../app/features/eventFetching/eventFetchSlicer";
+import configTime from "../../../data/configTime";
+import LoadingPage from "../../../pages/loading/loadingPage";
+import { convertDateTimeFormat } from "../../../utils/dateHelper";
+import EventSwiperDisplay from "../../ui/eventSwiperDisplay/EventSwiperDisplay";
 import { Tabstiket } from "../../ui/tabsTicket/tabsTiket";
 import style from "./style.module.css";
-import EventSwiperDisplay from "../../ui/eventSwiperDisplay/EventSwiperDisplay";
-import { useEffect } from "react";
-import { getEvents } from "../../../app/features/eventFetching/eventFetchSlicer";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function Attendancefirstpage() {
-    const dispatch = useDispatch();
-    const loading = useSelector((state) => state.eventFetch.loading);
-    const eventList = useSelector((state) => state.eventFetch.events);
-  
-    useEffect(() => {
-      dispatch(getEvents());
-    }, []);
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.eventFetch.loading);
+  const eventList = useSelector((state) => state.eventFetch.events);
+  const detailEvent = useSelector((state) => state.detailEvent);
+  const [detail, setDetail] = useState({});
+  // const [eventTime, setEventTime] = useState({});
+  const [datePeriod, setDatePeriod] = useState("");
+  const [timePeriod, setTimePeriod] = useState("");
+  const { id } = useParams();
+  // console.log("debug-detail", detailEvent);
+  useEffect(() => {
+    dispatch(fetchEventById(id));
+    dispatch(getEvents());
+  }, [dispatch, id]);
 
-  return (
+  const convertDate = (date) => {
+    return convertDateTimeFormat(
+      date,
+      configTime.iso_date,
+      configTime.date_month_full_string
+    );
+  };
+  useEffect(() => {
+    if (detailEvent.pageDetail) {
+      setDetail(detailEvent.pageDetail);
+      const eventTime = detailEvent.pageDetail.eventTime;
 
-      <VStack maxWidth="100%" maxHeight="100%" spacing="10px"  paddingLeft='5%' paddingRight='5%'>
-        <Spacer />
-        <Box>
-          <Image
-            src="https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230823110754.jpg"
-            alt="event-banner"
-          />
-        </Box>
-        <Box borderWidth="1px" borderRadius="md" padding="4">
-          <List
-            spacing="1%"
-            fontSize={{ base: "12px", md: "16px", lg: "16px" }}
+      if (eventTime) {
+        const dateStart = eventTime.date?.start;
+        const dateEnd = eventTime.date?.end;
+
+        if (dateStart && dateEnd) {
+          if (dateStart === dateEnd) {
+            setDatePeriod(convertDate(dateStart));
+          } else {
+            setDatePeriod(
+              convertDate(dateStart) + " - " + convertDate(dateEnd)
+            );
+          }
+          setTimePeriod(eventTime.time?.start + " - " + eventTime.time?.end);
+        }
+      }
+    }
+  }, [detailEvent]);
+
+  return !detailEvent.loading ? (
+    <VStack
+      maxWidth='100%'
+      maxHeight='100%'
+      spacing='10px'
+      paddingLeft='5%'
+      paddingRight='5%'
+    >
+      <Spacer />
+      <Box
+        borderRadius={"10px"}
+        width={{ base: "100%", md: "100%", lg: "800px" }}
+      >
+        <Image
+          src={detail.coverImage}
+          alt='event-banner'
+          border={"1px solid #E2E8F0"}
+          borderRadius={"20px"}
+        />
+      </Box>
+      <Box
+        borderWidth='1px'
+        borderRadius='md'
+        width={{ base: "100%", md: "100%", lg: "800px" }}
+        padding={"10px"}
+      >
+        <List
+          spacing='1%'
+          fontSize={{ base: "12px", md: "16px", lg: "16px" }}
+          width={"100%"}
+        >
+          <Heading
+            fontSize={{ base: "12px", md: "24px", lg: "24px" }}
+            fontWeight='bold'
           >
-            <Heading
-              fontSize={{ base: "12px", md: "24px", lg: "24px" }}
-              fontWeight="bold"
-            >
-              2023 ASIA FAN MEETING IN JAKARTA: KIMBUM (Between U and Me)
-            </Heading>
-            <ListItem span="2">
-              <ListIcon as={CalendarIcon} color="blue.500" marginRight="3%" />
-              03 Sep 2023
-            </ListItem>
-            <ListItem>
-              <ListIcon as={TimeIcon} color="blue.500" marginRight="3%" />
-              19:00 - 22:00 WIB
-            </ListItem>
-            <ListItem>
-              <ListIcon as={AtSignIcon} color="blue.500" marginRight="3%" />
-              Grand Ballroom - Kempinski Hotel, DKI Jakarta
-            </ListItem>
-          </List>
-        </Box>
-        <Tabstiket/>
-        <Text className={style.heading}>
-        POPULER DI DEKATMU
-        </Text>
-        <EventSwiperDisplay variants={"eventForYou"} eventList={eventList} />
-        <Spacer/>
-      </VStack>
+            {detail.eventName}
+          </Heading>
+          <ListItem span='2'>
+            <ListIcon as={CalendarIcon} color='blue.500' marginRight='3%' />
+            {datePeriod ? datePeriod : ""}
+          </ListItem>
+          <ListItem>
+            <ListIcon as={TimeIcon} color='blue.500' marginRight='3%' />
+            {timePeriod ? timePeriod : ""}
+          </ListItem>
+          <ListItem>
+            <ListIcon as={AtSignIcon} color='blue.500' marginRight='3%' />
+            {detail.address && detail.address.placeName
+              ? detail.address.placeName.split(",")[0] +
+                "  |  " +
+                detail.address.city.split(",")[0]
+              : ""}
+          </ListItem>
+        </List>
+      </Box>
+      <Tabstiket
+        description={detail.eventDescription ?? ""}
+        termCondition={detail.termAndCondition ?? ""}
+      />
+      <Text className={style.heading}>POPULER DI DEKATMU</Text>
+      <EventSwiperDisplay variants={"eventForYou"} eventList={eventList} />
+      <Spacer />
+    </VStack>
+  ) : (
+    <LoadingPage />
   );
 }

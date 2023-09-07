@@ -1,18 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/home";
-import NotFound from "./pages/notfound";
-import WebNavbar from "./components/form/webNavbar/webNavbar";
-import "./style.css";
 import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import Discovery from "./pages/dicovery/discovery";
-import CreateEvent from "./pages/createEvent";
-
-import WebFooter from "./components/form/webFooter/webFooter";
-import PaymentTicketSelection from "./pages/purchase/purchase-ticket";
-import LoginPage from "./pages/Login/logIn";
+import { Route, Routes } from "react-router-dom";
 import Attendancefirstpage from "./components/form/attendanceFirstPage/attendanceFirstPage";
-import { Tabstiket } from "./components/ui/tabsTicket/tabsTiket";
+import WebFooter from "./components/form/webFooter/webFooter";
+import WebNavbar from "./components/form/webNavbar/webNavbar";
+import LoginPage from "./pages/Login/logIn";
+import CreateEvent from "./pages/createEvent";
+import Discovery from "./pages/dicovery/discovery";
+import Home from "./pages/home";
+import LoadingPage from "./pages/loading/loadingPage";
+import NotFound from "./pages/notfound";
+import PaymentTicketSelection from "./pages/purchase/purchase-ticket";
+import "./style.css";
 export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
@@ -28,6 +27,7 @@ export default function RouteList() {
           <Route path='*' element={<NotFound />} />
           <Route path='/payment' element={<PaymentTicketSelection />} />
           <Route path='/logIn' element={<LoginPage />} />
+          <Route path='/loading' element={<LoadingPage />} />
         </Routes>
         <Box
           className='app-darken'
