@@ -23,11 +23,12 @@ export default function UploadCoverImage() {
   useEffect(() => {
     async function asyncUploadCoverImage() {
       try {
+        if (!rawCoverImage) return;
         const result = await uploadFile(rawCoverImage);
         setCurrentCoverImage(result);
         dispatch(setCoverImage(result));
 
-        console.log("debug-upload", result);
+        // console.log("debug-upload", result);
       } catch (error) {
         console.error("debug-error", error);
       }

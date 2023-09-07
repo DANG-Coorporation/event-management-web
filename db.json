@@ -19,7 +19,10 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": ["KIMBUM", "K-POP"],
+      "tag": [
+        "KIMBUM",
+        "K-POP"
+      ],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -75,7 +78,10 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": ["Bussiness", "Development"],
+      "tag": [
+        "Bussiness",
+        "Development"
+      ],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -131,7 +137,10 @@
           "ticketType": "Gratis"
         }
       ],
-      "tag": ["PESTA", "RAKYAT"],
+      "tag": [
+        "PESTA",
+        "RAKYAT"
+      ],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -187,7 +196,10 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": ["ELLIOT", "INDIE"],
+      "tag": [
+        "ELLIOT",
+        "INDIE"
+      ],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -243,7 +255,10 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": ["KIMBUM", "K-POP"],
+      "tag": [
+        "KIMBUM",
+        "K-POP"
+      ],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -278,6 +293,29 @@
       "eventDescription": "",
       "isTermAndCondition": true,
       "termAndCondition": "",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "fullName": "123",
+      "username": "22222",
+      "password": "2323232232",
+      "email": "scriptgalih@gmail.com",
+      "id": 1
+    },
+    {
+      "fullName": "123",
+      "username": "222222",
+      "password": "2323232232",
+      "email": "scriptgalih@gmail.com",
+      "id": 2
+    },
+    {
+      "fullName": "galih",
+      "username": "galih",
+      "password": "galihajalah",
+      "email": "galih@gmail.com",
       "id": 3
     }
   ]

@@ -33,7 +33,7 @@ export default function WebNavbar() {
               w={"100%"}
               borderColor={"transparent"}
               focusBorderColor={"transparent"}
-              placeholder="Cari Event gaes"
+              placeholder='Cari Event gaes'
               height={"2.2rem"}
               onFocus={() => {
                 dispatch(setScreenDarkenState(true));
@@ -69,7 +69,13 @@ export default function WebNavbar() {
         <div className={style.rightWrapper}>
           <HStack>
             <div className={style.navlinkWrapper}>
-              <NavbarLink icon={<MdEvent />} name={"Buat Event"} />
+              <NavbarLink
+                icon={<MdEvent />}
+                name={"Buat Event"}
+                onClick={() => {
+                  navigate("/create-event");
+                }}
+              />
               <Box width={"1rem"}></Box>
               <NavbarLink
                 icon={<MdExplore />}
