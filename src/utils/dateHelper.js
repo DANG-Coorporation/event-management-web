@@ -18,4 +18,3 @@ export const convertDateTimeFormat = (datetime, formatFrom, formatTo) => {
   const dt = DateTime.fromFormat(datetime, formatFrom);
   return dt.toFormat(formatTo);
 };
-

@@ -1,14 +1,14 @@
 import { Text, VStack } from "@chakra-ui/react";
 import style from "./style.module.css";
-import StarRating from "../../ui/starRating/starRating";
-import RatingCard from "../../ui/ratingCard/ratingCard";
+import StarRating from "../starRating/starRating";
+import RatingCard from "../ratingCard/ratingCard";
 
 export default function RatingDisplay() {
   return (
     <RatingCard>
-      <VStack className={style.container} justify={"center"}>
+      <VStack className={style.container}>
         <Text as={"span"} className={style.header}>
-          Overall Rating
+          Rating Breakdown
         </Text>
         <Text as={"span"} className={style.rating}>
           4

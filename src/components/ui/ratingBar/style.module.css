@@ -1,8 +1,17 @@
-.container{
-    width: 100%;
+.container {
+  width: 100%;
 }
 
 .starImage {
   color: #5669ff;
   font-size: 22px;
+}
+
+.ratingProgressBar {
+  border-radius: 18px;
+}
+
+.starCount,
+.reviewAmountperStar {
+  color: grey;
 }
