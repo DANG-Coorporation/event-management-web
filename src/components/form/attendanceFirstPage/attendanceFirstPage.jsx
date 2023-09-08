@@ -28,11 +28,9 @@ export default function Attendancefirstpage() {
   const eventList = useSelector((state) => state.eventFetch.events);
   const detailEvent = useSelector((state) => state.detailEvent);
   const [detail, setDetail] = useState({});
-  // const [eventTime, setEventTime] = useState({});
   const [datePeriod, setDatePeriod] = useState("");
   const [timePeriod, setTimePeriod] = useState("");
   const { uniqId } = useParams();
-  // console.log("debug-detail", detailEvent);
   useEffect(() => {
     dispatch(fetchEventById(uniqId));
     dispatch(getEvents());

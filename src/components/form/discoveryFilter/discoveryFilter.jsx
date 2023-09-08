@@ -21,7 +21,7 @@ export default function DiscoveryFilter({ items }) {
         if (index % 2 === 0 || index === items.length - 1) {
           return (
             <AccordionFilter
-              key={index}
+              key={`AccordionFilter-${index}`}
               title={item.title}
               filterItems={item.FilterItems}
             />

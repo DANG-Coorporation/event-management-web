@@ -20,20 +20,24 @@ export default function AccordionFilter({ title, filterItems }) {
     <Box className={style.accordionContainer}>
       <Accordion
         className={style.accordion}
-        allowMultiple
+        // allowMultiple
         allowToggle
       >
         <AccordionItem className={style.accordionItem}>
           <AccordionButton>
-            <Box className={style.title} as="span">
-              {title}
+            <Box className={style.title} as='span'>
+              {`${title}`}
             </Box>
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel>
-            {
-                filterItems.map((item, index) => <AccordionFilterItem key={index} itemName={item}/>)
-            }
+            {filterItems.map((item, index) => (
+              <AccordionFilterItem
+                key={index}
+                keyItem={`AccordionFilterItem-${index}`}
+                itemName={item}
+              />
+            ))}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

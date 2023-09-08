@@ -1,9 +1,6 @@
 export const checkIsLogedIn = () => {
   const token = localStorage.getItem("token");
-  if (token) {
-    return true;
-  }
-  return false;
+  return !!token;
 };
 
 export const parseToken = () => {
@@ -13,7 +10,7 @@ export const parseToken = () => {
     const result = JSON.parse(decoded);
     return result;
   } catch (error) {
-    console.log("debug error", error);
+    console.error("debug error", error);
     return null;
   }
 };
@@ -22,7 +19,7 @@ export const deleteToken = () => {
   try {
     localStorage.removeItem("token");
   } catch (error) {
-    console.log("debug error", error);
+    console.error("debug error", error);
   }
 };
 
@@ -35,7 +32,7 @@ export const storeToken = (data) => {
     const token = encodeToken(data);
     localStorage.setItem("token", token);
   } catch (error) {
-    console.log("debug error", error);
+    console.error("debug error", error);
     return null;
   }
 };

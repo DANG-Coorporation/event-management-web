@@ -47,7 +47,6 @@ export const fetchReferralCode = createAsyncThunk(
   async (referralCode) => {
     try {
       const response = await checkReferraCode(referralCode);
-      console.log(response);
       return response;
     } catch (err) {
       return null;
@@ -109,6 +108,9 @@ const userSlice = createSlice({
     setIsLogin(state, action) {
       state.isLogin = action.payload;
     },
+    resetReferralCheckCount(state) {
+      state.referralCheckCount = 0;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createUser.fulfilled, (state, action) => {
@@ -153,6 +155,7 @@ export const {
   setLoginPassword,
   resetReferralCode,
   setIsLogin,
+  resetReferralCheckCount,
 } = userSlice.actions;
 
 export default userSlice.reducer;

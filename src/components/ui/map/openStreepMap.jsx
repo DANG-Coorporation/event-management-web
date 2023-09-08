@@ -10,8 +10,6 @@ export default function OpenStreetMapLoader() {
   const long = useSelector(
     (state) => state.createEvent.data.address.coordinate.long
   );
-  const address = useSelector((state) => state.createEvent.data.address);
-  // console.log("debug-map", address);
   const mapDimensions = { width: "400px", height: "300px" };
   const center = {
     lat: lat,

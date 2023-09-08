@@ -3,17 +3,16 @@ import style from "./style.module.css";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/input";
 import { MdSearch, MdEvent, MdExplore } from "react-icons/md";
 import NavbarLink from "../../ui/navbarLink/NavbarLink";
-import { Box } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import NavbarCategory from "../../ui/navbarCategory/NavbarCategory";
 import { constant } from "../../../data/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setScreenDarkenState } from "../../../app/features/screenDarken/deviceDarkenSlicer";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { setIsLogin } from "../../../app/features/users/userSlicer";
 import NavbarLoginUtil from "../../ui/navbarLoginUtils/navbarLoginUtil";
 import { checkIsLogedIn, parseToken } from "../../../utils/checkUsers";
-import { useDisclosure } from "@chakra-ui/react";
 
 export default function WebNavbar() {
   const { navbarCategories } = constant;
@@ -22,17 +21,19 @@ export default function WebNavbar() {
   const isLogin = useSelector((state) => state.users.isLogin);
   let userName = useRef("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [searchString, setSearchString] = useState("");
   useEffect(() => {
-    console.log(isLogin);
     if (checkIsLogedIn()) {
       dispatch(setIsLogin(true));
       userName.current = parseToken().username;
-      console.log(userName.current);
     } else {
       dispatch(setIsLogin(false));
     }
   }, [location.pathname]);
+
+  const handlerSearch = () => {
+    navigate(`/discovery?q=${searchString}`);
+  };
 
   return (
     <nav className={style.webNavbar}>
@@ -53,13 +54,22 @@ export default function WebNavbar() {
               w={"100%"}
               borderColor={"transparent"}
               focusBorderColor={"transparent"}
-              placeholder="Cari Event gaes"
+              placeholder='Cari Event gaes'
               height={"2.2rem"}
               onFocus={() => {
                 dispatch(setScreenDarkenState(true));
               }}
               onBlur={() => {
                 dispatch(setScreenDarkenState(false));
+              }}
+              onChange={(e) => {
+                setSearchString(e.target.value);
+              }}
+              // onClick={handlerSearch}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  handlerSearch();
+                }
               }}
             ></Input>
             <InputRightAddon
@@ -68,6 +78,8 @@ export default function WebNavbar() {
               bg={"#7887ff"}
               borderColor={"transparent"}
               fontSize={"2rem"}
+              cursor={"pointer"}
+              onClick={handlerSearch}
             >
               <MdSearch className={style.searchIcon} />
             </InputRightAddon>

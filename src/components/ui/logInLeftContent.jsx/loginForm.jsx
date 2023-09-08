@@ -91,7 +91,6 @@ export default function LoginForm() {
     } else {
       checkCredential(credential)
         .then((res) => {
-          // console.log("debug-res", res);
           storeToken({
             id: res.id,
             fullName: res.fullName,
@@ -108,7 +107,6 @@ export default function LoginForm() {
           navigate("/");
         })
         .catch((err) => {
-          // console.log("debug-err", err);
           toast({
             title: err.message ?? "Terjadi kesalahan",
             status: "error",
