@@ -1,6 +1,7 @@
 {
   "events": [
     {
+      "uniqId": "2023-asia-fan-meeting-in-jakarta-dp8k5c",
       "eventName": "2023 ASIA FAN MEETING IN JAKARTA",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/8b6ab3e0-6e5a-4b34-867c-4f5f98dab982-20230823110754.jpg",
       "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/88fbc8f5-b049-4e5e-b389-ac9c8e301a0f-bitcoin.png",
@@ -70,6 +71,7 @@
       "id": 1
     },
     {
+      "uniqId": "laksamana-malahayati-jalasena-bw6x7d",
       "eventName": "Laksamana Malahayati - Jalasena",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6b8624f0-caea-42d1-bc2c-76d60bb825af-20230814030728.jpeg",
       "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/4c2922d7-4067-456c-8bc7-0fd1a2b223d0-Overwatch_circle_logo.svg.png",
@@ -139,7 +141,8 @@
       "id": 2
     },
     {
-      "eventName": "Indonesia united in worship ",
+      "uniqId": "indonesia-united-in-worship-hr9t2e",
+      "eventName": "Indonesia united in worship",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/25b6fb3d-1763-4fda-9e9d-1751077e5152-20230901124356_64f17a1c3e9cd.jpg",
       "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/1b181239-c00b-454c-b153-b9d7b38b18fb-4029_pepe_omegalul.gif",
       "formatIndex": "1",
@@ -210,6 +213,7 @@
       "id": 3
     },
     {
+      "uniqId": "mastering-the-art-of-elevator-pitch-8x9k4d",
       "eventName": "MASTERING THE ART OF ELEVATOR PITCH",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/38de1fda-b695-4c8a-ba60-68cb53f4c5a4-20230728133300_64c3611caa148.jpg",
       "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6413458f-4c14-4c54-8f8e-463a8c39553d-Overwatch_circle_logo.svg.png",
@@ -280,6 +284,7 @@
       "id": 4
     },
     {
+      "uniqId": "richard-mark-the-songwriter-tour-6x9k4d",
       "eventName": "RICHARD MARK - The Songwriter Tour",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/7ac8c2d7-ab77-4d18-8682-ca871bb2a5a3-20230822010811.png",
       "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/30d7c92a-3108-4b8b-a34d-77f92bc67335-Overwatch_circle_logo.svg.png",
@@ -367,7 +372,10 @@
       "username": "galih",
       "password": "galihajalah",
       "email": "scriptgalih@gmail.com",
+      "referralCode": "y7xffv",
       "id": 1
     }
+  ],
+  "referrallinks": [
   ]
 }
