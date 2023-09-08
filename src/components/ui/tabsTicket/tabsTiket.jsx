@@ -44,15 +44,13 @@ export function Tabstiket({ description, termCondition }) {
             <Text fontSize='lg' fontWeight='bold'>
               Deskripsi
             </Text>
-            <div
-              dangerouslySetInnerHTML={renderHTML(
-                detailEvent.eventDescription ?? ""
-              )}
-              style={{
-                width: "100%",
-                margin: "0 auto",
-              }}
-            />
+            {detailEvent.eventDescription && (
+              <div
+                dangerouslySetInnerHTML={renderHTML(
+                  detailEvent.eventDescription
+                )}
+              />
+            )}
             <Divider />
             {detailEvent.isTermAndCondition && (
               <>
@@ -60,15 +58,13 @@ export function Tabstiket({ description, termCondition }) {
                 <Text fontSize='lg' fontWeight='bold'>
                   Syarat & Ketentuan
                 </Text>
-                <div
-                  dangerouslySetInnerHTML={renderHTML(
-                    detailEvent.termAndCondition ?? ""
-                  )}
-                  style={{
-                    width: "100%",
-                    margin: "0 auto",
-                  }}
-                />
+                {detailEvent.termAndCondition && (
+                  <div
+                    dangerouslySetInnerHTML={renderHTML(
+                      detailEvent.termAndCondition
+                    )}
+                  />
+                )}
               </>
             )}
           </VStack>

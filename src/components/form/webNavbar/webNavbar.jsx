@@ -9,7 +9,7 @@ import { constant } from "../../../data/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setScreenDarkenState } from "../../../app/features/screenDarken/deviceDarkenSlicer";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { setIsLogin } from "../../../app/features/users/userSlicer";
 import NavbarLoginUtil from "../../ui/navbarLoginUtils/navbarLoginUtil";
 import { checkIsLogedIn, parseToken } from "../../../utils/checkUsers";
@@ -21,7 +21,7 @@ export default function WebNavbar() {
   const isLogin = useSelector((state) => state.users.isLogin);
   let userName = useRef("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [searchString, setSearchString] = useState("");
   useEffect(() => {
     if (checkIsLogedIn()) {
       dispatch(setIsLogin(true));
@@ -30,6 +30,10 @@ export default function WebNavbar() {
       dispatch(setIsLogin(false));
     }
   }, [location.pathname]);
+
+  const handlerSearch = () => {
+    navigate(`/discovery?q=${searchString}`);
+  };
 
   return (
     <nav className={style.webNavbar}>
@@ -58,6 +62,15 @@ export default function WebNavbar() {
               onBlur={() => {
                 dispatch(setScreenDarkenState(false));
               }}
+              onChange={(e) => {
+                setSearchString(e.target.value);
+              }}
+              // onClick={handlerSearch}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  handlerSearch();
+                }
+              }}
             ></Input>
             <InputRightAddon
               h={"2.2rem"}
@@ -65,6 +78,8 @@ export default function WebNavbar() {
               bg={"#7887ff"}
               borderColor={"transparent"}
               fontSize={"2rem"}
+              cursor={"pointer"}
+              onClick={handlerSearch}
             >
               <MdSearch className={style.searchIcon} />
             </InputRightAddon>

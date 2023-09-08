@@ -18,7 +18,6 @@ export default function CreateEvent() {
   const toast = useToast();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    console.log("masuk");
     const token = localStorage.getItem("token");
     if (!token) {
       toast({
