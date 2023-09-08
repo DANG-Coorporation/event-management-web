@@ -3,17 +3,37 @@ import style from "./style.module.css";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/input";
 import { MdSearch, MdEvent, MdExplore } from "react-icons/md";
 import NavbarLink from "../../ui/navbarLink/NavbarLink";
-import { Button, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import NavbarCategory from "../../ui/navbarCategory/NavbarCategory";
 import { constant } from "../../../data/constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setScreenDarkenState } from "../../../app/features/screenDarken/deviceDarkenSlicer";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { setIsLogin } from "../../../app/features/users/userSlicer";
+import NavbarLoginUtil from "../../ui/navbarLoginUtils/navbarLoginUtil";
+import { checkIsLogedIn, parseToken } from "../../../utils/checkUsers";
+import { useDisclosure } from "@chakra-ui/react";
 
 export default function WebNavbar() {
   const { navbarCategories } = constant;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLogin = useSelector((state) => state.users.isLogin);
+  let userName = useRef("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    console.log(isLogin);
+    if (checkIsLogedIn()) {
+      dispatch(setIsLogin(true));
+      userName.current = parseToken().username;
+      console.log(userName.current);
+    } else {
+      dispatch(setIsLogin(false));
+    }
+  }, [location.pathname]);
+
   return (
     <nav className={style.webNavbar}>
       <HStack className={style.parentStack}>
@@ -33,7 +53,7 @@ export default function WebNavbar() {
               w={"100%"}
               borderColor={"transparent"}
               focusBorderColor={"transparent"}
-              placeholder='Cari Event gaes'
+              placeholder="Cari Event gaes"
               height={"2.2rem"}
               onFocus={() => {
                 dispatch(setScreenDarkenState(true));
@@ -67,7 +87,13 @@ export default function WebNavbar() {
         </VStack>
 
         <div className={style.rightWrapper}>
-          <HStack>
+          <Box
+            h={"2.2rem"}
+            w={"100%"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
             <div className={style.navlinkWrapper}>
               <NavbarLink
                 icon={<MdEvent />}
@@ -76,7 +102,7 @@ export default function WebNavbar() {
                   navigate("/create-event");
                 }}
               />
-              <Box width={"1rem"}></Box>
+              <Box width={"2rem"}></Box>
               <NavbarLink
                 icon={<MdExplore />}
                 name={"Telusuri Event"}
@@ -85,16 +111,20 @@ export default function WebNavbar() {
                 }}
               />
             </div>
-
-            <div className={style.buttonsWrapper}>
-              <Button variant={"outline"} mr={"12px"}>
-                Masuk
-              </Button>
-              <Button variant={"solid"} bg={"#7887FF"}>
-                Daftar
-              </Button>
-            </div>
-          </HStack>
+          </Box>
+          {isLogin ? (
+            <NavbarLoginUtil
+              isLogin={isLogin}
+              userData={{ userName: userName.current }}
+              disclosure={{ isOpen, onOpen, onClose }}
+            />
+          ) : (
+            <NavbarLoginUtil
+              navigate={() => {
+                navigate("/logIn");
+              }}
+            />
+          )}
         </div>
       </HStack>
     </nav>

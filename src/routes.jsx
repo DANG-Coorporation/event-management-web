@@ -16,9 +16,9 @@ export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
   return (
-    <Box className='app-container'>
+    <Box className="app-container">
       <WebNavbar />
-      <Box className='content-container'>
+      <Box className="content-container">
         <Routes>
           <Route path='/create-event' element={<CreateEvent />} />
           <Route path='/' element={<Home />} />
@@ -30,7 +30,7 @@ export default function RouteList() {
           <Route path='/loading' element={<LoadingPage />} />
         </Routes>
         <Box
-          className='app-darken'
+          className="app-darken"
           display={isBlacken ? "block" : "none"}
           bg={isBlacken ? "rgba(0, 0, 0, 0.4)" : "transparent"}
         />
