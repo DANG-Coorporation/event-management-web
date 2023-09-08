@@ -106,6 +106,9 @@ const userSlice = createSlice({
       state.isValidReferralCode = false;
       state.referralCode = "";
     },
+    setIsLogin(state, action) {
+      state.isLogin = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createUser.fulfilled, (state, action) => {
@@ -149,6 +152,7 @@ export const {
   setLoginEmail,
   setLoginPassword,
   resetReferralCode,
+  setIsLogin,
 } = userSlice.actions;
 
 export default userSlice.reducer;
