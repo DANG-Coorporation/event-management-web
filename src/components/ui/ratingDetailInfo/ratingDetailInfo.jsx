@@ -1,8 +1,18 @@
 import { Heading, VStack, Text, HStack } from "@chakra-ui/layout";
 import { MdLocationPin } from "react-icons/md";
-import { convertStringToDate } from "../../../utils/dateHelper";
+import propType from "prop-types";
 
-export default function RatingDetailInfo() {
+RatingDetailInfo.propTypes = {
+  eventName: propType.string,
+  eventLocation: propType.string,
+  eventTime: propType.string,
+};
+
+export default function RatingDetailInfo({
+  eventName,
+  eventTime,
+  eventLocation,
+}) {
   return (
     <VStack
       textAlign={"left"}
@@ -12,11 +22,11 @@ export default function RatingDetailInfo() {
       ml={"1rem"}
       justify={"center"}
     >
-      <Heading>Konser Kimbum</Heading>
-      <Text>{convertStringToDate("2023-06-05")}</Text>
+      <Heading>{eventName}</Heading>
+      <Text>{{ eventTime }}</Text>
       <HStack>
         <MdLocationPin color="grey" />
-        <Text color={"grey"}>Location</Text>
+        <Text color={"grey"}>{eventLocation}</Text>
       </HStack>
     </VStack>
   );

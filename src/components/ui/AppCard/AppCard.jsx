@@ -20,11 +20,15 @@ export default function AppCard({
   eventLocation,
   eventPicture,
 }) {
-
   //EDITAN UTK AKSES ATTENDANCE PAGE
   const navigate = useNavigate();
   return (
-    <Box className={style.card} onClick={()=>{navigate("/attendancefirstpage")}}> 
+    <Box
+      className={style.card}
+      onClick={() => {
+        navigate("/attendancefirstpage");
+      }}
+    >
       <Box className={style.bannerContainer}>
         <Image
           className={style.banner}

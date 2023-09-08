@@ -29,7 +29,7 @@ export default function RouteList() {
           <Route path="/payment" element={<PaymentTicketSelection />} />
           <Route path="/logIn" element={<LoginPage />} />
           <Route path="/loading" element={<LoadingPage />} />
-          <Route path="rating" element={<RatingPage />} />
+          <Route path="rating/:id" element={<RatingPage />} />
         </Routes>
         <Box
           className="app-darken"
