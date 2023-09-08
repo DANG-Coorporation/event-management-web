@@ -1,37 +1,47 @@
 {
   "events": [
     {
-      "eventName": "KIMBUM OFFICIAL BEETWEN U AND ME",
-      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
-      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "eventName": "2023 ASIA FAN MEETING IN JAKARTA",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/8b6ab3e0-6e5a-4b34-867c-4f5f98dab982-20230823110754.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/88fbc8f5-b049-4e5e-b389-ac9c8e301a0f-bitcoin.png",
       "formatIndex": "1",
       "topicIndex": "15",
       "tickets": [
         {
           "sellPeriod": {
             "start": "2023-09-06 10:00",
-            "end": "2023-09-22 11:00"
+            "end": "2023-09-15 11:00"
           },
           "name": "PLATINUM",
           "price": 2000000,
-          "quota": "100",
-          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "quota": "499",
+          "description": "PLATINUM",
           "ticketType": "Berbayar"
+        },
+        {
+          "sellPeriod": {
+            "start": "2023-09-13 10:00",
+            "end": "2023-09-13 11:00"
+          },
+          "name": "GOLD",
+          "price": 1500000,
+          "quota": "200",
+          "description": "GOLD",
+          "ticketType": "Bayar Sesukamu"
         }
       ],
       "tag": [
-        "KIMBUM",
-        "K-POP"
+        "kimbum"
       ],
       "isPrivate": false,
       "eventTime": {
         "date": {
-          "start": "2023-09-03",
-          "end": "2023-09-03"
+          "start": "2023-09-21",
+          "end": "2023-09-23"
         },
         "time": {
-          "start": "00:00",
-          "end": "00:00"
+          "start": "08:00",
+          "end": "16:03"
         }
       },
       "address": {
@@ -47,177 +57,69 @@
         "isFullName": true,
         "isEmail": true,
         "isPhoneNumber": true,
-        "isIdentityNumber": false,
-        "isDob": false,
-        "isGender": false,
-        "maxPerbuy": "3",
-        "isOneEmailOneTransaction": false,
-        "isOneTicketOneData": false
+        "isIdentityNumber": true,
+        "isDob": true,
+        "isGender": true,
+        "maxPerbuy": 5,
+        "isOneEmailOneTransaction": true,
+        "isOneTicketOneData": true
       },
-      "eventDescription": "",
+      "eventDescription": "<h1 style=\"text-align: center;\"><strong>DESKRIPSI</strong></h1>\n<p>Sambutlah momen bersejarah dengan meriahnya \"2023 ASIA FAN MEETING IN JAKARTA\" bersama bintang Korea yang sedang naik daun, Kim Bum! Acara ini akan menghadirkan pengalaman tak terlupakan bagi para penggemar setia di Indonesia. Dalam fan meeting ini, kamu akan memiliki kesempatan langka untuk bertemu langsung dengan Kim Bum, berinteraksi dengannya, mendengarkan cerita-cerita eksklusif, serta menikmati penampilan spesial dari bintang tamu tersebut. Ini adalah kesempatan yang tidak boleh dilewatkan bagi semua penggemar K-drama dan Kim Bum.</p>",
       "isTermAndCondition": true,
-      "termAndCondition": "",
-      "id": 3
+      "termAndCondition": "<h1 style=\"text-align: center;\"><strong>SYARAT DAN KETENTUAN</strong></h1>\n<ol>\n<li>Tiket adalah kunci akses ke acara ini. Pastikan kamu membeli tiket resmi dari penyelenggara yang sah dan mengikuti prosedur pembelian yang berlaku.</li>\n<li>Acara ini terbuka untuk semua usia, tetapi anak-anak di bawah usia 12 tahun harus didampingi oleh orang dewasa.</li>\n<li>Pastikan kamu datang tepat waktu. Keterlambatan mungkin mengakibatkan pembatalan tiket atau pembatasan akses ke acara.</li>\n<li>Dilarang membawa kamera profesional atau merekam acara ini. Penggunaan ponsel untuk foto dan video hanya diperbolehkan dalam batas yang wajar.</li>\n<li>Segala bentuk tindakan mengganggu, pelecehan, atau perilaku yang tidak pantas akan dihukum sesuai hukum yang berlaku dan dapat mengakibatkan pembatalan tiket serta pelarangan masuk ke acara.</li>\n<li>Penggemar diharapkan untuk menghormati Kim Bum dan tamu-tamu lainnya serta mengikuti petunjuk dari penyelenggara.</li>\n<li>Tiket tidak dapat dijual ulang atau ditukar. Pembatalan atau pengembalian tiket hanya akan diizinkan dalam situasi tertentu yang diatur oleh penyelenggara.</li>\n</ol>",
+      "id": 1
     },
     {
-      "eventName": "BUSSINESS AND DEVELOPMENT EVENT BY BERKARYA.COM",
-      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
-      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
-      "formatIndex": "1",
-      "topicIndex": "15",
+      "eventName": "Laksamana Malahayati - Jalasena",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6b8624f0-caea-42d1-bc2c-76d60bb825af-20230814030728.jpeg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/4c2922d7-4067-456c-8bc7-0fd1a2b223d0-Overwatch_circle_logo.svg.png",
+      "formatIndex": "6",
+      "topicIndex": "19",
       "tickets": [
         {
           "sellPeriod": {
-            "start": "2023-09-06 10:00",
-            "end": "2023-09-22 11:00"
+            "start": "2023-09-08 10:00",
+            "end": "2023-09-23 11:00"
           },
-          "name": "PLATINUM",
-          "price": 50000,
-          "quota": "100",
-          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "name": "Premium",
+          "price": 250000,
+          "quota": "500",
+          "description": "premium",
           "ticketType": "Berbayar"
-        }
-      ],
-      "tag": [
-        "Bussiness",
-        "Development"
-      ],
-      "isPrivate": false,
-      "eventTime": {
-        "date": {
-          "start": "2023-10-03",
-          "end": "2023-10-03"
         },
-        "time": {
-          "start": "00:00",
-          "end": "00:00"
-        }
-      },
-      "address": {
-        "name": "GBK",
-        "city": "Jakarta Pusat, DKI Jakarta, Jawa, Indonesia",
-        "placeName": "Stadion Gelora Bung Karno, Jl. Pintu Satu Senayan, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
-        "coordinate": {
-          "lat": -6.21781,
-          "long": 106.8015
-        }
-      },
-      "form": {
-        "isFullName": true,
-        "isEmail": true,
-        "isPhoneNumber": true,
-        "isIdentityNumber": false,
-        "isDob": false,
-        "isGender": false,
-        "maxPerbuy": "3",
-        "isOneEmailOneTransaction": false,
-        "isOneTicketOneData": false
-      },
-      "eventDescription": "",
-      "isTermAndCondition": true,
-      "termAndCondition": "",
-      "id": 3
-    },
-    {
-      "eventName": "PESTA RAKYAT JAWA TIMUR",
-      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
-      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
-      "formatIndex": "1",
-      "topicIndex": "15",
-      "tickets": [
         {
           "sellPeriod": {
-            "start": "2023-09-06 10:00",
-            "end": "2023-09-22 11:00"
+            "start": "2023-09-07 10:00",
+            "end": "2023-09-15 11:00"
           },
-          "name": "PLATINUM",
-          "price": 0,
-          "quota": "100",
-          "description": "",
-          "ticketType": "Gratis"
-        }
-      ],
-      "tag": [
-        "PESTA",
-        "RAKYAT"
-      ],
-      "isPrivate": false,
-      "eventTime": {
-        "date": {
-          "start": "2023-09-03",
-          "end": "2023-09-03"
-        },
-        "time": {
-          "start": "00:00",
-          "end": "00:00"
-        }
-      },
-      "address": {
-        "name": "GBT",
-        "city": "Surabaya, Jawa Timur, Jawa, Indonesia",
-        "placeName": "Stadion Gelora Bung Tomo, QJGF+P38, Benowo, Kec. Pakal, Surabaya, Jawa Timur 60196",
-        "coordinate": {
-          "lat": -7.22316,
-          "long": 112.62278
-        }
-      },
-      "form": {
-        "isFullName": true,
-        "isEmail": true,
-        "isPhoneNumber": true,
-        "isIdentityNumber": false,
-        "isDob": false,
-        "isGender": false,
-        "maxPerbuy": "3",
-        "isOneEmailOneTransaction": false,
-        "isOneTicketOneData": false
-      },
-      "eventDescription": "",
-      "isTermAndCondition": true,
-      "termAndCondition": "",
-      "id": 3
-    },
-    {
-      "eventName": "ELLIOT BAND : SPECIAL FOR YOU",
-      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
-      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
-      "formatIndex": "1",
-      "topicIndex": "15",
-      "tickets": [
-        {
-          "sellPeriod": {
-            "start": "2023-09-06 10:00",
-            "end": "2023-09-22 11:00"
-          },
-          "name": "PLATINUM",
+          "name": "Reguler (Berdiri)",
           "price": 100000,
-          "quota": "100",
-          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "quota": "400",
+          "description": "Berdiri",
           "ticketType": "Berbayar"
         }
       ],
       "tag": [
-        "ELLIOT",
-        "INDIE"
+        "Teatrikal"
       ],
       "isPrivate": false,
       "eventTime": {
         "date": {
-          "start": "2023-09-03",
-          "end": "2023-09-03"
+          "start": "2023-09-23",
+          "end": "2023-09-30"
         },
         "time": {
-          "start": "00:00",
-          "end": "00:00"
+          "start": "17:05",
+          "end": "23:00"
         }
       },
       "address": {
-        "name": "UMM DOME",
-        "city": "Malang, Jawa Timur, Jawa, Indonesia",
-        "placeName": "UMM DOME, Jl. Karyawiguna No.90, Babatan, Tegalgondo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152",
+        "name": "ritz calton",
+        "city": "Daerah Khusus Ibukota Jakarta, Jawa, Indonesia",
+        "placeName": "Balai Sidang Jakarta Convention Center, Trans Jakarta Busway Koridor 7, 9, RW 01, Gelora, Tanah Abang, Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Jawa, 10210, Indonesia",
         "coordinate": {
-          "lat": -6.55904545,
-          "long": 106.84808476436783
+          "lat": -6.21439495,
+          "long": 106.80710295131178
         }
       },
       "form": {
@@ -227,43 +129,55 @@
         "isIdentityNumber": false,
         "isDob": false,
         "isGender": false,
-        "maxPerbuy": "3",
+        "maxPerbuy": 5,
         "isOneEmailOneTransaction": false,
         "isOneTicketOneData": false
       },
-      "eventDescription": "",
+      "eventDescription": "<p style=\"text-align: justify;\">Selamat datang di \"Teater Laksamana Malahayati,\" sebuah peristiwa seni yang mengusung semangat heroik dan perjuangan di era penjajahan Belanda di Sumatera. Dalam pertunjukan ini, penonton akan diajak dalam perjalanan melintasi waktu, merasakan detik-detik penuh semangat dari masa lalu yang membangkitkan semangat nasionalisme. Setiap adegan penuh makna, menggambarkan perjuangan para pahlawan dan pahlawati yang berani melawan penindasan kolonial. Bergabunglah dengan kami untuk merayakan sejarah dan memahami pengorbanan yang telah membentuk identitas kita hari ini.</p>\n<div class=\"group w-full text-token-text-primary border-b border-black/10 dark:border-gray-900/50 bg-gray-50 dark:bg-[#444654]\" data-testid=\"conversation-turn-5\">\n<div class=\"p-4 justify-center text-base md:gap-6 md:py-6 m-auto\">\n<div class=\"flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }\">\n<div class=\"relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]\">\n<div class=\"flex flex-grow flex-col gap-3 max-w-full\">\n<div class=\"min-h-[20px] flex flex-col items-start gap-3 overflow-x-auto whitespace-pre-wrap break-words\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p style=\"text-align: justify;\">Kami berharap \"Teater Laksamana Malahayati\" akan menjadi pengalaman yang menginspirasi dan memperkaya pengetahuan Anda tentang masa lalu yang bersejarah ini. Terima kasih atas partisipasi Anda dalam merayakan warisan sejarah Indonesia bersama kami.</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>",
       "isTermAndCondition": true,
-      "termAndCondition": "",
-      "id": 3
+      "termAndCondition": "<ol>\n<li>Tiket adalah syarat mutlak untuk menghadiri pertunjukan ini. Pastikan untuk membeli tiket resmi dari saluran penjualan yang sah dan mengikuti panduan pembelian yang berlaku.</li>\n<li>Acara ini cocok untuk semua usia. Anak-anak di bawah usia 6 tahun dapat masuk secara gratis, tetapi mereka harus ditemani oleh orang dewasa yang memiliki tiket.</li>\n<li>Kami mendorong penonton untuk datang tepat waktu agar tidak mengganggu penampilan dan kenyamanan penonton lainnya.</li>\n<li>Dilarang keras merekam atau mengambil foto selama pertunjukan berlangsung. Ini termasuk penggunaan ponsel. Kami menyediakan sesi foto setelah pertunjukan selesai.</li>\n<li>Kami menghormati pengalaman penonton lainnya, maka itu mohon untuk menjaga keheningan selama pertunjukan dan menghindari gangguan apapun.</li>\n<li>Tiket tidak dapat dijual kembali atau ditukar. Pembatalan atau pengembalian tiket hanya akan dipertimbangkan dalam keadaan khusus yang diatur oleh penyelenggara.</li>\n<li>Kami mendorong penonton untuk berpakaian sopan dan sesuai dengan tema sejarah acara ini untuk menciptakan pengalaman yang lebih mendalam.</li>\n</ol>",
+      "id": 2
     },
     {
-      "eventName": "KIMBUM OFFICIAL BEETWEN U AND ME",
-      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/52f7909b-1c28-4916-a3de-1562966e0952-20230823110754.jpg",
-      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6155077e-2353-40fa-8788-70c3f308d199-bitcoin.png",
+      "eventName": "Indonesia united in worship ",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/25b6fb3d-1763-4fda-9e9d-1751077e5152-20230901124356_64f17a1c3e9cd.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/1b181239-c00b-454c-b153-b9d7b38b18fb-4029_pepe_omegalul.gif",
       "formatIndex": "1",
       "topicIndex": "15",
       "tickets": [
         {
           "sellPeriod": {
-            "start": "2023-09-06 10:00",
+            "start": "2023-09-14 10:00",
             "end": "2023-09-22 11:00"
           },
-          "name": "PLATINUM",
-          "price": 2000000,
+          "name": "Premium (Duduk)",
+          "price": 599000,
           "quota": "100",
-          "description": "Hanya untuk orang yang punya duit, kalau paylater minggir dulu",
+          "description": "Premium (Duduk)",
+          "ticketType": "Berbayar"
+        },
+        {
+          "sellPeriod": {
+            "start": "2023-09-21 10:00",
+            "end": "2023-09-21 11:00"
+          },
+          "name": "Reguler (Berdiri)",
+          "price": 249000,
+          "quota": "400",
+          "description": "Reguler (Berdiri)",
           "ticketType": "Berbayar"
         }
       ],
       "tag": [
-        "KIMBUM",
-        "K-POP"
+        "Musikalisasi",
+        "teatrikal",
+        "allStar"
       ],
       "isPrivate": false,
       "eventTime": {
         "date": {
-          "start": "2023-09-03",
-          "end": "2023-09-03"
+          "start": "2023-09-07",
+          "end": "2023-09-07"
         },
         "time": {
           "start": "00:00",
@@ -271,12 +185,12 @@
         }
       },
       "address": {
-        "name": "SICC",
-        "city": "Bogor, Jawa Barat, Jawa, Indonesia",
-        "placeName": "Sentul International Convention Center (SICC), Jalan Jenderal Sudirman I, Sentul City, Cipambuan, Babakan Madang, Bogor, Jawa Barat, Jawa, 16710, Indonesia",
+        "name": "",
+        "city": "Jakarta Utara, Daerah Khusus Ibukota Jakarta, Jawa, Indonesia",
+        "placeName": "Pantai Indah Kapuk, Kamal Muara, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, Jawa, 14470, Indonesia",
         "coordinate": {
-          "lat": -6.55904545,
-          "long": 106.84808476436783
+          "lat": -6.1089154,
+          "long": 106.7392466
         }
       },
       "form": {
@@ -286,37 +200,181 @@
         "isIdentityNumber": false,
         "isDob": false,
         "isGender": false,
-        "maxPerbuy": "3",
+        "maxPerbuy": 5,
         "isOneEmailOneTransaction": false,
         "isOneTicketOneData": false
       },
-      "eventDescription": "",
+      "eventDescription": "<p style=\"text-align: justify;\">Selamat datang di acara luar biasa kami, \"Indonesia United in Worship,\" yang akan diselenggarakan di Community Park Pantai Indah Kapuk, Jakarta Utara. Ini adalah momen yang luar biasa di mana ribuan jiwa bersatu dalam ibadah, menyatukan hati, dan merayakan keragaman agama dan budaya yang ada di Indonesia. Dalam cahaya matahari terbenam yang spektakuler, kita akan bersama-sama membangun jembatan cinta dan perdamaian, mengingatkan kita bahwa persatuan adalah kekuatan sejati.</p>\n<div class=\"group w-full text-token-text-primary border-b border-black/10 dark:border-gray-900/50 bg-gray-50 dark:bg-[#444654]\" data-testid=\"conversation-turn-7\">\n<div class=\"p-4 justify-center text-base md:gap-6 md:py-6 m-auto\">\n<div class=\"flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }\">\n<div class=\"relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]\">\n<div class=\"flex flex-grow flex-col gap-3 max-w-full\">\n<div class=\"min-h-[20px] flex flex-col items-start gap-3 overflow-x-auto whitespace-pre-wrap break-words\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p style=\"text-align: justify;\">Dalam semangat persatuan dan keragaman, kami mengundang semua orang untuk hadir dalam \"Indonesia United in Worship\" di Community Park Pantai Indah Kapuk. Mari bersama-sama menciptakan momen yang menginspirasi dan mempersatukan kita semua. Terima kasih atas partisipasi Anda dalam acara ini yang penuh makna.</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>",
       "isTermAndCondition": true,
-      "termAndCondition": "",
+      "termAndCondition": "<ol>\n<li>Acara ini adalah acara gratis dan terbuka untuk semua usia. Kami mengundang semua orang, tanpa memandang agama atau latar belakang, untuk bergabung dalam semangat persatuan dan perdamaian.</li>\n<li>Kami meminta semua peserta untuk mematuhi peraturan keamanan dan petunjuk yang diberikan oleh petugas acara. Ini termasuk pengamanan tiket untuk acara berbasis tiket, jika ada.</li>\n<li>Kami mendorong peserta untuk membawa tikar atau alas duduk sendiri untuk kenyamanan mereka. Namun, kami mohon untuk tidak meninggalkan sampah di lokasi acara. Kami memiliki fasilitas penampungan sampah yang tersedia.</li>\n<li>Penyelenggara acara tidak bertanggung jawab atas kehilangan atau kerusakan barang bawaan peserta. Mohon untuk menjaga barang-barang berharga Anda dengan baik.</li>\n<li>Kami meminta semua peserta untuk menghormati ruang pribadi dan kepercayaan agama satu sama lain. Perlakukan semua orang dengan hormat dan cinta.</li>\n<li>Fotografi dan perekaman video selama acara diperbolehkan, tetapi mohon berikan privasi kepada peserta lain yang tidak ingin difoto atau direkam.</li>\n<li>Kami meminta semua peserta untuk menjaga ketenangan selama upacara ibadah dan menghormati keheningan umum.</li>\n<li>Kami tidak mentoleransi perilaku yang mengganggu atau tidak pantas, dan penyelenggara acara berhak untuk mengeluarkan peserta yang melanggar ketentuan ini.</li>\n</ol>",
       "id": 3
+    },
+    {
+      "eventName": "MASTERING THE ART OF ELEVATOR PITCH",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/38de1fda-b695-4c8a-ba60-68cb53f4c5a4-20230728133300_64c3611caa148.jpg",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6413458f-4c14-4c54-8f8e-463a8c39553d-Overwatch_circle_logo.svg.png",
+      "formatIndex": "5",
+      "topicIndex": "8",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-08-07 10:00",
+            "end": "2023-09-07 11:00"
+          },
+          "name": "presale ticket",
+          "price": 300000,
+          "quota": "10",
+          "description": "presale",
+          "ticketType": "Berbayar"
+        },
+        {
+          "sellPeriod": {
+            "start": "2023-09-14 10:00",
+            "end": "2023-09-21 11:00"
+          },
+          "name": "reguler",
+          "price": 500000,
+          "quota": "200",
+          "description": "reguler tiket",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": [
+        "PublicSpeaking",
+        "EnglishSpeak"
+      ],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-07",
+          "end": "2023-09-07"
+        },
+        "time": {
+          "start": "13:00",
+          "end": "17:00"
+        }
+      },
+      "address": {
+        "name": "Bekasi",
+        "city": "Kota Bekasi, Jawa Barat, Jawa, Indonesia",
+        "placeName": "HARRIS Hotel & Conventions Bekasi, Jalan Bulevar Ahmad Yani, Summarecon Bekasi, Kota Bekasi, Jawa Barat, Jawa, 17142, Indonesia",
+        "coordinate": {
+          "lat": -6.2248527,
+          "long": 107.0017834
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": 5,
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "<p style=\"text-align: justify;\">Mastering The Art of Elevator Pitch adalah acara eksklusif yang diadakan oleh Wall Street English, dan kali ini kami membawa acara ini ke Jakarta, Bekasi, Bandung, dan Surabaya. Dalam acara ini, Anda akan memiliki kesempatan langka untuk mengasah keterampilan komunikasi Anda dan belajar bagaimana membuat kesan yang tak terlupakan dalam waktu singkat, seperti yang diperlukan dalam situasi elevator pitch. Kita semua tahu bahwa dalam dunia bisnis yang kompetitif, kemampuan untuk merangkum ide-ide dan gagasan Anda dengan efisien dapat membuat perbedaan besar dalam mencapai kesuksesan.</p>\n<p style=\"text-align: justify;\">Acara ini akan dipandu oleh para ahli komunikasi dari Wall Street English yang memiliki pengalaman luas dalam memberikan pelatihan komunikasi efektif. Selama workshop yang interaktif ini, Anda akan diajak untuk berlatih secara langsung, menerima umpan balik yang berharga, dan mendapatkan wawasan mendalam tentang bagaimana menyampaikan pesan dengan jelas dan memikat, bahkan dalam situasi terbatas seperti dalam lift.</p>\n<p style=\"text-align: justify;\">Jangan lewatkan kesempatan ini untuk mengembangkan keterampilan yang dapat memengaruhi karier dan bisnis Anda. Bersiaplah untuk menghadiri \"Mastering The Art of Elevator Pitch\" di kota Anda dan bersama-sama kita akan meraih kesuksesan melalui komunikasi yang kuat dan efektif.</p>",
+      "isTermAndCondition": true,
+      "termAndCondition": "<p>Syarat dan Ketentuan Mastering The Art of Elevator Pitch:</p>\n<ol>\n<li>\n<p>Pendaftaran dan Pembayaran:</p>\n<ul>\n<li>Peserta diharapkan mendaftar untuk acara ini melalui situs web resmi atau kanal pendaftaran yang disediakan oleh Wall Street English.</li>\n<li>Pembayaran tiket atau biaya pendaftaran harus dilakukan sesuai dengan instruksi yang diberikan oleh penyelenggara acara.</li>\n<li>Tempat dalam acara akan diisi berdasarkan urutan pendaftaran dan pembayaran yang berhasil.</li>\n</ul>\n</li>\n<li>\n<p>Kehadiran:</p>\n<ul>\n<li>Peserta diharapkan hadir tepat waktu sesuai dengan jadwal yang telah ditentukan untuk registrasi ulang dan acara utama.</li>\n<li>Keterlambatan dapat mengakibatkan pembatalan tiket dan kehilangan hak peserta untuk menghadiri acara.</li>\n<li>Jika peserta tidak dapat hadir pada acara tersebut, pemberitahuan pembatalan harus diberikan kepada penyelenggara acara sesuai dengan ketentuan yang ditetapkan, jika ada, untuk pengembalian biaya atau penggantian tiket.</li>\n</ul>\n</li>\n<li>\n<p>Hak Cipta dan Materi Acara:</p>\n<ul>\n<li>Seluruh materi yang disediakan dalam acara ini, termasuk presentasi, bahan kursus, dan dokumen terkait, dilindungi oleh hak cipta dan hanya boleh digunakan untuk tujuan edukasi dan pribadi peserta.</li>\n<li>Peserta dilarang keras merekam, mereproduksi, atau mendistribusikan materi acara tanpa izin tertulis dari penyelenggara acara.</li>\n</ul>\n</li>\n<li>\n<p>Perilaku Peserta:</p>\n<ul>\n<li>Peserta diharapkan untuk menjaga perilaku yang sopan dan menghormati peserta lainnya serta staf penyelenggara acara.</li>\n<li>Konsumsi alkohol atau substansi ilegal tidak diizinkan dalam lokasi acara.</li>\n</ul>\n</li>\n<li>\n<p>Perubahan Jadwal atau Pembatalan Acara:</p>\n<ul>\n<li>Penyelenggara berhak untuk mengubah jadwal, pembicara, atau detail acara lainnya tanpa pemberitahuan sebelumnya jika diperlukan untuk alasan yang sah. Peserta akan diberitahu secepatnya tentang perubahan tersebut.</li>\n</ul>\n</li>\n<li>\n<p>Kebijakan Pengembalian Dana:</p>\n<ul>\n<li>Kebijakan pengembalian dana, jika ada, akan dijelaskan dalam informasi pendaftaran acara. Peserta diharapkan membaca dan memahami kebijakan ini sebelum mendaftar.</li>\n</ul>\n</li>\n</ol>\n<p>Dengan mendaftar dan menghadiri acara \"Mastering The Art of Elevator Pitch,\" peserta dianggap telah membaca, memahami, dan setuju untuk mematuhi semua syarat dan ketentuan yang ditetapkan oleh penyelenggara acara, Wall Street English. Pelanggaran terhadap syarat dan ketentuan ini dapat mengakibatkan pembatalan tiket atau tindakan lain yang diambil oleh penyelenggara acara.</p>",
+      "id": 4
+    },
+    {
+      "eventName": "RICHARD MARK - The Songwriter Tour",
+      "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/7ac8c2d7-ab77-4d18-8682-ca871bb2a5a3-20230822010811.png",
+      "organizerPhoto": "http://nawaytes.cloud:9000/eventku/temp/coverImage/30d7c92a-3108-4b8b-a34d-77f92bc67335-Overwatch_circle_logo.svg.png",
+      "formatIndex": "1",
+      "topicIndex": "15",
+      "tickets": [
+        {
+          "sellPeriod": {
+            "start": "2023-09-07 10:00",
+            "end": "2023-09-22 11:00"
+          },
+          "name": "R1",
+          "price": 1000000,
+          "quota": "500",
+          "description": "R1 tertinggi",
+          "ticketType": "Berbayar"
+        },
+        {
+          "sellPeriod": {
+            "start": "2023-09-07 10:00",
+            "end": "2023-09-14 11:00"
+          },
+          "name": "R2",
+          "price": 700000,
+          "quota": 1000,
+          "description": "2222",
+          "ticketType": "Berbayar"
+        },
+        {
+          "sellPeriod": {
+            "start": "2023-09-07 10:00",
+            "end": "2023-09-14 11:00"
+          },
+          "name": "R3",
+          "price": 500000,
+          "quota": "300",
+          "description": "22",
+          "ticketType": "Berbayar"
+        }
+      ],
+      "tag": [
+        "konser",
+        "richard"
+      ],
+      "isPrivate": false,
+      "eventTime": {
+        "date": {
+          "start": "2023-09-07",
+          "end": "2023-09-07"
+        },
+        "time": {
+          "start": "00:00",
+          "end": "00:00"
+        }
+      },
+      "address": {
+        "name": "kasablanka",
+        "city": "Bintaro, Pesanggrahan, Jakarta Selatan, Daerah Khusus Ibukota Jakarta, Jawa, Indonesia",
+        "placeName": "Casablanca, Bintaro Jaya, Pondok Jaya, Pondok Aren, Tangerang Selatan, Banten, Jawa, 15220, Indonesia",
+        "coordinate": {
+          "lat": -6.276785,
+          "long": 106.7197353
+        }
+      },
+      "form": {
+        "isFullName": true,
+        "isEmail": true,
+        "isPhoneNumber": true,
+        "isIdentityNumber": false,
+        "isDob": false,
+        "isGender": false,
+        "maxPerbuy": 5,
+        "isOneEmailOneTransaction": false,
+        "isOneTicketOneData": false
+      },
+      "eventDescription": "<p>The Songwriter Tour dengan Richard Marx di Kota Kasablanka</p>\n<p style=\"text-align: justify;\">Jangan lewatkan acara yang luar biasa ini, \"The Songwriter Tour\" bersama maestro musik internasional, Richard Marx, yang akan menggetarkan Kota Kasablanka! Menyajikan penampilan yang memukau dan lagu-lagu ikonik yang telah mengisi playlist hidup kita selama beberapa dekade, ini adalah pengalaman musik yang tak terlupakan yang tidak boleh Anda lewatkan.</p>\n<p style=\"text-align: justify;\">Richard Marx, seorang legenda dalam industri musik, akan membawakan repertoar lagu-lagu penuh emosi yang telah menjadi pemandu dalam perjalanan hidup banyak orang. Dari balada romantis hingga lagu-lagu yang penuh makna, \"The Songwriter Tour\" akan menggugah perasaan Anda dan membawa Anda dalam perjalanan musik yang mendalam. Bersiaplah untuk merasakan serangkaian lagu yang menginspirasi, membuat kita bernyanyi, dan mengingatkan kita akan kekuatan musik untuk menghubungkan jiwa kita.</p>\n<p style=\"text-align: justify;\">Tunggu apa lagi? Segera dapatkan tiket Anda untuk \"The Songwriter Tour\" dengan Richard Marx di Kota Kasablanka. Bergabunglah dalam malam yang penuh emosi dan keindahan musik yang akan meninggalkan kenangan yang abadi. Ini adalah kesempatan langka untuk merayakan karya seorang legenda hidup langsung di depan mata Anda.</p>",
+      "isTermAndCondition": true,
+      "termAndCondition": "<p style=\"text-align: center;\"><strong>Syarat dan Ketentuan \"The Songwriter Tour\" dengan Richard Marx di Kota Kasablanka:</strong></p>\n<ol>\n<li>\n<p>Tiket:</p>\n<ul>\n<li>Tiket hanya akan berlaku untuk pemegang tiket asli. Tiket harus dibeli dari saluran penjualan resmi yang ditentukan oleh penyelenggara acara.</li>\n<li>Tiket yang telah dibeli tidak dapat ditukar atau dikembalikan, kecuali jika diatur oleh kebijakan pengembalian dana penyelenggara.</li>\n</ul>\n</li>\n<li>\n<p>Kehadiran:</p>\n<ul>\n<li>Peserta diharapkan hadir tepat waktu sesuai dengan jadwal yang telah ditentukan oleh penyelenggara acara.</li>\n<li>Keterlambatan dapat mengakibatkan pembatalan hak peserta untuk memasuki tempat acara atau bagian tertentu dari acara.</li>\n</ul>\n</li>\n<li>\n<p>Perilaku Peserta:</p>\n<ul>\n<li>Peserta diharapkan untuk menjaga perilaku yang sopan dan menghormati sesama penonton serta staf penyelenggara acara.</li>\n<li>Konsumsi alkohol atau substansi ilegal tidak diizinkan dalam lokasi acara.</li>\n</ul>\n</li>\n<li>\n<p>Pengamanan dan Keamanan:</p>\n<ul>\n<li>Peserta diharapkan untuk menjalani pemeriksaan keamanan saat memasuki lokasi acara.</li>\n<li>Barang-barang berbahaya, senjata tajam, atau barang terlarang lainnya tidak diperbolehkan masuk ke dalam lokasi acara.</li>\n</ul>\n</li>\n<li>\n<p>Kebijakan Perekaman:</p>\n<ul>\n<li>Perekaman audio atau video dari pertunjukan dengan peralatan profesional tidak diizinkan, kecuali ada persetujuan tertulis dari penyelenggara acara.</li>\n<li>Penggunaan ponsel untuk merekam video atau mengambil foto selama pertunjukan diperbolehkan, tetapi mohon untuk tidak mengganggu penonton lainnya.</li>\n</ul>\n</li>\n<li>\n<p>Perubahan Acara:</p>\n<ul>\n<li>Penyelenggara acara berhak untuk mengubah jadwal atau rincian acara lainnya tanpa pemberitahuan sebelumnya jika diperlukan untuk alasan yang sah.</li>\n</ul>\n</li>\n<li>\n<p>Hak Cipta dan Materi Acara:</p>\n<ul>\n<li>Seluruh materi yang disajikan selama acara ini, termasuk musik dan pertunjukan, dilindungi oleh hak cipta dan hanya boleh digunakan untuk tujuan pribadi.</li>\n<li>Penyelenggara acara berhak untuk merekam, mendokumentasikan, dan mempublikasikan acara ini, termasuk gambar dan video dari acara tersebut.</li>\n</ul>\n</li>\n</ol>\n<p>Dengan membeli dan menggunakan tiket untuk \"The Songwriter Tour\" dengan Richard Marx di Kota Kasablanka, Anda dianggap telah membaca, memahami, dan menyetujui semua syarat dan ketentuan yang ditetapkan oleh penyelenggara acara. Pelanggaran terhadap syarat dan ketentuan ini dapat mengakibatkan pembatalan tiket atau tindakan lain yang diambil oleh penyelenggara acara.</p>",
+      "id": 5
     }
   ],
   "users": [
     {
-      "fullName": "123",
-      "username": "22222",
-      "password": "2323232232",
+      "fullName": "Galih Setyawan",
+      "username": "galih",
+      "password": "galihajalah",
       "email": "scriptgalih@gmail.com",
       "id": 1
     },
     {
-      "fullName": "123",
-      "username": "222222",
-      "password": "2323232232",
-      "email": "scriptgalih@gmail.com",
+      "fullName": "Naufan Rikza Ahmada",
+      "username": "NaufanRikza",
+      "password": "Tornado99",
+      "email": "naufan@yahoo.to",
       "id": 2
-    },
-    {
-      "fullName": "galih",
-      "username": "galih",
-      "password": "galihajalah",
-      "email": "galih@gmail.com",
-      "id": 3
     }
   ]
 }

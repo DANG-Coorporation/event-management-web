@@ -37,7 +37,7 @@ export default function CreateEvent() {
       navigate("/logIn");
       setIsLoggedIn(false);
     } else {
-      console.log(parseToken());
+      // console.log(parseToken());
       setIsLoggedIn(true);
     }
   }, []);

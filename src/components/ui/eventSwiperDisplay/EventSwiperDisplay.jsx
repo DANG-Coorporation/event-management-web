@@ -1,21 +1,27 @@
 import { Box, Image } from "@chakra-ui/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import AppCard from "../AppCard/AppCard";
+import propType from "prop-types";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import SwiperCore from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import SwiperCore from "swiper";
-import { Pagination, Autoplay } from "swiper/modules";
-import { useRef, useState } from "react";
-import style from "./style.module.css";
-import EventSwiperButtons from "../eventSwiperButton/EventSwiperButton";
-import propType from "prop-types";
+import { Autoplay, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import configTime from "../../../data/configTime";
 import { constant } from "../../../data/constant";
+import {
+  convertNumberToCurrency,
+  getLowestPrice,
+} from "../../../utils/currency";
+import { convertDateTimeFormat } from "../../../utils/dateHelper";
+import AppCard from "../AppCard/AppCard";
+import EventSwiperButtons from "../eventSwiperButton/EventSwiperButton";
+import style from "./style.module.css";
 
 EventSwiperDisplay.propTypes = {
   variants: propType.string,
   eventList: propType.array,
 };
-
 export default function EventSwiperDisplay({ variants, eventList }) {
   //   const { eventDummy } = constant;
   const { bannerDummy } = constant;
@@ -47,7 +53,6 @@ export default function EventSwiperDisplay({ variants, eventList }) {
       onMouseLeave={() => {
         setHover(false);
       }}
-      
     >
       <Swiper
         autoHeight={true}
@@ -56,7 +61,7 @@ export default function EventSwiperDisplay({ variants, eventList }) {
         pagination={variants === "eventForYou" ? false : true}
         modules={variants === "eventForYou" ? [] : [Pagination]}
         loop={variants === "eventForYou" ? false : true}
-        className="mySwiper"
+        className='mySwiper'
         ref={swiperRef}
         speed={400}
         autoplay={
@@ -73,13 +78,21 @@ export default function EventSwiperDisplay({ variants, eventList }) {
               return (
                 <SwiperSlide key={index} className={style.swiperContainer}>
                   {
-                    <AppCard
-                      eventName={item.eventName}
-                      eventDate={item.eventTime.date.start}
-                      eventLocation={item.address.city.split(",")[0]}
-                      eventPicture={item.coverImage}
-                      eventPrice={item.tickets[0].price.toString()}
-                    />
+                    <Link to={`/event/${item.id}`}>
+                      <AppCard
+                        eventName={item.eventName}
+                        eventDate={convertDateTimeFormat(
+                          item.eventTime.date.start,
+                          configTime.iso_date,
+                          configTime.date_month_full_string
+                        )}
+                        eventLocation={item.address.city.split(",")[0]}
+                        eventPicture={item.coverImage}
+                        eventPrice={convertNumberToCurrency(
+                          getLowestPrice(item.tickets)
+                        )}
+                      />
+                    </Link>
                   }
                 </SwiperSlide>
               );

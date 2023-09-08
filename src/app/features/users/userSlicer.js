@@ -72,6 +72,9 @@ const userSlice = createSlice({
     setLoginPassword(state, action) {
       state.credential.password = action.payload;
     },
+    setIsLogin(state, action) {
+      state.isLogin = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createUser.fulfilled, (state, action) => {
@@ -103,6 +106,7 @@ export const {
   setEmail,
   setLoginEmail,
   setLoginPassword,
+  setIsLogin,
 } = userSlice.actions;
 
 export default userSlice.reducer;
