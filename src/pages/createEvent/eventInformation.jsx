@@ -45,19 +45,15 @@ export default function CreateEventInformation() {
   const [rawOrgImage, setRawOrgImage] = useState("");
   const organizerPictureChooseFile = (event) => {
     setRawOrgImage(event.target.files[0]);
-    // dispatch(setOrganizerPhoto(URL.createObjectURL(event.target.files[0])));
   };
 
   useEffect(() => {
     async function asyncUploadOrganizerPhoto() {
       try {
         const result = await uploadFile(rawOrgImage);
-        // setCurrentCoverImage(result);
         dispatch(setOrganizerPhoto(result));
-
-        // console.log("debug-upload", result);
       } catch (error) {
-        // console.error("debug-error", error);
+        console.error(`[ERROR]${JSON.stringify(error)}`);
       }
     }
     if (rawOrgImage) {

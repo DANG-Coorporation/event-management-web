@@ -8,8 +8,8 @@ import {
   setCoverImage,
 } from "../../app/features/createEvent/createEventSlicer";
 import configConstants from "../../data/config";
+import { uploadFile } from "../../utils/minioService";
 import style from "./style.module.css";
-import { readFileAsBuffer, uploadFile } from "../../utils/minioService";
 
 export default function UploadCoverImage() {
   const hiddenFileInput = useRef(null);
@@ -27,8 +27,6 @@ export default function UploadCoverImage() {
         const result = await uploadFile(rawCoverImage);
         setCurrentCoverImage(result);
         dispatch(setCoverImage(result));
-
-        // console.log("debug-upload", result);
       } catch (error) {
         console.error("debug-error", error);
       }

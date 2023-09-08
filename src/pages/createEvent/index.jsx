@@ -1,6 +1,6 @@
 import { VStack, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setDraftCreateEvent } from "../../app/features/createEvent/createEventSlicer";
 import ModalDetailTicketCreateEvent from "../../components/form/createEvent/modalDetailTicket";
@@ -13,15 +13,12 @@ import FooterCreateEvent from "./footer";
 import style from "./style.module.css";
 import UploadCoverImage from "./uploadCoverImage";
 export default function CreateEvent() {
-  const createEvent = useSelector((state) => state.createEvent);
-  // console.log("debug-event", createEvent);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const users = useSelector((state) => state.users);
   const toast = useToast();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   useEffect(() => {
+    console.log("masuk");
     const token = localStorage.getItem("token");
     if (!token) {
       toast({
@@ -35,7 +32,6 @@ export default function CreateEvent() {
       navigate("/logIn");
       setIsLoggedIn(false);
     } else {
-      // console.log(parseToken());
       setIsLoggedIn(true);
     }
   }, []);

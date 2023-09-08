@@ -3,7 +3,7 @@ import style from "./style.module.css";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/input";
 import { MdSearch, MdEvent, MdExplore } from "react-icons/md";
 import NavbarLink from "../../ui/navbarLink/NavbarLink";
-import { Box } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import NavbarCategory from "../../ui/navbarCategory/NavbarCategory";
 import { constant } from "../../../data/constant";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,6 @@ import { useEffect, useRef } from "react";
 import { setIsLogin } from "../../../app/features/users/userSlicer";
 import NavbarLoginUtil from "../../ui/navbarLoginUtils/navbarLoginUtil";
 import { checkIsLogedIn, parseToken } from "../../../utils/checkUsers";
-import { useDisclosure } from "@chakra-ui/react";
 
 export default function WebNavbar() {
   const { navbarCategories } = constant;
@@ -24,11 +23,9 @@ export default function WebNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
-    console.log(isLogin);
     if (checkIsLogedIn()) {
       dispatch(setIsLogin(true));
       userName.current = parseToken().username;
-      console.log(userName.current);
     } else {
       dispatch(setIsLogin(false));
     }
@@ -53,7 +50,7 @@ export default function WebNavbar() {
               w={"100%"}
               borderColor={"transparent"}
               focusBorderColor={"transparent"}
-              placeholder="Cari Event gaes"
+              placeholder='Cari Event gaes'
               height={"2.2rem"}
               onFocus={() => {
                 dispatch(setScreenDarkenState(true));

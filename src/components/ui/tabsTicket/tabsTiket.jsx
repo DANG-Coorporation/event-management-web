@@ -16,7 +16,6 @@ export function Tabstiket({ description, termCondition }) {
     return { __html: html };
   };
   const detailEvent = useSelector((state) => state.detailEvent.pageDetail);
-  console.log("debug-detail=tabs", detailEvent);
 
   return (
     <Tabs
