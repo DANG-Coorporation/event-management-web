@@ -31,12 +31,12 @@ export default function Attendancefirstpage() {
   // const [eventTime, setEventTime] = useState({});
   const [datePeriod, setDatePeriod] = useState("");
   const [timePeriod, setTimePeriod] = useState("");
-  const { id } = useParams();
+  const { uniqId } = useParams();
   // console.log("debug-detail", detailEvent);
   useEffect(() => {
-    dispatch(fetchEventById(id));
+    dispatch(fetchEventById(uniqId));
     dispatch(getEvents());
-  }, [dispatch, id]);
+  }, [dispatch, uniqId]);
 
   const convertDate = (date) => {
     return convertDateTimeFormat(
@@ -107,11 +107,11 @@ export default function Attendancefirstpage() {
           </Heading>
           <ListItem span='2'>
             <ListIcon as={CalendarIcon} color='blue.500' marginRight='3%' />
-            {datePeriod ? datePeriod : ""}
+            {datePeriod || ""}
           </ListItem>
           <ListItem>
             <ListIcon as={TimeIcon} color='blue.500' marginRight='3%' />
-            {timePeriod ? timePeriod : ""}
+            {timePeriod || ""}
           </ListItem>
           <ListItem>
             <ListIcon as={AtSignIcon} color='blue.500' marginRight='3%' />

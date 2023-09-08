@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postNewEvent } from "../../api/createEvent";
 import { resetData } from "../../app/features/createEvent/createEventSlicer";
+import * as generateUniqueId from "generate-unique-id";
+import { checkLogin } from "../../app/features/users/userSlicer";
+
 export default function FooterCreateEvent() {
   const data = useSelector((state) => state.createEvent.data);
   const onSaveToDraft = () => {
@@ -17,12 +20,28 @@ export default function FooterCreateEvent() {
   const offSend = () => {
     setIsSend(false);
   };
+  const userLogin = useSelector((state) => state.users.login);
   const [errorMessages, setErrorMessages] = useState("");
+
+  useEffect(() => {
+    dispatch(checkLogin());
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log("debug-userLogin", userLogin);
+  }, [userLogin]);
 
   useEffect(() => {
     async function asyncPostEvent() {
       try {
-        const result = await postNewEvent(data);
+        const uniqId = `${data.eventName
+          .toLowerCase()
+          .replace(/\s/g, "-")}-${generateUniqueId({
+          length: 5,
+        })}`;
+        const userId = userLogin.id;
+
+        const result = await postNewEvent({ ...data, uniqId, userId });
         if (result.status === 201) {
           toast({
             title: "Event Saved",

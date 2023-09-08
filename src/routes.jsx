@@ -16,21 +16,21 @@ export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
   return (
-    <Box className='app-container'>
+    <Box className="app-container">
       <WebNavbar />
-      <Box className='content-container'>
+      <Box className="content-container">
         <Routes>
           <Route path='/create-event' element={<CreateEvent />} />
           <Route path='/' element={<Home />} />
           <Route path='/discovery' element={<Discovery />} />
-          <Route path='/event/:id' element={<Attendancefirstpage />} />
+          <Route path='/event/:uniqId' element={<Attendancefirstpage />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/payment' element={<PaymentTicketSelection />} />
           <Route path='/logIn' element={<LoginPage />} />
           <Route path='/loading' element={<LoadingPage />} />
         </Routes>
         <Box
-          className='app-darken'
+          className="app-darken"
           display={isBlacken ? "block" : "none"}
           bg={isBlacken ? "rgba(0, 0, 0, 0.4)" : "transparent"}
         />

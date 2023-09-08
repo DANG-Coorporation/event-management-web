@@ -18,6 +18,14 @@ export const parseToken = () => {
   }
 };
 
+export const deleteToken = () => {
+  try {
+    localStorage.removeItem("token");
+  } catch (error) {
+    console.log("debug error", error);
+  }
+};
+
 export const encodeToken = (token) => {
   return btoa(JSON.stringify(token));
 };

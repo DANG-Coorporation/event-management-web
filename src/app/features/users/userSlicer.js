@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getUser, getUsers, postUser } from "../../../api/users";
+import {
+  checkReferraCode,
+  getUser,
+  getUsers,
+  postUser,
+} from "../../../api/users";
 import { checkIsLogedIn, parseToken } from "../../../utils/checkUsers";
+import { postReferralLinks } from "../../../api/referrals";
 
 export const createUser = createAsyncThunk("users/createUser", async (user) => {
   const response = await postUser(user);
@@ -28,6 +34,27 @@ export const checkLogin = createAsyncThunk("users/checkLogin", async () => {
   } else return null;
 });
 
+export const storeReferralLink = createAsyncThunk(
+  "users/storeReferralLink",
+  async ({ userid, referralCode }) => {
+    const response = await postReferralLinks({ userid, referralCode });
+    return response.data;
+  }
+);
+
+export const fetchReferralCode = createAsyncThunk(
+  "users/fetchReferralCode",
+  async (referralCode) => {
+    try {
+      const response = await checkReferraCode(referralCode);
+      console.log(response);
+      return response;
+    } catch (err) {
+      return null;
+    }
+  }
+);
+
 const initialState = {
   users: [],
   data: {
@@ -48,6 +75,9 @@ const initialState = {
   isLogin: false,
   status: "idle",
   error: null,
+  isValidReferralCode: false,
+  referralCode: "",
+  referralCheckCount: 0,
 };
 
 const userSlice = createSlice({
@@ -72,6 +102,13 @@ const userSlice = createSlice({
     setLoginPassword(state, action) {
       state.credential.password = action.payload;
     },
+    resetReferralCode(state) {
+      state.isValidReferralCode = false;
+      state.referralCode = "";
+    },
+    setIsLogin(state, action) {
+      state.isLogin = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createUser.fulfilled, (state, action) => {
@@ -93,6 +130,17 @@ const userSlice = createSlice({
         state.isLogin = true;
       } else state.isLogin = false;
     });
+    builder.addCase(fetchReferralCode.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.isValidReferralCode = true;
+        state.referralCode = action.payload.referralCode;
+      } else state.isValidReferralCode = false;
+      state.referralCheckCount += 1;
+    });
+    builder.addCase(fetchUsers.rejected, (state, action) => {
+      state.status = "failed";
+      state.error = action.error.message;
+    });
   },
 });
 
@@ -103,6 +151,8 @@ export const {
   setEmail,
   setLoginEmail,
   setLoginPassword,
+  resetReferralCode,
+  setIsLogin,
 } = userSlice.actions;
 
 export default userSlice.reducer;
