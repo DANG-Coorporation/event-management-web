@@ -157,6 +157,7 @@ export default function RegisterForm({ loginRef }) {
   }, [data, user]);
 
   useEffect(() => {
+    if (user.referralCheckCount === 0) return;
     if (user.isValidReferralCode === true) {
       referralRef.current.disabled = true;
       toast({
