@@ -78,7 +78,7 @@ export default function EventSwiperDisplay({ variants, eventList }) {
               return (
                 <SwiperSlide key={index} className={style.swiperContainer}>
                   {
-                    <Link to={`/event/${item.id}`}>
+                    <Link to={`/event/${item.uniqId}`}>
                       <AppCard
                         eventName={item.eventName}
                         eventDate={convertDateTimeFormat(

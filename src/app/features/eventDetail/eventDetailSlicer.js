@@ -14,7 +14,7 @@ export const fetchEventById = createAsyncThunk(
   async (id) => {
     try {
       const res = await getEventById(id);
-      const data = await res.data;
+      const data = await res.data[0];
       return data;
     } catch (e) {
       return e;

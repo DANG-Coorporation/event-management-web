@@ -33,3 +33,13 @@ export const checkCredential = async ({ username, password }) => {
   }
   return user.data[0];
 };
+
+export const checkReferraCode = async (referralCode) => {
+  console.log("debug-referralCode", referralCode);
+  const user = await jsonServer.get(`/users?referralCode=${referralCode}`);
+  console.log("debug-user", user);
+  if (user.data.length === 0) {
+    throw new Error("Referral code not found");
+  }
+  return user.data[0];
+};
