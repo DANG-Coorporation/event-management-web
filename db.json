@@ -1,6 +1,7 @@
 {
   "events": [
     {
+      "userId": 1,
       "uniqId": "2023-asia-fan-meeting-in-jakarta-dp8k5c",
       "eventName": "2023 ASIA FAN MEETING IN JAKARTA",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/8b6ab3e0-6e5a-4b34-867c-4f5f98dab982-20230823110754.jpg",
@@ -9,6 +10,7 @@
       "topicIndex": "15",
       "tickets": [
         {
+          "uniqId": "g25pwht7",
           "sellPeriod": {
             "start": "2023-09-06 10:00",
             "end": "2023-09-15 11:00"
@@ -20,6 +22,7 @@
           "ticketType": "Berbayar"
         },
         {
+          "uniqId": "m91fxnq2",
           "sellPeriod": {
             "start": "2023-09-13 10:00",
             "end": "2023-09-13 11:00"
@@ -71,6 +74,7 @@
       "id": 1
     },
     {
+      "userId": 1,
       "uniqId": "laksamana-malahayati-jalasena-bw6x7d",
       "eventName": "Laksamana Malahayati - Jalasena",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/6b8624f0-caea-42d1-bc2c-76d60bb825af-20230814030728.jpeg",
@@ -79,6 +83,7 @@
       "topicIndex": "19",
       "tickets": [
         {
+          "uniqId": "g25z9ht7",
           "sellPeriod": {
             "start": "2023-09-08 10:00",
             "end": "2023-09-23 11:00"
@@ -90,6 +95,7 @@
           "ticketType": "Berbayar"
         },
         {
+          "uniqId": "m3i8xnq2",
           "sellPeriod": {
             "start": "2023-09-07 10:00",
             "end": "2023-09-15 11:00"
@@ -141,6 +147,7 @@
       "id": 2
     },
     {
+      "userId": 1,
       "uniqId": "indonesia-united-in-worship-hr9t2e",
       "eventName": "Indonesia united in worship",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/25b6fb3d-1763-4fda-9e9d-1751077e5152-20230901124356_64f17a1c3e9cd.jpg",
@@ -149,6 +156,7 @@
       "topicIndex": "15",
       "tickets": [
         {
+          "uniqId": "g28owwt7",
           "sellPeriod": {
             "start": "2023-09-14 10:00",
             "end": "2023-09-22 11:00"
@@ -160,6 +168,7 @@
           "ticketType": "Berbayar"
         },
         {
+          "uniqId": "m203kjjj",
           "sellPeriod": {
             "start": "2023-09-21 10:00",
             "end": "2023-09-21 11:00"
@@ -213,6 +222,7 @@
       "id": 3
     },
     {
+      "userId": 1,
       "uniqId": "mastering-the-art-of-elevator-pitch-8x9k4d",
       "eventName": "MASTERING THE ART OF ELEVATOR PITCH",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/38de1fda-b695-4c8a-ba60-68cb53f4c5a4-20230728133300_64c3611caa148.jpg",
@@ -221,6 +231,7 @@
       "topicIndex": "8",
       "tickets": [
         {
+          "uniqId": "g25p0zdr",
           "sellPeriod": {
             "start": "2023-08-07 10:00",
             "end": "2023-09-07 11:00"
@@ -232,6 +243,7 @@
           "ticketType": "Berbayar"
         },
         {
+          "uniqId": "m91f0zq2",
           "sellPeriod": {
             "start": "2023-09-14 10:00",
             "end": "2023-09-21 11:00"
@@ -284,6 +296,7 @@
       "id": 4
     },
     {
+      "userId": 1,
       "uniqId": "richard-mark-the-songwriter-tour-6x9k4d",
       "eventName": "RICHARD MARK - The Songwriter Tour",
       "coverImage": "http://nawaytes.cloud:9000/eventku/temp/coverImage/7ac8c2d7-ab77-4d18-8682-ca871bb2a5a3-20230822010811.png",
@@ -292,6 +305,7 @@
       "topicIndex": "15",
       "tickets": [
         {
+          "uniqId": "g2573kdr",
           "sellPeriod": {
             "start": "2023-09-07 10:00",
             "end": "2023-09-22 11:00"
@@ -303,6 +317,7 @@
           "ticketType": "Berbayar"
         },
         {
+          "uniqId": "kd8d7d6d",
           "sellPeriod": {
             "start": "2023-09-07 10:00",
             "end": "2023-09-14 11:00"
@@ -314,6 +329,7 @@
           "ticketType": "Berbayar"
         },
         {
+          "uniqId": "poksdhh6",
           "sellPeriod": {
             "start": "2023-09-07 10:00",
             "end": "2023-09-14 11:00"
