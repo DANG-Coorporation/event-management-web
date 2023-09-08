@@ -37,7 +37,7 @@ export default function WebNavbar() {
               w={"100%"}
               borderColor={"transparent"}
               focusBorderColor={"transparent"}
-              placeholder="Cari Event gaes"
+              placeholder='Cari Event gaes'
               height={"2.2rem"}
               onFocus={() => {
                 dispatch(setScreenDarkenState(true));

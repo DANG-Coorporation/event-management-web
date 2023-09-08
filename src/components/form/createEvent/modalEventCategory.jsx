@@ -116,14 +116,15 @@ export default function ModalEventCategory() {
                 ></Input>
                 <InputRightElement>
                   <Button
-                    bgColor={"transparent"}
+                    bgColor={"gray.200"}
                     padding={"0"}
                     isDisabled={tagList.length >= 5}
                     _hover={{
                       bgColor: "blue.200",
                     }}
+                    color={"blue.600"}
                     onClick={() => {
-                      if (tagList.length < 5) {
+                      if (tagList.length < 5 && tag !== "") {
                         setTagList([...tagList, tag]);
                         setTag("");
                       }

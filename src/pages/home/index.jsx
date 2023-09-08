@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <VStack className={style.pageContainer} align={"start"}>
       <EventSwiperDisplay variants={"eventBanner"} />
-      <Text as={"span"} className={style.heading}>
+      <Text as={"span"} className={style.heading} >
         Event Untukmu
       </Text>
       {loading === "done" ? (

@@ -31,7 +31,7 @@ export const uploadFile = async (file) => {
       readableStream,
       buffer.length
     );
-    console.log(result);
+    // console.log(result);
     console.log(
       `File ${objectName} uploaded successfully to bucket ${bucketName}`
     );

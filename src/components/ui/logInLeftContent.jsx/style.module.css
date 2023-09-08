@@ -26,7 +26,7 @@
 }
 
 .input {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .button {
@@ -37,4 +37,12 @@
 
 .dividerText {
   margin: 2rem;
+}
+
+.error-message {
+  color: #E74C3C;
+  font-size: 12px;
+  margin-top: -8px;
+  margin-left: 4px;
+  margin-bottom: 4px;
 }

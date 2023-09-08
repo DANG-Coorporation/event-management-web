@@ -12,8 +12,8 @@ import {
   Tr,
 } from "@chakra-ui/react";
 
-import style from "./style.module.css";
 import TicketQuantity from "../../ui/ticketQuantity/ticketQuantity";
+import style from "./style.module.css";
 
 export default function TicketSelection() {
   return (
@@ -36,7 +36,9 @@ export default function TicketSelection() {
             <Tr>
               <Td>Diamond</Td>
               <Td>Rp.2.500.000</Td>
-              <Td><TicketQuantity/></Td>
+              <Td>
+                <TicketQuantity />
+              </Td>
               <Td>Rp.7.500.000</Td>
             </Tr>
             <Tr>
@@ -69,7 +71,7 @@ export default function TicketSelection() {
       <Divider />
       <Text as={"span"} className={style.warn}>
         {
-          "Dengan menekan tombol \"Pesan Sekarang\", maka pembeli dianggap sudah menyetujui ketentuatan yang berlaku"
+          'Dengan menekan tombol "Pesan Sekarang", maka pembeli dianggap sudah menyetujui ketentuatan yang berlaku'
         }
       </Text>
       <Button variant={"solid"} className={style.bookButton}>
