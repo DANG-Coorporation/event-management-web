@@ -1,15 +1,29 @@
-import { HStack, Box } from "@chakra-ui/react";
+import { HStack, Box, useDisclosure, useToast } from "@chakra-ui/react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import style from "./style.module.css";
-import { useState } from "react";
+import ReviewAlert from "../reviewDialog/reviewDialog";
+import { useSelector } from "react-redux";
+import {
+  setIndex,
+  setHover,
+} from "../../../app/features/starRatingBehaviour/starRating";
+import { useDispatch } from "react-redux";
+import { checkIsLogedIn } from "../../../utils/checkUsers";
+import { useNavigate } from "react-router";
 
 export default function StarRating() {
-  const [hover, setHover] = useState(0);
-  const [selectedIndex, setIndex] = useState(0);
+  const hover = useSelector((state) => state.starRating.hover);
+  const selectedIndex = useSelector((state) => state.starRating.index);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toast = useToast();
   return (
     <HStack
       onMouseLeave={() => {
-        setHover(0);
+        if (selectedIndex === 0) {
+          dispatch(setHover(0));
+        }
       }}
     >
       {[...Array(5)].map((_, index) => {
@@ -19,10 +33,26 @@ export default function StarRating() {
             key={index}
             className={style.starContainer}
             onMouseEnter={() => {
-              setHover(index);
+              if (selectedIndex === 0) {
+                dispatch(setHover(index));
+              }
             }}
             onClick={() => {
-              setIndex(index);
+              if (!checkIsLogedIn()) {
+                navigate("/logIn");
+                toast({
+                  description:
+                    "Anda belum masuk, siliahkan masuk terlabih dahulu",
+                  status: "error",
+                  duration: 2500,
+                  isClosable: true,
+                });
+                return;
+              }
+              if (selectedIndex === 0) {
+                dispatch(setIndex(index));
+                onOpen();
+              }
             }}
           >
             {index <= (selectedIndex === 0 ? hover : selectedIndex) ? (
@@ -33,6 +63,7 @@ export default function StarRating() {
           </Box>
         );
       })}
+      <ReviewAlert isOpen={isOpen} onClose={onClose} />
     </HStack>
   );
 }

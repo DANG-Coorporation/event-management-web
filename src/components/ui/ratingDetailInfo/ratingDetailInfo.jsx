@@ -21,9 +21,13 @@ export default function RatingDetailInfo({
       align={"left"}
       ml={"1rem"}
       justify={"center"}
+      overflow={"hidden"}
+      textOverflow={"ellipsis"}
     >
-      <Heading>{eventName}</Heading>
-      <Text>{{ eventTime }}</Text>
+      <Heading size={"lg"}>{eventName}</Heading>
+      <Text fontWeight="500" color={"grey"}>
+        {eventTime}
+      </Text>
       <HStack>
         <MdLocationPin color="grey" />
         <Text color={"grey"}>{eventLocation}</Text>

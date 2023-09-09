@@ -11,6 +11,12 @@ export const getUsers = () => {
   return jsonServer.get("/users");
 };
 
+export const fetchUsersByReviews = (reviews = []) => {
+  const params = new URLSearchParams();
+  reviews.forEach((item) => params.append("id", item.userId));
+  return jsonServer.get("/users", { params });
+};
+
 export const getUser = (id) => {
   return jsonServer.get(`/users/${id}`);
 };

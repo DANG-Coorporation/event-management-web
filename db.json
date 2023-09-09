@@ -30,9 +30,7 @@
           "ticketType": "Bayar Sesukamu"
         }
       ],
-      "tag": [
-        "kimbum"
-      ],
+      "tag": ["kimbum"],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -99,9 +97,7 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": [
-        "Teatrikal"
-      ],
+      "tag": ["Teatrikal"],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -168,11 +164,7 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": [
-        "Musikalisasi",
-        "teatrikal",
-        "allStar"
-      ],
+      "tag": ["Musikalisasi", "teatrikal", "allStar"],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -204,6 +196,7 @@
         "isOneEmailOneTransaction": false,
         "isOneTicketOneData": false
       },
+
       "eventDescription": "<p style=\"text-align: justify;\">Selamat datang di acara luar biasa kami, \"Indonesia United in Worship,\" yang akan diselenggarakan di Community Park Pantai Indah Kapuk, Jakarta Utara. Ini adalah momen yang luar biasa di mana ribuan jiwa bersatu dalam ibadah, menyatukan hati, dan merayakan keragaman agama dan budaya yang ada di Indonesia. Dalam cahaya matahari terbenam yang spektakuler, kita akan bersama-sama membangun jembatan cinta dan perdamaian, mengingatkan kita bahwa persatuan adalah kekuatan sejati.</p>\n<div class=\"group w-full text-token-text-primary border-b border-black/10 dark:border-gray-900/50 bg-gray-50 dark:bg-[#444654]\" data-testid=\"conversation-turn-7\">\n<div class=\"p-4 justify-center text-base md:gap-6 md:py-6 m-auto\">\n<div class=\"flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }\">\n<div class=\"relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]\">\n<div class=\"flex flex-grow flex-col gap-3 max-w-full\">\n<div class=\"min-h-[20px] flex flex-col items-start gap-3 overflow-x-auto whitespace-pre-wrap break-words\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p style=\"text-align: justify;\">Dalam semangat persatuan dan keragaman, kami mengundang semua orang untuk hadir dalam \"Indonesia United in Worship\" di Community Park Pantai Indah Kapuk. Mari bersama-sama menciptakan momen yang menginspirasi dan mempersatukan kita semua. Terima kasih atas partisipasi Anda dalam acara ini yang penuh makna.</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>",
       "isTermAndCondition": true,
       "termAndCondition": "<ol>\n<li>Acara ini adalah acara gratis dan terbuka untuk semua usia. Kami mengundang semua orang, tanpa memandang agama atau latar belakang, untuk bergabung dalam semangat persatuan dan perdamaian.</li>\n<li>Kami meminta semua peserta untuk mematuhi peraturan keamanan dan petunjuk yang diberikan oleh petugas acara. Ini termasuk pengamanan tiket untuk acara berbasis tiket, jika ada.</li>\n<li>Kami mendorong peserta untuk membawa tikar atau alas duduk sendiri untuk kenyamanan mereka. Namun, kami mohon untuk tidak meninggalkan sampah di lokasi acara. Kami memiliki fasilitas penampungan sampah yang tersedia.</li>\n<li>Penyelenggara acara tidak bertanggung jawab atas kehilangan atau kerusakan barang bawaan peserta. Mohon untuk menjaga barang-barang berharga Anda dengan baik.</li>\n<li>Kami meminta semua peserta untuk menghormati ruang pribadi dan kepercayaan agama satu sama lain. Perlakukan semua orang dengan hormat dan cinta.</li>\n<li>Fotografi dan perekaman video selama acara diperbolehkan, tetapi mohon berikan privasi kepada peserta lain yang tidak ingin difoto atau direkam.</li>\n<li>Kami meminta semua peserta untuk menjaga ketenangan selama upacara ibadah dan menghormati keheningan umum.</li>\n<li>Kami tidak mentoleransi perilaku yang mengganggu atau tidak pantas, dan penyelenggara acara berhak untuk mengeluarkan peserta yang melanggar ketentuan ini.</li>\n</ol>",
@@ -239,10 +232,7 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": [
-        "PublicSpeaking",
-        "EnglishSpeak"
-      ],
+      "tag": ["PublicSpeaking", "EnglishSpeak"],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -320,10 +310,7 @@
           "ticketType": "Berbayar"
         }
       ],
-      "tag": [
-        "konser",
-        "richard"
-      ],
+      "tag": ["konser", "richard"],
       "isPrivate": false,
       "eventTime": {
         "date": {
@@ -368,6 +355,55 @@
       "password": "galihajalah",
       "email": "scriptgalih@gmail.com",
       "id": 1
+    },
+    {
+      "fullName": "Jamil al fuqon",
+      "username": "manusia",
+      "password": "manusisempurna",
+      "email": "hahaha@gmail.com",
+      "id": 2
+    },
+    {
+      "fullName": "Naufan Rikza Ahmada",
+      "username": "NaufanRikza",
+      "password": "Tornado99",
+      "email": "josss@yahoo.com",
+      "id": 3
+    }
+  ],
+  "reviews": [
+    {
+      "eventId": 3,
+      "userId": 1,
+      "star": 4,
+      "comment": "hey, it's good",
+      "isLiked": true,
+      "commentTime": {
+        "date": "2023-09-07",
+        "time": "13:00"
+      }
+    },
+    {
+      "eventId": 3,
+      "userId": 2,
+      "star": 3,
+      "comment": "hey, it's good",
+      "isLiked": true,
+      "commentTime": {
+        "date": "2023-09-07",
+        "time": "13:00"
+      }
+    },
+    {
+      "eventId": 3,
+      "userId": 3,
+      "star": 2,
+      "comment": "SO AWFULL",
+      "isLiked": false,
+      "commentTime": {
+        "date": "2023-09-07",
+        "time": "13:00"
+      }
     }
   ]
 }

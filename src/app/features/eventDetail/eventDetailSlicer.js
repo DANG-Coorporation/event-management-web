@@ -26,7 +26,7 @@ const pageDetailSlice = createSlice({
   name: "pageDetail",
   initialState,
   reducers: {
-    getPageDetail: (state, action) => {
+    getPageDetail: (state) => {
       state.loading = true;
     },
     getPageDetailSuccess: (state, action) => {

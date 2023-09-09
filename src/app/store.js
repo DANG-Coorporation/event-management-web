@@ -7,6 +7,8 @@ import eventSwiperHoverDetectionReducer from "./features/eventSwiperHoverDetecti
 import deviceDarkenReducer from "./features/screenDarken/deviceDarkenSlicer";
 import testReducer from "./features/test/testSlicer";
 import userReducer from "./features/users/userSlicer";
+import reviewReducer from "./features/reviewFetching/reviewFetchingSlicer";
+import starRatingReducer from "./features/starRatingBehaviour/starRating";
 
 export const store = configureStore({
   reducer: {
@@ -18,5 +20,7 @@ export const store = configureStore({
     eventFetch: eventFetchReducer,
     users: userReducer,
     detailEvent: detailEventReducer,
+    reviews: reviewReducer,
+    starRating: starRatingReducer,
   },
 });

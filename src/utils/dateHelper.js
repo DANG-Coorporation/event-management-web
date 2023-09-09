@@ -7,11 +7,25 @@ export const convertStringToDate = (dateString) => {
   return date.toLocaleString(DateTime.DATE_FULL);
 };
 
-export const diffTwoDate = (date1, date2) => {
+export const diffTwoDate = (date1, date2, isNormalize = false) => {
   const dateA = DateTime.fromISO(date1);
   const dateB = DateTime.fromISO(date2);
   const diff = dateB.diff(dateA, ["days"]).toObject();
-  return diff.days;
+  if (!isNormalize) {
+    return diff.days;
+  }
+  
+  const diffAbs = Math.abs(diff.days);
+
+  if (diffAbs === 0) {
+    return "hari ini";
+  } else if (diffAbs < 32) {
+    return `${Math.abs(diff.days)} hari yang lalu`;
+  } else if (diffAbs < 361) {
+    return `${Math.abs(diff.months)} bulan yang lalu`;
+  } else {
+    return `${Math.abs(diff.years)} tahun yang lalu`;
+  }
 };
 
 export const convertDateTimeFormat = (datetime, formatFrom, formatTo) => {
