@@ -28,6 +28,7 @@ import { useEffect, useRef, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { postUser } from "../../../api/users";
+import { set } from "lodash";
 export default function RegisterForm({ loginRef }) {
   const data = useSelector((state) => state.users.data);
   const user = useSelector((state) => state.users);
@@ -106,6 +107,7 @@ export default function RegisterForm({ loginRef }) {
   };
 
   const onCheckReferralCode = () => {
+    console.log("debug-user", user);
     if (user.isValidReferralCode) {
       dispatch(resetReferralCode());
       referralRef.current.disabled = false;
@@ -159,11 +161,15 @@ export default function RegisterForm({ loginRef }) {
   }, [data, user]);
 
   useEffect(() => {
+    console.log("debug-referralCount", referralCount, user.referralCheckCount);
     if (user.referralCheckCount === 0) {
       dispatch(resetReferralCode());
       return;
     }
-    if (referralCount === 0 && user.referralCheckCount >= 1) return;
+    if (referralCount === 0 && user.referralCheckCount >= 1) {
+      setReferralCount(user.referralCheckCount);
+      return;
+    }
     if (user.isValidReferralCode === true) {
       referralRef.current.disabled = true;
       toast({
