@@ -8,9 +8,8 @@ import {
   Tab,
   
 } from "@chakra-ui/react";
-import TicketBar from "../ticketBar/ticketBar";
-import BigTicketDisplay from "../ticket/ticketDisplay";
 import TicketSelection from "../../form/ticketSelectionTable/ticketSelectionTable";
+import SyaratKetentuan from "../syaratKetentuanTiket/syaratKetentuan";
 export function Tabstiket() {
   return (
     <Tabs variant="enclosed"
@@ -41,7 +40,7 @@ export function Tabstiket() {
             Jakarta: Between U and Me - To Create Memorable Memories.
             </p>
             <br/>
-          <Button
+          {/* <Button
             bg="blue.500"
             padding="2"
             borderRadius="4"
@@ -50,7 +49,8 @@ export function Tabstiket() {
           >
             {" "}
             Syarat & Ketentuan{" "}
-          </Button>
+          </Button> */}
+        <SyaratKetentuan/>
         </TabPanel>
         <TabPanel w='100%'>
           <TicketSelection/>

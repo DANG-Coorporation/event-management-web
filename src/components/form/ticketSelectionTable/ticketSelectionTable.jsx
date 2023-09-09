@@ -14,8 +14,12 @@ import {
 
 import style from "./style.module.css";
 import TicketQuantity from "../../ui/ticketQuantity/ticketQuantity";
+import { useNavigate } from "react-router";
 
 export default function TicketSelection() {
+
+  const navigate = useNavigate();
+
   return (
     <Box className={style.tableCard}>
       <Text as={"span"} className={style.heading}>
@@ -72,7 +76,7 @@ export default function TicketSelection() {
           "Dengan menekan tombol \"Pesan Sekarang\", maka pembeli dianggap sudah menyetujui ketentuatan yang berlaku"
         }
       </Text>
-      <Button variant={"solid"} className={style.bookButton}>
+      <Button variant={"solid"} className={style.bookButton} onClick={()=>{navigate("/registrasi")}}>
         Pesan Sekarang
       </Button>
     </Box>
