@@ -1,6 +1,6 @@
 import { VStack, useToast } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setDraftCreateEvent } from "../../app/features/createEvent/createEventSlicer";
 import ModalDetailTicketCreateEvent from "../../components/form/createEvent/modalDetailTicket";
@@ -33,6 +33,7 @@ export default function CreateEvent() {
     } else {
       setIsLoggedIn(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

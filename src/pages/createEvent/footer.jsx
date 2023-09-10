@@ -102,6 +102,7 @@ export default function FooterCreateEvent() {
       asyncPostEvent();
     }
     offSend();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSend]);
 
   useEffect(() => {
@@ -115,6 +116,7 @@ export default function FooterCreateEvent() {
       });
     }
     setErrorMessages("");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessages]);
 
   return (

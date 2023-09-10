@@ -48,7 +48,7 @@ export function readFileAsBuffer(file) {
       resolve(buffer);
     };
 
-    reader.onerror = function (e) {
+    reader.onerror = function () {
       reject(new Error("Error reading the file"));
     };
 

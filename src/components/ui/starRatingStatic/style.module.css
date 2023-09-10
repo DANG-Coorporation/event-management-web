@@ -1,0 +1,8 @@
+.starContainer {
+  font-size: 25px;
+  color: #5669ff;
+}
+
+.starContainer:hover {
+  cursor: pointer;
+}

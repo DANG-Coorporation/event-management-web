@@ -10,7 +10,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { fetchEventById } from "../../../app/features/eventDetail/eventDetailSlicer";
@@ -24,7 +24,6 @@ import style from "./style.module.css";
 
 export default function Attendancefirstpage() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.eventFetch.loading);
   const eventList = useSelector((state) => state.eventFetch.events);
   const detailEvent = useSelector((state) => state.detailEvent);
   const [detail, setDetail] = useState({});
@@ -68,11 +67,11 @@ export default function Attendancefirstpage() {
 
   return !detailEvent.loading ? (
     <VStack
-      maxWidth='100%'
-      maxHeight='100%'
-      spacing='10px'
-      paddingLeft='5%'
-      paddingRight='5%'
+      maxWidth="100%"
+      maxHeight="100%"
+      spacing="10px"
+      paddingLeft="5%"
+      paddingRight="5%"
     >
       <Spacer />
       <Box
@@ -81,38 +80,38 @@ export default function Attendancefirstpage() {
       >
         <Image
           src={detail.coverImage}
-          alt='event-banner'
+          alt="event-banner"
           border={"1px solid #E2E8F0"}
           borderRadius={"20px"}
         />
       </Box>
       <Box
-        borderWidth='1px'
-        borderRadius='md'
+        borderWidth="1px"
+        borderRadius="md"
         width={{ base: "100%", md: "100%", lg: "800px" }}
         padding={"10px"}
       >
         <List
-          spacing='1%'
+          spacing="1%"
           fontSize={{ base: "12px", md: "16px", lg: "16px" }}
           width={"100%"}
         >
           <Heading
             fontSize={{ base: "12px", md: "24px", lg: "24px" }}
-            fontWeight='bold'
+            fontWeight="bold"
           >
             {detail.eventName}
           </Heading>
-          <ListItem span='2'>
-            <ListIcon as={CalendarIcon} color='blue.500' marginRight='3%' />
+          <ListItem span="2">
+            <ListIcon as={CalendarIcon} color="blue.500" marginRight="3%" />
             {datePeriod || ""}
           </ListItem>
           <ListItem>
-            <ListIcon as={TimeIcon} color='blue.500' marginRight='3%' />
+            <ListIcon as={TimeIcon} color="blue.500" marginRight="3%" />
             {timePeriod || ""}
           </ListItem>
           <ListItem>
-            <ListIcon as={AtSignIcon} color='blue.500' marginRight='3%' />
+            <ListIcon as={AtSignIcon} color="blue.500" marginRight="3%" />
             {detail.address && detail.address.placeName
               ? detail.address.placeName.split(",")[0] +
                 "  |  " +

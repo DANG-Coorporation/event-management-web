@@ -34,8 +34,9 @@ export default function UploadCoverImage() {
     if (currentCoverImage) {
       asyncUploadCoverImage();
     }
-  }, [rawCoverImage]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rawCoverImage]);
   useEffect(() => {
     setCurrentCoverImage(createEvent.data.coverImage);
   }, [createEvent]);
@@ -63,10 +64,10 @@ export default function UploadCoverImage() {
           display={currentCoverImage ? "none" : "block"}
           cursor={"pointer"}
         >
-          <AiOutlineFileAdd size={"50px"} color='white' />
+          <AiOutlineFileAdd size={"50px"} color="white" />
         </Box>
         <Input
-          type='file'
+          type="file"
           accept={configConstants.imageExtensionAllowed}
           display={"none"}
           ref={hiddenFileInput}
@@ -93,7 +94,7 @@ export default function UploadCoverImage() {
         </Text>
       </Box>
       <HStack ml={"auto"} mt={"-70px"} mr={"20px"}>
-        <Tooltip label='Ganti foto' aria-label='Ganti foto'>
+        <Tooltip label="Ganti foto" aria-label="Ganti foto">
           <Box
             padding={"5px"}
             borderRadius={"25%"}
@@ -102,23 +103,23 @@ export default function UploadCoverImage() {
             cursor={"pointer"}
             onClick={handleClick}
           >
-            <AiFillEdit color='white' size={"25px"} />
+            <AiFillEdit color="white" size={"25px"} />
           </Box>
         </Tooltip>
-        <Tooltip label='Hapus foto' aria-label='Hapus foto'>
+        <Tooltip label="Hapus foto" aria-label="Hapus foto">
           <Box
             padding={"5px"}
             borderRadius={"25%"}
             backgroundColor={"blackAlpha.600"}
             display={currentCoverImage ? "block" : "none"}
             cursor={"pointer"}
-            onClick={(e) => {
+            onClick={() => {
               dispatch(removeCoverImage());
               setCurrentCoverImage(null);
               hiddenFileInput.current.value = null;
             }}
           >
-            <BiSolidTrashAlt color='white' size={"25px"} />
+            <BiSolidTrashAlt color="white" size={"25px"} />
           </Box>
         </Tooltip>
       </HStack>

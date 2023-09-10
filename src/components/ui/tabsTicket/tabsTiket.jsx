@@ -8,10 +8,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+
 import { useSelector } from "react-redux";
 import TicketDetailPage from "../ticket/ticketDetailPage";
-export function Tabstiket({ description, termCondition }) {
+
+export function Tabstiket() {
   const renderHTML = (html) => {
     return { __html: html };
   };
@@ -19,9 +20,9 @@ export function Tabstiket({ description, termCondition }) {
 
   return (
     <Tabs
-      variant='enclosed'
-      colorScheme='white'
-      size='lg'
+      variant="enclosed"
+      colorScheme="white"
+      size="lg"
       width={"100%"}
       maxWidth={{
         base: "100%", // 0-48em
@@ -29,19 +30,19 @@ export function Tabstiket({ description, termCondition }) {
         lg: "800px", // 80em+
       }}
     >
-      <TabList w='100%' alignContent={"center"}>
-        <Tab _selected={{ color: "white", bg: "blue.500" }} w='50%'>
+      <TabList w="100%" alignContent={"center"}>
+        <Tab _selected={{ color: "white", bg: "blue.500" }} w="50%">
           {" "}
           Deskripsi
         </Tab>
-        <Tab _selected={{ color: "white", bg: "blue.500" }} w='50%'>
+        <Tab _selected={{ color: "white", bg: "blue.500" }} w="50%">
           Tiket
         </Tab>
       </TabList>
       <TabPanels>
-        <TabPanel w='100%' p='30px'>
+        <TabPanel w="100%" p="30px">
           <VStack>
-            <Text fontSize='lg' fontWeight='bold'>
+            <Text fontSize="lg" fontWeight="bold">
               Deskripsi
             </Text>
             {detailEvent.eventDescription && (
@@ -55,7 +56,7 @@ export function Tabstiket({ description, termCondition }) {
             {detailEvent.isTermAndCondition && (
               <>
                 {" "}
-                <Text fontSize='lg' fontWeight='bold'>
+                <Text fontSize="lg" fontWeight="bold">
                   Syarat & Ketentuan
                 </Text>
                 {detailEvent.termAndCondition && (
@@ -69,7 +70,7 @@ export function Tabstiket({ description, termCondition }) {
             )}
           </VStack>
         </TabPanel>
-        <TabPanel w='100%'>
+        <TabPanel w="100%">
           <VStack>
             {detailEvent.tickets ? (
               detailEvent.tickets.map((ticket, index) => (
@@ -85,7 +86,7 @@ export function Tabstiket({ description, termCondition }) {
                 />
               ))
             ) : (
-              <Text fontSize='lg' fontWeight='bold'>
+              <Text fontSize="lg" fontWeight="bold">
                 Tiket tidak tersedia
               </Text>
             )}

@@ -59,6 +59,7 @@ export default function CreateEventInformation() {
     if (rawOrgImage) {
       asyncUploadOrganizerPhoto();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawOrgImage]);
 
   const openUploadPhoto = () => {

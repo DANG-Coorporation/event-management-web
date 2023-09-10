@@ -28,7 +28,12 @@ import { useEffect, useRef, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { postUser } from "../../../api/users";
-import { set } from "lodash";
+import propType from "prop-types";
+
+RegisterForm.propTypes = {
+  loginRef: propType.object,
+};
+
 export default function RegisterForm({ loginRef }) {
   const data = useSelector((state) => state.users.data);
   const user = useSelector((state) => state.users);
@@ -223,13 +228,13 @@ export default function RegisterForm({ loginRef }) {
       />
       <Text className={style["error-message"]}>{error.username}</Text>
 
-      <Text className={style.label} type='email'>
+      <Text className={style.label} type="email">
         Email
       </Text>
       <Input
         className={style.input}
         id={"registerEmail"}
-        type='email'
+        type="email"
         value={data.email}
         onChange={(e) => {
           dispatch(setEmail(e.target.value));
@@ -260,14 +265,14 @@ export default function RegisterForm({ loginRef }) {
         />
       </InputGroup>
       <Text className={style["error-message"]}>{error.password}</Text>
-      <Text className={style.label} type='email'>
+      <Text className={style.label} type="email">
         Referral Code (Opsional)
       </Text>
       <HStack>
         <Input
           className={style.input}
           id={"referralCode"}
-          type='text'
+          type="text"
           onChange={(e) => {
             setReferralCode(e.target.value);
           }}
@@ -275,7 +280,7 @@ export default function RegisterForm({ loginRef }) {
           disabled={user.isValidReferralCode}
         />
         <Button
-          colorScheme='green'
+          colorScheme="green"
           className={style.input}
           onClick={onCheckReferralCode}
         >

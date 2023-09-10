@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
+  fetchUsersByReviews,
   checkReferraCode,
   getUser,
   getUsers,
@@ -34,6 +35,18 @@ export const checkLogin = createAsyncThunk("users/checkLogin", async () => {
   } else return null;
 });
 
+export const getUsersByReview = createAsyncThunk(
+  "users/getUsersByReview",
+  async (review = []) => {
+    try {
+      const res = await fetchUsersByReviews(review);
+      const data = await res.data;
+      return data;
+    } catch (e) {
+      return e;
+    }
+  }
+);
 export const storeReferralLink = createAsyncThunk(
   "users/storeReferralLink",
   async ({ userid, referralCode }) => {
@@ -56,6 +69,7 @@ export const fetchReferralCode = createAsyncThunk(
 
 const initialState = {
   users: [],
+  usersByReview: [],
   data: {
     fullName: "",
     username: "",
@@ -116,7 +130,7 @@ const userSlice = createSlice({
     builder.addCase(createUser.fulfilled, (state, action) => {
       state.users.push(action.payload);
     });
-    builder.addCase(fetchUsers.pending, (state, _) => {
+    builder.addCase(fetchUsers.pending, (state) => {
       state.status = "loading";
     });
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
@@ -131,6 +145,16 @@ const userSlice = createSlice({
         state.login = action.payload;
         state.isLogin = true;
       } else state.isLogin = false;
+    });
+    builder.addCase(getUsersByReview.fulfilled, (state, action) => {
+      state.usersByReview = action.payload;
+      state.status = "success";
+    });
+    builder.addCase(getUsersByReview.rejected, (state) => {
+      state.status = "failed";
+    });
+    builder.addCase(getUsersByReview.pending, (state) => {
+      state.status = "loading";
     });
     builder.addCase(fetchReferralCode.fulfilled, (state, action) => {
       if (action.payload) {

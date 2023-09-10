@@ -13,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getEvents());
-  }, []);
+  }, [dispatch]);
 
   return (
     <VStack className={style.pageContainer} align={"start"}>

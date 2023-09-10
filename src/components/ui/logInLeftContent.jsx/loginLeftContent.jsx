@@ -15,7 +15,7 @@ import RegisterForm from "./registerForm";
 export default function LoginFormLeftContent() {
   const loginRef = useRef(null);
   return (
-    <VStack className={style.container} align={"start"}>
+    <VStack className={style.container} align={"start"} >
       <Tabs className={style.tabContainer}>
         <TabList className={style.tabList}>
           <Tab
