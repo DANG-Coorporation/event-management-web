@@ -3,7 +3,7 @@ import style from "./style.module.css";
 // import { Avatar } from "@chakra-ui/avatar";
 import { MdPerson } from "react-icons/md";
 import StarRatingStatic from "../starRatingStatic/starRatingStatic";
-import ReviewLikeDislike from "../reviewLikeDislike/reviewLikeDislike";
+// import ReviewLikeDislike from "../reviewLikeDislike/reviewLikeDislike";
 import propType from "prop-types";
 import { diffTwoDate } from "../../../utils/dateHelper";
 
@@ -83,7 +83,7 @@ export default function ReviewCard({ reviewItem }) {
           <VStack h={"100%"} wordBreak={"break-word"} textOverflow={"ellipsis"}>
             <HStack w={"100%"} justify={"space-between"} align={"start"}>
               <StarRatingStatic stars={reviewItem.star} />
-              <ReviewLikeDislike isLiked={reviewItem.isLiked} />
+              {/* <ReviewLikeDislike isLiked={reviewItem.isLiked} /> */}
             </HStack>
             <Text className={style.review} as={"span"}>
               {reviewItem.comment}

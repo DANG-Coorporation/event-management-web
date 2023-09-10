@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchReviews } from "../../../api/fetchReviews";
-import { fetchReviewById } from "../../../api/fetchReviewById";
+import { checkReviewByUser } from "../../../api/checkReviewByuser";
 import { fetchReviewByEvent } from "../../../api/fetchReviewByEvent";
 
 export const getReviews = createAsyncThunk("reviews/fetch", async () => {
@@ -13,11 +13,11 @@ export const getReviews = createAsyncThunk("reviews/fetch", async () => {
   }
 });
 
-export const getReviewById = createAsyncThunk(
+export const getReviewByUserandEvent = createAsyncThunk(
   "reviews/fetchById",
   async (param = {}) => {
     try {
-      const res = await fetchReviewById(param);
+      const res = await checkReviewByUser(param);
       const data = await res.data;
       return data;
     } catch (e) {
@@ -46,10 +46,11 @@ const reviewSlicer = createSlice({
     loading: {
       perEvent: "idle",
       all: "idle",
-      byId: "idle",
+      byUserEvent: "idle",
+      postReview: "idle",
     },
     reviewAll: [],
-    review: {},
+    review: null,
     reviewPerEvent: [],
     reviewObjList: null,
   },
@@ -71,14 +72,14 @@ const reviewSlicer = createSlice({
       state.loading.all = "failed";
     });
 
-    builder.addCase(getReviewById.fulfilled, (state, action) => {
+    builder.addCase(getReviewByUserandEvent.fulfilled, (state, action) => {
       state.review = action.payload;
-      state.loading.byId = "success";
+      state.loading.byUserEvent = "success";
     });
 
-    builder.addCase(getReviewById.rejected, (state, action) => {
+    builder.addCase(getReviewByUserandEvent.rejected, (state, action) => {
       state.error = action.payload;
-      state.loading.byId = "failed";
+      state.loading.byUserEvent = "failed";
     });
 
     builder.addCase(getReviewByEvent.fulfilled, (state, action) => {

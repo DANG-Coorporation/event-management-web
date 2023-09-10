@@ -39,13 +39,16 @@ export default function StarRating() {
             }}
             onClick={() => {
               if (!checkIsLogedIn()) {
+                dispatch(setHover(0));
+                dispatch(setIndex(0));
                 navigate("/logIn");
                 toast({
                   description:
-                    "Anda belum masuk, siliahkan masuk terlabih dahulu",
+                    "Anda belum masuk, silahkan masuk terlebih dahulu",
                   status: "error",
                   duration: 2500,
                   isClosable: true,
+                  position : "top"
                 });
                 return;
               }
@@ -63,7 +66,7 @@ export default function StarRating() {
           </Box>
         );
       })}
-      <ReviewAlert isOpen={isOpen} onClose={onClose} />
+      <ReviewAlert isOpen={isOpen} onClose={onClose} star={selectedIndex} />
     </HStack>
   );
 }

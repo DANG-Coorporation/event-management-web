@@ -4,6 +4,7 @@ import RatingBreakdown from "../ratingBreakdown/ratingBreakdown";
 import style from "./style.module.css";
 
 export default function RatingSection() {
+ 
   return (
     <HStack
       className={style.container}

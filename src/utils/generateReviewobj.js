@@ -3,9 +3,14 @@ export const generateReviewObject = (userList = [], ReviewList = []) => {
     return [];
   }
 
+  if ((userList.length != ReviewList.length) === 0) {
+    return [];
+  }
+
   const final = [];
   for (let i = 0; i < ReviewList.length; i++) {
-    const { fullName, username, email, id } = userList[i];
+    const filtered = userList.find((item) => item.id === ReviewList[i].userId);
+    const { fullName, username, email, id } = filtered;
     // delete user.password;
     const review = ReviewList[i];
     const obj = {
