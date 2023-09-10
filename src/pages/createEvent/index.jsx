@@ -1,5 +1,8 @@
 import { VStack, useToast } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { setDraftCreateEvent } from "../../app/features/createEvent/createEventSlicer";
 import ModalDetailTicketCreateEvent from "../../components/form/createEvent/modalDetailTicket";
 import ModalEventCategory from "../../components/form/createEvent/modalEventCategory";
 import ModalGetEventLocation from "../../components/form/createEvent/modalGetLocationEvent";
@@ -9,20 +12,11 @@ import CreateEventInformation from "./eventInformation";
 import FooterCreateEvent from "./footer";
 import style from "./style.module.css";
 import UploadCoverImage from "./uploadCoverImage";
-import { setDraftCreateEvent } from "../../app/features/createEvent/createEventSlicer";
-import { useEffect, useState } from "react";
-import { checkLogin } from "../../app/features/users/userSlicer";
-import { useNavigate } from "react-router-dom";
-import { parseToken } from "../../utils/checkUsers";
 export default function CreateEvent() {
-  const createEvent = useSelector((state) => state.createEvent);
-  // console.log("debug-event", createEvent);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const users = useSelector((state) => state.users);
   const toast = useToast();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -37,9 +31,9 @@ export default function CreateEvent() {
       navigate("/logIn");
       setIsLoggedIn(false);
     } else {
-      // console.log(parseToken());
       setIsLoggedIn(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

@@ -57,7 +57,8 @@ export default function RatingPage() {
     setIsUpdate(true);
     if (location.pathname.includes("/rating")) {
       const fetchAll = async () => {
-        dispatch(fetchEventById(id));
+        const p = await dispatch(fetchEventById(id));
+        console.log(p.payload);
         if (checkIsLogedIn()) {
           const reviewByUserEvent = await dispatch(
             getReviewByUserEvent({ eventId: id, userId: parseToken().id })
@@ -95,6 +96,7 @@ export default function RatingPage() {
           await dispatch(getUsersByReview(reviewbyevent.payload));
           dispatch(setNumericRating(0));
           dispatch(setReviewObjList([]));
+          dispatch(setRatingData({}));
         }
       };
 

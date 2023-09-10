@@ -6,10 +6,10 @@ AccordionFilterItem.propTypes = {
   itemName: propType.string,
 };
 
-export default function AccordionFilterItem({ itemName }) {
+export default function AccordionFilterItem({ keyItem, itemName }) {
   return (
     <>
-      <Box className={style.itemContainer}>
+      <Box key={keyItem} className={style.itemContainer}>
         {itemName}
       </Box>
     </>

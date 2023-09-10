@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postNewEvent } from "../../api/createEvent";
 import { resetData } from "../../app/features/createEvent/createEventSlicer";
+import * as generateUniqueId from "generate-unique-id";
+import { checkLogin } from "../../app/features/users/userSlicer";
+
 export default function FooterCreateEvent() {
   const data = useSelector((state) => state.createEvent.data);
   const onSaveToDraft = () => {
@@ -17,12 +20,24 @@ export default function FooterCreateEvent() {
   const offSend = () => {
     setIsSend(false);
   };
+  const userLogin = useSelector((state) => state.users.login);
   const [errorMessages, setErrorMessages] = useState("");
+
+  useEffect(() => {
+    dispatch(checkLogin());
+  }, [dispatch]);
 
   useEffect(() => {
     async function asyncPostEvent() {
       try {
-        const result = await postNewEvent(data);
+        const uniqId = `${data.eventName
+          .toLowerCase()
+          .replace(/\s/g, "-")}-${generateUniqueId({
+          length: 5,
+        })}`;
+        const userId = userLogin.id;
+
+        const result = await postNewEvent({ ...data, uniqId, userId });
         if (result.status === 201) {
           toast({
             title: "Event Saved",
@@ -34,11 +49,10 @@ export default function FooterCreateEvent() {
           dispatch(resetData());
         }
       } catch (error) {
-        // Handle the error properly
-        console.error(error); // Log the error for debugging purposes
+        console.error(error);
         toast({
           title: "Error",
-          description: "Something went wrong", // Use a generic error message
+          description: "Something went wrong",
           status: "error",
           duration: 1000,
           isClosable: true,
@@ -84,11 +98,11 @@ export default function FooterCreateEvent() {
       tempErrorMessages = "Anda harus menyetujui syarat dan ketentuan";
 
     setErrorMessages(tempErrorMessages);
-    console.log(errorMessages);
     if (isSend && !tempErrorMessages) {
       asyncPostEvent();
     }
     offSend();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSend]);
 
   useEffect(() => {
@@ -102,6 +116,7 @@ export default function FooterCreateEvent() {
       });
     }
     setErrorMessages("");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessages]);
 
   return (

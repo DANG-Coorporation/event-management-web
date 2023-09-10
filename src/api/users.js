@@ -25,9 +25,9 @@ const gerUserByUserName = (userName) => {
   return jsonServer.get(`/users?username=${userName}`);
 };
 
-const getByEmail = (email) => {
-  return jsonServer.get(`/users?email=${email}`);
-};
+// const getByEmail = (email) => {
+//   return jsonServer.get(`/users?email=${email}`);
+// };
 
 export const checkCredential = async ({ username, password }) => {
   const user = await gerUserByUserName(username);
@@ -36,6 +36,14 @@ export const checkCredential = async ({ username, password }) => {
   }
   if (user.data[0].password !== password) {
     throw new Error("Password incorrect");
+  }
+  return user.data[0];
+};
+
+export const checkReferraCode = async (referralCode) => {
+  const user = await jsonServer.get(`/users?referralCode=${referralCode}`);
+  if (user.data.length === 0) {
+    throw new Error("Referral code not found");
   }
   return user.data[0];
 };

@@ -3,21 +3,38 @@ import style from "./style.module.css";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/input";
 import { MdSearch, MdEvent, MdExplore } from "react-icons/md";
 import NavbarLink from "../../ui/navbarLink/NavbarLink";
-import { Button, Box } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import NavbarCategory from "../../ui/navbarCategory/NavbarCategory";
 import { constant } from "../../../data/constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setScreenDarkenState } from "../../../app/features/screenDarken/deviceDarkenSlicer";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { setIsLogin } from "../../../app/features/users/userSlicer";
+import NavbarLoginUtil from "../../ui/navbarLoginUtils/navbarLoginUtil";
+import { checkIsLogedIn, parseToken } from "../../../utils/checkUsers";
 
 export default function WebNavbar() {
   const { navbarCategories } = constant;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLogin = useSelector((state) => state.users.isLogin);
+  let userName = useRef("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [searchString, setSearchString] = useState("");
+  useEffect(() => {
+    if (checkIsLogedIn()) {
+      dispatch(setIsLogin(true));
+      userName.current = parseToken().username;
+    } else {
+      dispatch(setIsLogin(false));
+    }
+  }, [location.pathname]);
 
-  const onClick = () => {
-    navigate("/logIn");
+  const handlerSearch = () => {
+    navigate(`/discovery?q=${searchString}`);
   };
+
   return (
     <nav className={style.webNavbar}>
       <HStack className={style.parentStack}>
@@ -45,6 +62,15 @@ export default function WebNavbar() {
               onBlur={() => {
                 dispatch(setScreenDarkenState(false));
               }}
+              onChange={(e) => {
+                setSearchString(e.target.value);
+              }}
+              // onClick={handlerSearch}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  handlerSearch();
+                }
+              }}
             ></Input>
             <InputRightAddon
               h={"2.2rem"}
@@ -52,6 +78,8 @@ export default function WebNavbar() {
               bg={"#7887ff"}
               borderColor={"transparent"}
               fontSize={"2rem"}
+              cursor={"pointer"}
+              onClick={handlerSearch}
             >
               <MdSearch className={style.searchIcon} />
             </InputRightAddon>
@@ -71,7 +99,13 @@ export default function WebNavbar() {
         </VStack>
 
         <div className={style.rightWrapper}>
-          <HStack>
+          <Box
+            h={"2.2rem"}
+            w={"100%"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
             <div className={style.navlinkWrapper}>
               <NavbarLink
                 icon={<MdEvent />}
@@ -80,7 +114,7 @@ export default function WebNavbar() {
                   navigate("/create-event");
                 }}
               />
-              <Box width={"1rem"}></Box>
+              <Box width={"2rem"}></Box>
               <NavbarLink
                 icon={<MdExplore />}
                 name={"Telusuri Event"}
@@ -89,16 +123,20 @@ export default function WebNavbar() {
                 }}
               />
             </div>
-
-            <div className={style.buttonsWrapper}>
-              <Button variant={"outline"} mr={"12px"} onClick={onClick}>
-                Masuk
-              </Button>
-              <Button variant={"solid"} bg={"#7887FF"} onClick={onClick}>
-                Daftar
-              </Button>
-            </div>
-          </HStack>
+          </Box>
+          {isLogin ? (
+            <NavbarLoginUtil
+              isLogin={isLogin}
+              userData={{ userName: userName.current }}
+              disclosure={{ isOpen, onOpen, onClose }}
+            />
+          ) : (
+            <NavbarLoginUtil
+              navigate={() => {
+                navigate("/logIn");
+              }}
+            />
+          )}
         </div>
       </HStack>
     </nav>

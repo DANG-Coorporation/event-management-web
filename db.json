@@ -399,6 +399,29 @@
       "id": 2
     }
   ],
-  "referrallinks": [
+  "referrallinks": [],
+  "reviews": [
+    {
+      "eventId": "mastering-the-art-of-elevator-pitch-8x9k4d",
+      "userId": 1,
+      "star": 5,
+      "comment": "GG BET",
+      "commentTime": {
+        "date": "2023-09-10",
+        "time": "12:12"
+      },
+      "id": 1
+    },
+    {
+      "eventId": "mastering-the-art-of-elevator-pitch-8x9k4d",
+      "userId": 2,
+      "star": 3,
+      "comment": "B aja sih soalnya kureng",
+      "commentTime": {
+        "date": "2023-09-10",
+        "time": "12:16"
+      },
+      "id": 2
+    }
   ]
 }

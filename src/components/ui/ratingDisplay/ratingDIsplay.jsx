@@ -25,7 +25,7 @@ export default function RatingDisplay() {
         </Text>
         {isRated ? <StarRatingStatic stars={stars} /> : <StarRating />}
         <Text as="span" className={style.ratingAmount}>
-          {`${length} reviews`}
+          {`${length === undefined ? 0 : length} reviews`}
         </Text>
       </VStack>
     </RatingCard>

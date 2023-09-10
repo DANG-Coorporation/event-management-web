@@ -118,7 +118,7 @@ export default function ReviewAlert({ isOpen, onClose, star }) {
                 const date = new Date();
                 const loc = location.pathname;
                 const obj = {
-                  eventId: parseInt(loc.split("/")[2]),
+                  eventId: loc.split("/")[2],
                   userId: parseToken().id,
                   star: star,
                   comment: textAreaRef.current.value,
@@ -134,7 +134,7 @@ export default function ReviewAlert({ isOpen, onClose, star }) {
                   dispatch(setIsUpdate(true));
                   const res = await dispatch(postUserReview(obj));
                   if (res.payload.toString().startsWith("2")) {
-                    const id = parseInt(location.pathname.split("/")[2]);
+                    const id = location.pathname.split("/")[2];
                     const reviewbyevent = await dispatch(getReviewByEvent(id));
                     console.log("from Async =>", reviewbyevent.payload);
                     dispatch(

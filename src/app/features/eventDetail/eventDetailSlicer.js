@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getEventById } from "../../../api/event";
+import { getEventById, getEventsByQuery } from "../../../api/event";
 
 const initialState = {
   pageDetail: {},
@@ -7,6 +7,8 @@ const initialState = {
   loading: false,
   error: false,
   status: "idle",
+  discoveryStatus: "idle",
+  discovery: [],
 };
 
 export const fetchEventById = createAsyncThunk(
@@ -14,6 +16,19 @@ export const fetchEventById = createAsyncThunk(
   async (id) => {
     try {
       const res = await getEventById(id);
+      const data = await res.data[0];
+      return data;
+    } catch (e) {
+      return e;
+    }
+  }
+);
+
+export const fetchEventByQuery = createAsyncThunk(
+  "pageDetail/fetchEventByQuery",
+  async (query) => {
+    try {
+      const res = await getEventsByQuery(query);
       const data = await res.data;
       return data;
     } catch (e) {
@@ -52,11 +67,17 @@ const pageDetailSlice = createSlice({
       state.error = false;
       state.status = "loading";
     });
-
     builder.addCase(fetchEventById.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
       state.status = "failed";
+    });
+    builder.addCase(fetchEventByQuery.fulfilled, (state, action) => {
+      state.discovery = action.payload;
+      state.discoveryStatus = "success";
+    });
+    builder.addCase(fetchEventByQuery.pending, (state) => {
+      state.discoveryStatus = "loading";
     });
   },
 });

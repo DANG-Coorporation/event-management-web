@@ -90,8 +90,8 @@ export default function EventSwiperDisplay({ variants, eventList }) {
                           new Date().toISOString().split("T")[0],
                           item.eventTime.date.start
                         ) >= 0
-                          ? `/event/${item.id}`
-                          : `/rating/${item.id}`
+                          ? `/event/${item.uniqId}`
+                          : `/rating/${item.uniqId}`
                       }
                     >
                       <AppCard

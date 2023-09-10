@@ -19,15 +19,14 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Text,
   Textarea,
   useToast,
 } from "@chakra-ui/react";
+import * as generateUniqueId from "generate-unique-id";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTicketTier,
-  editTicketByIndex,
   setModalDetilTicket,
   setModalDetileTicketStatus,
   ticketType,
@@ -41,7 +40,7 @@ function convertRupiahToNumeric(input) {
   if (!isNaN(numericAmount)) {
     return numericAmount;
   } else {
-    return null; // or throw an error, return a message, etc.
+    return null;
   }
 }
 
@@ -54,12 +53,6 @@ export default function ModalDetailTicketCreateEvent() {
     (state) => state.createEvent.modal.detailTicket.type
   );
 
-  const editTicket = useSelector(
-    (state) => state.createEvent.modal.detailTicket
-  );
-  const draftTicketName = useSelector(
-    (state) => state.createEvent.modal.detailTicket.ticketName
-  );
   const dateSell = useRef(null);
   const [ticketName, setTicketName] = useState("");
   const [ticketPrice, setTicketPrice] = useState(0);
@@ -173,6 +166,9 @@ export default function ModalDetailTicketCreateEvent() {
       return;
     }
     const ticket = { sellPeriod: {} };
+    ticket["uniqId"] = generateUniqueId({
+      length: 8,
+    });
     ticket["name"] = ticketName;
     ticket["price"] = ticketPrice;
     ticket["quota"] = ticketQty;
@@ -180,16 +176,7 @@ export default function ModalDetailTicketCreateEvent() {
     ticket["ticketType"] = type;
     ticket["sellPeriod"]["start"] = `${startDate} ${startTime}`;
     ticket["sellPeriod"]["end"] = `${endDate} ${endTime}`;
-    //   if (editTicket.index !== null) {
-    //     dispatch(
-    //       editTicketByIndex({
-    //         index: editTicket.index,
-    //         data: ticket,
-    //       })
-    //     );
-    //     onClose();
-    //     return;
-    //   }
+
     dispatch(addTicketTier(ticket));
     onClose();
   };
@@ -205,7 +192,6 @@ export default function ModalDetailTicketCreateEvent() {
       const hourIndex = configConstants.hourList.findIndex(
         (hour) => hour === startTime
       );
-      const newHourList = configConstants.hourList.slice(hourIndex + 1);
       setEndTimeHourList(configConstants.hourList.slice(hourIndex + 1));
     } else {
       setEndTimeHourList(configConstants.hourList);
@@ -218,24 +204,6 @@ export default function ModalDetailTicketCreateEvent() {
     );
     setEndTimeHourList(configConstants.hourList.slice(hourIndex + 1));
   }, []);
-
-  // useEffect(() => {
-  //   setTicketName(editTicket.ticketName);
-  //   setTicketPrice(editTicket.ticketPrice);
-  //   setFormattedPrice(
-  //     new Intl.NumberFormat("id-ID", {
-  //       style: "currency",
-  //       currency: "IDR",
-  //       minimumFractionDigits: 0,
-  //     }).format(editTicket.ticketPrice ?? 0)
-  //   );
-  //   setTicketQty(editTicket.ticketQty);
-  //   setTicketDesc(editTicket.ticketDesc);
-  //   setStartDate(editTicket.startDate);
-  //   setStartTime(editTicket.startTime ?? "10:00");
-  //   setEndDate(editTicket.endDate ?? startDate);
-  //   setEndTime(editTicket.endTime ?? "11:00");
-  // }, [editTicket]);
 
   useEffect(() => {
     if (!endDate) setEndDate(startDate);
