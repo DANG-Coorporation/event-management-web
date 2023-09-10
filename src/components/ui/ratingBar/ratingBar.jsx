@@ -46,7 +46,7 @@ export default function RatingBar() {
                   max={length}
                 />
                 <Text as={"span"} className={style.reviewAmountperStar}>
-                  {length}
+                  {item.value}
                 </Text>
               </HStack>
             );
