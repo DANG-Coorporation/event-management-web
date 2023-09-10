@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { checkReviewByUser } from "../../../api/checkReviewByuser";
+import { checkReviewByUser } from "../../../api/checkReviewByUser";
 
 export const getReviewByUserEvent = createAsyncThunk(
   "reviewByuserEvent/get",

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchReviews } from "../../../api/fetchReviews";
-import { checkReviewByUser } from "../../../api/checkReviewByuser";
+import { checkReviewByUser } from "../../../api/checkReviewByUser";
 import { fetchReviewByEvent } from "../../../api/fetchReviewByEvent";
 
 export const getReviews = createAsyncThunk("reviews/fetch", async () => {
