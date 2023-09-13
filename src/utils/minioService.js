@@ -1,12 +1,6 @@
 import * as Minio from "minio";
-import stream from "stream";
 import { Buffer } from "buffer";
 import { v4 as uuidv4 } from "uuid";
-// // import * as fileType from "file-type";
-// import axios from "axios";
-// import { fileTypeFromBuffer } from "file-type";
-// import { readChunk } from "read-chunk";
-
 const minioClient = new Minio.Client({
   endPoint: "203.175.11.82",
   port: 9000, // Typically 9000
@@ -25,14 +19,13 @@ export const uploadFile = async (file) => {
     const readableStream = Buffer.from(buffer);
     const bucketName = "eventku"; // Replace with your bucket name
     const objectName = `temp/coverImage/${uuidv4()}-${file.name}`; // Use the original file name as the object name
-    const result = await minioClient.putObject(
+    await minioClient.putObject(
       bucketName,
       objectName,
       readableStream,
       buffer.length
     );
-    // console.log(result);
-    console.log(
+    console.info(
       `File ${objectName} uploaded successfully to bucket ${bucketName}`
     );
     return `http://nawaytes.cloud:9000/eventku/${objectName}`;
@@ -55,7 +48,7 @@ export function readFileAsBuffer(file) {
       resolve(buffer);
     };
 
-    reader.onerror = function (e) {
+    reader.onerror = function () {
       reject(new Error("Error reading the file"));
     };
 

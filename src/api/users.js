@@ -11,6 +11,12 @@ export const getUsers = () => {
   return jsonServer.get("/users");
 };
 
+export const fetchUsersByReviews = (reviews = []) => {
+  const params = new URLSearchParams();
+  reviews.forEach((item) => params.append("id", item.userId));
+  return jsonServer.get("/users", { params });
+};
+
 export const getUser = (id) => {
   return jsonServer.get(`/users/${id}`);
 };
@@ -19,9 +25,9 @@ const gerUserByUserName = (userName) => {
   return jsonServer.get(`/users?username=${userName}`);
 };
 
-const getByEmail = (email) => {
-  return jsonServer.get(`/users?email=${email}`);
-};
+// const getByEmail = (email) => {
+//   return jsonServer.get(`/users?email=${email}`);
+// };
 
 export const checkCredential = async ({ username, password }) => {
   const user = await gerUserByUserName(username);
@@ -35,9 +41,7 @@ export const checkCredential = async ({ username, password }) => {
 };
 
 export const checkReferraCode = async (referralCode) => {
-  console.log("debug-referralCode", referralCode);
   const user = await jsonServer.get(`/users?referralCode=${referralCode}`);
-  console.log("debug-user", user);
   if (user.data.length === 0) {
     throw new Error("Referral code not found");
   }

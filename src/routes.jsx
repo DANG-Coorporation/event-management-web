@@ -8,10 +8,10 @@ import LoginPage from "./pages/Login/logIn";
 import CreateEvent from "./pages/createEvent";
 import Discovery from "./pages/dicovery/discovery";
 import Home from "./pages/home";
-import LoadingPage from "./pages/loading/loadingPage";
 import NotFound from "./pages/notfound";
 import PaymentTicketSelection from "./pages/purchase/purchase-ticket";
 import "./style.css";
+import RatingPage from "./pages/rating/ratingPage";
 export default function RouteList() {
   const isBlacken = useSelector((state) => state.screenDarken.isScreenDarken);
 
@@ -20,14 +20,14 @@ export default function RouteList() {
       <WebNavbar />
       <Box className="content-container">
         <Routes>
-          <Route path='/create-event' element={<CreateEvent />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/discovery' element={<Discovery />} />
-          <Route path='/event/:uniqId' element={<Attendancefirstpage />} />
-          <Route path='*' element={<NotFound />} />
-          <Route path='/payment' element={<PaymentTicketSelection />} />
-          <Route path='/logIn' element={<LoginPage />} />
-          <Route path='/loading' element={<LoadingPage />} />
+          <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/discovery" element={<Discovery />} />
+          <Route path="/event/:uniqId" element={<Attendancefirstpage />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/payment" element={<PaymentTicketSelection />} />
+          <Route path="/logIn" element={<LoginPage />} />
+          <Route path="rating/:id" element={<RatingPage />} />
         </Routes>
         <Box
           className="app-darken"

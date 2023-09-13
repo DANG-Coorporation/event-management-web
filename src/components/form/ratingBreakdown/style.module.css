@@ -1,0 +1,11 @@
+.header {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+}

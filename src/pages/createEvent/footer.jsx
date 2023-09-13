@@ -28,10 +28,6 @@ export default function FooterCreateEvent() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("debug-userLogin", userLogin);
-  }, [userLogin]);
-
-  useEffect(() => {
     async function asyncPostEvent() {
       try {
         const uniqId = `${data.eventName
@@ -53,11 +49,10 @@ export default function FooterCreateEvent() {
           dispatch(resetData());
         }
       } catch (error) {
-        // Handle the error properly
-        console.error(error); // Log the error for debugging purposes
+        console.error(error);
         toast({
           title: "Error",
-          description: "Something went wrong", // Use a generic error message
+          description: "Something went wrong",
           status: "error",
           duration: 1000,
           isClosable: true,
@@ -103,11 +98,11 @@ export default function FooterCreateEvent() {
       tempErrorMessages = "Anda harus menyetujui syarat dan ketentuan";
 
     setErrorMessages(tempErrorMessages);
-    console.log(errorMessages);
     if (isSend && !tempErrorMessages) {
       asyncPostEvent();
     }
     offSend();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSend]);
 
   useEffect(() => {
@@ -121,6 +116,7 @@ export default function FooterCreateEvent() {
       });
     }
     setErrorMessages("");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessages]);
 
   return (

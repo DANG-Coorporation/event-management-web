@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
+  fetchUsersByReviews,
   checkReferraCode,
   getUser,
   getUsers,
@@ -34,6 +35,18 @@ export const checkLogin = createAsyncThunk("users/checkLogin", async () => {
   } else return null;
 });
 
+export const getUsersByReview = createAsyncThunk(
+  "users/getUsersByReview",
+  async (review = []) => {
+    try {
+      const res = await fetchUsersByReviews(review);
+      const data = await res.data;
+      return data;
+    } catch (e) {
+      return e;
+    }
+  }
+);
 export const storeReferralLink = createAsyncThunk(
   "users/storeReferralLink",
   async ({ userid, referralCode }) => {
@@ -47,7 +60,6 @@ export const fetchReferralCode = createAsyncThunk(
   async (referralCode) => {
     try {
       const response = await checkReferraCode(referralCode);
-      console.log(response);
       return response;
     } catch (err) {
       return null;
@@ -57,6 +69,7 @@ export const fetchReferralCode = createAsyncThunk(
 
 const initialState = {
   users: [],
+  usersByReview: [],
   data: {
     fullName: "",
     username: "",
@@ -109,12 +122,15 @@ const userSlice = createSlice({
     setIsLogin(state, action) {
       state.isLogin = action.payload;
     },
+    resetReferralCheckCount(state) {
+      state.referralCheckCount = 0;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createUser.fulfilled, (state, action) => {
       state.users.push(action.payload);
     });
-    builder.addCase(fetchUsers.pending, (state, _) => {
+    builder.addCase(fetchUsers.pending, (state) => {
       state.status = "loading";
     });
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
@@ -129,6 +145,16 @@ const userSlice = createSlice({
         state.login = action.payload;
         state.isLogin = true;
       } else state.isLogin = false;
+    });
+    builder.addCase(getUsersByReview.fulfilled, (state, action) => {
+      state.usersByReview = action.payload;
+      state.status = "success";
+    });
+    builder.addCase(getUsersByReview.rejected, (state) => {
+      state.status = "failed";
+    });
+    builder.addCase(getUsersByReview.pending, (state) => {
+      state.status = "loading";
     });
     builder.addCase(fetchReferralCode.fulfilled, (state, action) => {
       if (action.payload) {
@@ -153,6 +179,7 @@ export const {
   setLoginPassword,
   resetReferralCode,
   setIsLogin,
+  resetReferralCheckCount,
 } = userSlice.actions;
 
 export default userSlice.reducer;

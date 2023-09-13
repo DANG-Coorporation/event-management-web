@@ -13,6 +13,7 @@ import {
 import { MdVisibility } from "react-icons/md";
 import {
   fetchReferralCode,
+  resetReferralCheckCount,
   resetReferralCode,
   setEmail,
   setFullName,
@@ -27,6 +28,12 @@ import { useEffect, useRef, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { postUser } from "../../../api/users";
+import propType from "prop-types";
+
+RegisterForm.propTypes = {
+  loginRef: propType.object,
+};
+
 export default function RegisterForm({ loginRef }) {
   const data = useSelector((state) => state.users.data);
   const user = useSelector((state) => state.users);
@@ -42,9 +49,9 @@ export default function RegisterForm({ loginRef }) {
   const [firstRender, setFirstRender] = useState(true);
   const toast = useToast();
   const [referralCode, setReferralCode] = useState("");
+  const [referralCount, setReferralCount] = useState(0);
 
   const handleOnSubmit = (e) => {
-    console.log("debug-data", data);
     const isError = Object.values(error).some((err) => err !== "");
     isError && e.preventDefault();
     if (isError || Object.values(data).some((d) => d === "")) {
@@ -105,6 +112,7 @@ export default function RegisterForm({ loginRef }) {
   };
 
   const onCheckReferralCode = () => {
+    console.log("debug-user", user);
     if (user.isValidReferralCode) {
       dispatch(resetReferralCode());
       referralRef.current.disabled = false;
@@ -148,16 +156,25 @@ export default function RegisterForm({ loginRef }) {
   };
 
   useEffect(() => {
-    console.log("debug-user", user);
     if (firstRender) {
       setFirstRender(false);
+      dispatch(resetReferralCode());
+      dispatch(resetReferralCheckCount());
       return;
     }
     checkError();
   }, [data, user]);
 
   useEffect(() => {
-    if (user.referralCheckCount === 0) return;
+    console.log("debug-referralCount", referralCount, user.referralCheckCount);
+    if (user.referralCheckCount === 0) {
+      dispatch(resetReferralCode());
+      return;
+    }
+    if (referralCount === 0 && user.referralCheckCount >= 1) {
+      setReferralCount(user.referralCheckCount);
+      return;
+    }
     if (user.isValidReferralCode === true) {
       referralRef.current.disabled = true;
       toast({
@@ -178,7 +195,13 @@ export default function RegisterForm({ loginRef }) {
         position: "top",
       });
     }
+    setReferralCount(user.referralCheckCount);
   }, [user.referralCheckCount]);
+
+  useEffect(() => {
+    dispatch(resetReferralCode());
+    dispatch(resetReferralCheckCount());
+  }, [dispatch]);
   return (
     <>
       <Text className={style.label}>Nama Lengkap</Text>
@@ -205,13 +228,13 @@ export default function RegisterForm({ loginRef }) {
       />
       <Text className={style["error-message"]}>{error.username}</Text>
 
-      <Text className={style.label} type='email'>
+      <Text className={style.label} type="email">
         Email
       </Text>
       <Input
         className={style.input}
         id={"registerEmail"}
-        type='email'
+        type="email"
         value={data.email}
         onChange={(e) => {
           dispatch(setEmail(e.target.value));
@@ -242,21 +265,22 @@ export default function RegisterForm({ loginRef }) {
         />
       </InputGroup>
       <Text className={style["error-message"]}>{error.password}</Text>
-      <Text className={style.label} type='email'>
+      <Text className={style.label} type="email">
         Referral Code (Opsional)
       </Text>
       <HStack>
         <Input
           className={style.input}
           id={"referralCode"}
-          type='text'
+          type="text"
           onChange={(e) => {
             setReferralCode(e.target.value);
           }}
           ref={referralRef}
+          disabled={user.isValidReferralCode}
         />
         <Button
-          colorScheme='green'
+          colorScheme="green"
           className={style.input}
           onClick={onCheckReferralCode}
         >
@@ -267,7 +291,6 @@ export default function RegisterForm({ loginRef }) {
         variant={"solid"}
         className={style.button}
         onClick={handleOnSubmit}
-        type='submit'
       >
         Daftar
       </Button>

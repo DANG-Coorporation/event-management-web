@@ -13,7 +13,7 @@ import {
   convertNumberToCurrency,
   getLowestPrice,
 } from "../../../utils/currency";
-import { convertDateTimeFormat } from "../../../utils/dateHelper";
+import { convertDateTimeFormat, diffTwoDate } from "../../../utils/dateHelper";
 import AppCard from "../AppCard/AppCard";
 import EventSwiperButtons from "../eventSwiperButton/EventSwiperButton";
 import style from "./style.module.css";
@@ -61,7 +61,7 @@ export default function EventSwiperDisplay({ variants, eventList }) {
         pagination={variants === "eventForYou" ? false : true}
         modules={variants === "eventForYou" ? [] : [Pagination]}
         loop={variants === "eventForYou" ? false : true}
-        className='mySwiper'
+        className="mySwiper"
         ref={swiperRef}
         speed={400}
         autoplay={
@@ -75,10 +75,25 @@ export default function EventSwiperDisplay({ variants, eventList }) {
       >
         {variants === "eventForYou"
           ? eventList.map((item, index) => {
+              // const diff = diffTwoDate(
+              //   item.eventTime.date.start,
+              //   new Date().toISOString().split("T")[0]
+              // );
+
+              // console.log(diff);
               return (
                 <SwiperSlide key={index} className={style.swiperContainer}>
                   {
-                    <Link to={`/event/${item.uniqId}`}>
+                    <Link
+                      to={
+                        diffTwoDate(
+                          new Date().toISOString().split("T")[0],
+                          item.eventTime.date.start
+                        ) >= 0
+                          ? `/event/${item.uniqId}`
+                          : `/rating/${item.uniqId}`
+                      }
+                    >
                       <AppCard
                         eventName={item.eventName}
                         eventDate={convertDateTimeFormat(
